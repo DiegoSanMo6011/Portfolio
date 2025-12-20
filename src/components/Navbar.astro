@@ -7,9 +7,9 @@ const navItems = [
 ];
 ---
 
-<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-900/90 backdrop-blur-md border-b border-white/10">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+<nav class="fixed top-0 left-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-white/10 h-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+    <div class="flex items-center justify-between h-full">
       
       <div class="flex-shrink-0">
         <a href="/" class="text-xl font-bold text-slate-100 font-mono tracking-tighter hover:text-cyan-400 transition-colors">
@@ -20,14 +20,10 @@ const navItems = [
       <div class="hidden md:block">
         <div class="ml-10 flex items-baseline space-x-8">
           {navItems.map((item) => (
-            <a
-              href={item.url}
-              class="text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 px-3 py-2 rounded-md transition-all"
-            >
+            <a href={item.url} class="text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 px-3 py-2 rounded-md transition-all">
               {item.name}
             </a>
           ))}
-          
           <a href="mailto:tuemail@ejemplo.com" class="text-sm font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 px-4 py-2 rounded-md transition-colors shadow-lg shadow-cyan-500/20">
             Contacto
           </a>
@@ -37,7 +33,7 @@ const navItems = [
       <div class="-mr-2 flex md:hidden">
         <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none transition-colors" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Abrir menú</span>
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
@@ -45,17 +41,14 @@ const navItems = [
     </div>
   </div>
 
-  <div class="hidden md:hidden bg-slate-900 border-b border-slate-800" id="mobile-menu">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+  <div class="hidden md:hidden absolute top-16 left-0 w-full bg-slate-900 border-b border-slate-800 shadow-2xl" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-2">
       {navItems.map((item) => (
-        <a
-          href={item.url}
-          class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
-        >
+        <a href={item.url} class="block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 border-b border-slate-800/50">
           {item.name}
         </a>
       ))}
-      <a href="diegogerardosanchez3@gmail.com" class="block mt-4 px-3 py-3 text-center rounded-md text-base font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300">
+      <a href="mailto:tuemail@ejemplo.com" class="block mt-4 px-3 py-3 text-center rounded-md text-base font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300">
         Contacto
       </a>
     </div>
@@ -63,13 +56,29 @@ const navItems = [
 </nav>
 
 <script is:inline>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
+  // Esta función inicia el menú
+  function initMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
 
-  if (btn && menu) {
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      console.log("Click detectado, menú alternado"); // Para depurar si hace falta
-    });
+    // Logs para verificar en consola si los elementos existen
+    console.log("Buscando elementos del menú...", { btn, menu });
+
+    if (btn && menu) {
+      // Clonamos el nodo para eliminar listeners viejos (truco para evitar duplicados en Astro)
+      const newBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(newBtn, btn);
+
+      newBtn.addEventListener('click', () => {
+        console.log("Click en menú detectado");
+        menu.classList.toggle('hidden');
+      });
+    }
   }
+
+  // Ejecutar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', initMobileMenu);
+
+  // Ejecutar también cuando Astro navega entre páginas (si usas ViewTransitions en el futuro)
+  document.addEventListener('astro:page-load', initMobileMenu);
 </script>
