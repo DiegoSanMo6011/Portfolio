@@ -1,18 +1,19 @@
 ---
 const navItems = [
+  { name: 'Inicio', url: '/' },
   { name: 'Proyectos', url: '/#proyectos' },
-  { name: 'Sobre Mí', url: '/about' }, 
   { name: 'Certificados', url: '/certificates' },
+  { name: 'Sobre Mí', url: '/about' },
 ];
 ---
 
-<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
+<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-900/90 backdrop-blur-md border-b border-white/10">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       
       <div class="flex-shrink-0">
         <a href="/" class="text-xl font-bold text-slate-100 font-mono tracking-tighter hover:text-cyan-400 transition-colors">
-          &lt; Diego Gerardo &gt;
+          &lt;Diego /&gt;
         </a>
       </div>
 
@@ -27,14 +28,14 @@ const navItems = [
             </a>
           ))}
           
-          <a href="mailto:diegogerardosanchez3@gmail.com" class="text-sm font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 px-4 py-2 rounded-md transition-colors shadow-lg shadow-cyan-500/20">
+          <a href="mailto:tuemail@ejemplo.com" class="text-sm font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 px-4 py-2 rounded-md transition-colors shadow-lg shadow-cyan-500/20">
             Contacto
           </a>
         </div>
       </div>
 
       <div class="-mr-2 flex md:hidden">
-        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+        <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none transition-colors" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Abrir menú</span>
           <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -43,4 +44,34 @@ const navItems = [
       </div>
     </div>
   </div>
+
+  <div class="hidden md:hidden bg-slate-900 border-b border-slate-800" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {navItems.map((item) => (
+        <a
+          href={item.url}
+          class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+        >
+          {item.name}
+        </a>
+      ))}
+      <a href="diegogerardosanchez3@gmail.com" class="block mt-4 px-3 py-3 text-center rounded-md text-base font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300">
+        Contacto
+      </a>
+    </div>
+  </div>
 </nav>
+
+<script>
+  // Buscamos el botón y el menú por sus IDs
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  // Si existen, agregamos el evento de clic
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      // 'toggle' quita o pone la clase 'hidden' cada vez que tocas
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>
