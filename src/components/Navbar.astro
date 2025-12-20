@@ -62,16 +62,14 @@ const navItems = [
   </div>
 </nav>
 
-<script>
-  // Buscamos el botón y el menú por sus IDs
+<script is:inline>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
 
-  // Si existen, agregamos el evento de clic
   if (btn && menu) {
     btn.addEventListener('click', () => {
-      // 'toggle' quita o pone la clase 'hidden' cada vez que tocas
       menu.classList.toggle('hidden');
+      console.log("Click detectado, menú alternado"); // Para depurar si hace falta
     });
   }
 </script>
