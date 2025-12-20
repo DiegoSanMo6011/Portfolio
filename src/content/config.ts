@@ -1,6 +1,7 @@
 // src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
+// 1. Colección de Proyectos
 const projectsCollection = defineCollection({
   type: 'content', // Usaremos Markdown para el contenido largo
   schema: z.object({
@@ -16,6 +17,22 @@ const projectsCollection = defineCollection({
   }),
 });
 
+// 2. Colección de Certificados (Tipo 'data', no 'content')
+const certificatesCollection = defineCollection({
+  type: 'data', // Usaremos JSON para datos estructurados
+  schema: z.array(
+    z.object({
+      title: z.string(),
+      issuer: z.string(),
+      date: z.string(),
+      url: z.string().optional(),
+      badgeText: z.string().optional(),
+      
+    })
+  ),
+});
+
 export const collections = {
   projects: projectsCollection,
+  certificates: certificatesCollection,
 };

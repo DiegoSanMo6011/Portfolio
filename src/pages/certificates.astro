@@ -1,0 +1,43 @@
+---
+// src/pages/certificates.astro
+import { getEntry } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+import CertificateItem from '../components/CertificateItem.astro';
+
+// 1. Intentamos obtener el archivo
+const awardsEntry = await getEntry('certificates', 'awards');
+
+// 2. SAFETY CHECK: Si no existe, avisamos (esto quita el error rojo)
+if (!awardsEntry) {
+  throw new Error('No se encontró el archivo src/content/certificates/awards.json');
+}
+
+// 3. Ahora TypeScript sabe seguro que "awardsEntry" existe
+const certificates = awardsEntry.data; 
+---
+<MainLayout title="Certificaciones y Logros">
+  <div class="max-w-3xl mx-auto">
+    
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-extrabold text-white mb-4">
+        Reconocimientos <span class="text-cyan-400">.</span>
+      </h1>
+      <p class="text-slate-400 text-lg">
+        Validación académica, certificaciones técnicas y premios destacados.
+      </p>
+    </header>
+
+    <div class="space-y-4">
+      {certificates.map((cert) => (
+        <CertificateItem 
+          title={cert.title}
+          issuer={cert.issuer}
+          date={cert.date}
+          url={cert.url}
+          badgeText={cert.badgeText}
+        />
+      ))}
+    </div>
+
+    </div>
+</MainLayout>

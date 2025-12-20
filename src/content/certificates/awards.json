@@ -1,0 +1,25 @@
+[
+  {
+    "id": "cert-1",
+    "title": "ROS 2 for Beginners",
+    "issuer": "The Construct Sim",
+    "date": "Noviembre 2024",
+    "url": "https://www.theconstructsim.com/certificate-example",
+    "badgeText": "Certificación"
+  },
+  {
+    "id": "award-1",
+    "title": "1er Lugar - Concurso Nacional de Robótica",
+    "issuer": "Federación Mexicana de Robótica",
+    "date": "Mayo 2023",
+    "badgeText": "Ganador"
+  },
+  {
+    "id": "diploma-1",
+    "title": "Diplomado en Sistemas Embebidos",
+    "issuer": "CIDESI",
+    "date": "Enero 2023",
+    "url": "/assets/docs/diploma-cidesi.pdf",
+    "badgeText": "Diplomado"
+  }
+]

@@ -1,0 +1,25 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Página no encontrada">
+  <div class="flex flex-col items-center justify-center min-h-[70vh] text-center px-4">
+    
+    <h1 class="text-9xl font-extrabold text-slate-800 select-none">404</h1>
+    
+    <div class="absolute mt-2">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Error de Navegación
+      </h2>
+      <p class="text-slate-400 text-lg max-w-md mx-auto mb-8">
+        Esta página no existe o fue movida.
+      </p>
+      
+      <a href="/" class="inline-flex items-center px-6 py-3 text-base font-bold text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/20">
+        <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+        Regresar a Base
+      </a>
+    </div>
+
+  </div>
+</MainLayout>

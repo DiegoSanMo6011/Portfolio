@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  issuer: string;
+  date: string;
+  url?: string;
+  badgeText?: string;
+}
+
+const { title, issuer, date, url, badgeText } = Astro.props;
+---
+
+<div class="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 bg-slate-800/30 border border-slate-700/50 rounded-xl hover:bg-slate-800 hover:border-cyan-500/30 transition-all duration-300">
+  
+  <div class="flex-1 pr-4">
+    <div class="flex items-center gap-3 mb-2">
+      {badgeText && (
+        <span class="px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider text-cyan-200 bg-cyan-900/50 rounded border border-cyan-500/20">
+          {badgeText}
+        </span>
+      )}
+      <span class="text-sm text-slate-500 font-mono">{date}</span>
+    </div>
+    
+    <h3 class="text-lg font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
+      {title}
+    </h3>
+    
+    <p class="text-slate-400 text-sm mt-1 flex items-center gap-2">
+      <svg class="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+      {issuer}
+    </p>
+  </div>
+
+  {url && (
+    <div class="mt-4 sm:mt-0 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-2 group-hover:translate-x-0">
+      <a href={url} target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300">
+        Ver Credencial
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+      </a>
+    </div>
+  )}
+</div>
