@@ -8,10 +8,10 @@ siteUrl: "https://www.patiocinco.com/"
 ---
 
 ## Visión y contexto
-**Patio Cinco** es una plataforma operativa en producción para un autolavado con clientes reales. Fuimos contactados por el dueño para resolver un problema concreto: sustituir procesos manuales y construir un sistema confiable de **membresías, datos operativos y facturación**. Junto con Arturo López García, **propusimos, diseñamos, desarrollamos e implementamos** la solución completa.
+**Patio Cinco** es un negocio reconocido en Querétaro. Fuimos contactados por el dueño para transformar una operación que ya existía, pero con herramientas **básicas y limitadas** (Wix sencillo + Google Sheets en una sola tabla). Junto con Arturo López García entramos como apoyo externo y **propusimos, diseñamos, desarrollamos e implementamos** una plataforma operativa real.
 
 ## Problema real que resolvimos
-Antes del sistema, la operación dependía de controles manuales, comunicación dispersa y registros sin trazabilidad. El objetivo fue **centralizar la operación**, reducir fricción para el cliente y dar al negocio una base sólida para crecer.
+La operación dependía de procesos manuales, datos dispersos y poca trazabilidad. El objetivo fue **centralizar la operación**, reducir fricción para el cliente y dar al negocio una base sólida para crecer sin perder control.
 
 ## Solución entregada (en producción)
 - **Registro y gestión de clientes** con flujos simples y controlados.
@@ -31,6 +31,11 @@ Antes del sistema, la operación dependía de controles manuales, comunicación 
 - Implementación de backend, modelos de datos y flujos operativos.
 - Desarrollo de módulos críticos de membresías y facturación.
 - Iteración constante con el cliente (revisiones, cambios y validaciones reales).
+
+## Impacto
+- Se reemplazó un control básico por una plataforma **operativa y escalable**.
+- El negocio obtuvo trazabilidad, control fiscal y experiencia consistente para clientes.
+- La base quedó lista para nuevas integraciones sin rehacer el sistema.
 
 ## Aprendizajes clave
 - Construcción de sistemas para **usuarios reales** y necesidades de negocio.

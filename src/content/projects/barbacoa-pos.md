@@ -1,6 +1,6 @@
 ---
-title: "POS para restaurante (Barbacoa)"
-description: "Sistema de punto de venta en Raspberry Pi con operación offline, sincronización y reportes para operación real en restaurante."
+title: "POS para Barbacoa de Miranda"
+description: "Sistema de punto de venta en Raspberry Pi con operación offline, sincronización y reportes para un restaurante familiar reconocido en Querétaro."
 tags: ["Product Engineering", "POS", "Python", "Raspberry Pi", "Offline", "Supabase"]
 date: 2026-01-20
 featured: true
@@ -8,7 +8,7 @@ githubUrl: "https://github.com/DiegoSanMo6011/Barbacoa"
 ---
 
 ## Contexto
-Desarrollo de un **punto de venta (POS)** para operación real en restaurante, con foco en velocidad de captura, confiabilidad **offline** y administración centralizada. El despliegue está en fase final de instalación.
+**Barbacoa de Miranda** es una empresa familiar reconocida en Querétaro. El proyecto consiste en un **POS operativo** diseñado para velocidad de captura, confiabilidad **offline** y administración centralizada. El sistema está en fase final de instalación y pruebas con operación real.
 
 ## Alcance técnico
 - **Frontend local:** Python + Tkinter/CustomTkinter, interfaz full‑screen optimizada para caja.
@@ -26,5 +26,5 @@ Desarrollo de un **punto de venta (POS)** para operación real en restaurante, c
 Diseño y desarrollo del sistema completo con énfasis en **operación real** y robustez: interfaz rápida, consistencia de datos, flujo offline‑online y reportes operativos.
 
 ## Estado actual
-- En instalación y pruebas finales con operación real.
+- Instalación y pruebas finales en sitio.
 - Preparado para despliegue continuo en Raspberry Pi.

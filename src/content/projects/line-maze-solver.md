@@ -9,18 +9,20 @@ videoUrl: "https://youtu.be/7IuBa7F5US0"
 ---
 
 ## Objetivo
-Construir un robot seguidor de línea capaz de **resolver laberintos** y luego ejecutar una ruta **optimizada** en una segunda pasada, reduciendo giros innecesarios.
+Construir un robot seguidor de línea capaz de **resolver laberintos** y ejecutar una segunda vuelta **optimizada**, reduciendo giros innecesarios y tiempo total.
 
 ## Enfoque técnico
 - **Plataforma:** Pololu 3pi+ 32U4 con sensores de línea integrados.
-- **Control:** seguimiento de línea con control proporcional‑derivativo (y término integral acotado), calibración previa y umbrales para detección de intersecciones.
+- **Control de línea:** PID ligero con calibración de sensores, umbrales de intersección y limitación de integral para estabilidad.
 - **Estrategia de solución:**
-  - Primera pasada: exploración y **registro de decisiones** (R/L/S/U).
-  - Simplificación del recorrido: reglas de reducción de U‑turns para obtener una ruta más corta.
-  - Segunda pasada: ejecución de la ruta simplificada.
-
-## Aporte clave
-El valor principal del proyecto está en la **combinación de control en tiempo real** con un algoritmo de **optimización de ruta** ligero y ejecutable en un microcontrolador.
+  - **Primera pasada:** exploración del laberinto y registro de decisiones (R/L/S/U).
+  - **Simplificación:** reglas para eliminar U‑turns y condensar la ruta.
+  - **Segunda pasada:** ejecución de la ruta simplificada con mayor velocidad.
 
 ## Resultado
-El robot es capaz de completar el laberinto y repetir el trayecto con una secuencia de movimientos optimizada, minimizando tiempos y giros redundantes.
+El robot completa el laberinto y repite el recorrido con una secuencia **más corta y eficiente**, demostrando integración entre control en tiempo real y optimización algorítmica en un microcontrolador.
+
+## Aprendizajes clave
+- Diseño de control robusto en hardware limitado.
+- Representación y simplificación de rutas con estructuras ligeras.
+- Detección confiable de intersecciones y fin de laberinto.
