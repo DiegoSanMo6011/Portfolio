@@ -15,6 +15,8 @@ El producto de esa estancia es, hoy, **la base del sistema actual**. Con ese tra
 
 Actualmente el proyecto sigue activo y está orientado a la **competencia RoboSoft 2026 – inPipe Locomotion**, con un sistema que combina neumática, electrónica, firmware y software de alto nivel para ejecutar locomoción con seguridad, precisión y rapidez de iteración.
 
+Este proyecto marcó un antes y un después en mi formación: **crecí mucho como ingeniero** al llevarlo de una primera iteración funcional hasta una plataforma de investigación competitiva.
+
 ## Alcance total (sin menospreciar ninguna capa)
 Este proyecto no es solo código ni solo hardware: es **todo el sistema de locomoción** llevado a un nivel de investigación y competencia.
 
@@ -45,6 +47,12 @@ No se trata solo de “hacer mover” un robot: se trata de **hacer ciencia e in
 ## Evidencias
 - **Repositorio (todo el sistema):** https://github.com/DiegoSanMo6011/softbot_pneumatic_driver
 - **Video del robot en movimiento:** https://www.youtube.com/watch?v=Nmk_etXFZ6o
+- **Primera iteración (video):** https://youtu.be/rIL5Ci7ShaE
+
+## La primera iteración (bases del proyecto)
+La etapa inicial del proyecto se desarrolló como parte de mi **servicio becario** en el laboratorio. En ese momento me enfoqué en **sentar las bases** para experimentar con algoritmos de locomoción peristáltica en actuadores suaves tipo crawling, construyendo un entorno de pruebas estable para investigación.
+
+El robot de esa fase utilizó un sistema electroneumático controlado por **Arduino Uno**, sensores de presión, electroválvulas y una bomba de aire, con comunicación hacia un servidor **MQTT**. Esta primera versión fue presentada en **“Exploring Soft Robotics: Student Research Forum”**, destacando su potencial en el campo de la robótica deformable en México.
 
 ## Diplomas, constancias y reconocimientos (con comprobantes)
 - **Best Poster Award** – “Bidirectional Pressure–Vacuum Switching Control for Soft Pneumatic Actuators” (Exploring Soft Robotics, 3 dic 2025) — /assets/docs/best-poster-award-2025.pdf
