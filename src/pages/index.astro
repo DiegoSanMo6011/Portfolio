@@ -6,8 +6,12 @@ import ProjectCard from '../components/ProjectCard.astro';
 
 // 1. Obtener proyectos
 const allProjects = await getCollection('projects');
-// 2. Ordenar por fecha
-const sortedProjects = allProjects.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+// 2. Ordenar por destacados y fecha
+const sortedProjects = allProjects.sort((a, b) => {
+  const featuredDiff = (b.data.featured === true) - (a.data.featured === true);
+  if (featuredDiff !== 0) return featuredDiff;
+  return b.data.date.valueOf() - a.data.date.valueOf();
+});
 
 // Definimos los badges aquí para mantener el HTML limpio
 const skillBadges = ["Robotics Software", "Computer Vision", "Full Stack", "Embedded Systems"];

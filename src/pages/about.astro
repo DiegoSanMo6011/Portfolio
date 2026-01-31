@@ -4,31 +4,38 @@ import MainLayout from '../layouts/MainLayout.astro';
 // DATOS: Tu Trayectoria (Experiencia y Educación)
 const timeline = [
   {
-    year: "Actualidad",
-    title: "Ingeniero de Software & Robótica",
-    place: "Freelance / Proyectos Personales",
-    description: "Desarrollo de arquitecturas full-stack para control de robots y visión artificial. Especialización en ROS 2 y Astro."
+    year: "2026",
+    title: "Plataformas operativas en producción",
+    place: "Patio Cinco + Barbacoa de Miranda (Querétaro)",
+    description: "Diseño e implementación de sistemas reales para operación, facturación y POS con foco en robustez y experiencia de usuario."
   },
   {
-    year: "2023",
+    year: "2025",
+    title: "Investigación en robótica suave",
+    place: "Hybrid Soft Robotics Lab, Tec de Monterrey Qro.",
+    description: "Desarrollo de infraestructura de control, telemetría y experimentación en robots neumáticos; base del sistema actual."
+  },
+  {
+    year: "2025",
+    title: "Robótica móvil con ROS 2",
+    place: "Implementación de Robótica Inteligente (Gpo 502)",
+    description: "Integración de micro‑ROS, encoders y visión por computadora para conducción autónoma en robot diferencial."
+  },
+  {
+    year: "En curso",
     title: "Ingeniería en Robótica y Sistemas Digitales",
-    place: "Tecnológico de Monterrey",
-    description: "Graduado con especialidad en sistemas embebidos. Líder técnico en el equipo de robótica de competencia."
-  },
-  {
-    year: "2022",
-    title: "Internship: Desarrollo de Firmware",
-    place: "Empresa Tecnológica X",
-    description: "Implementación de drivers para sensores I2C/SPI en microcontroladores STM32."
+    place: "Tecnológico de Monterrey, Campus Querétaro",
+    description: "Formación enfocada en control, sistemas embebidos y visión; aplicación directa en proyectos de investigación y producto."
   }
 ];
 
 // DATOS: Tu Tech Stack (Lenguajes que dominas)
 const skills = [
-  { category: "Lenguajes", items: ["C++", "Python", "TypeScript", "VHDL"] },
-  { category: "Robótica", items: ["ROS 2 (Humble)", "Gazebo", "OpenCV", "MoveIt"] },
-  { category: "Web & Cloud", items: ["React", "Astro", "Tailwind", "Docker", "AWS IoT"] },
-  { category: "Hardware", items: ["Raspberry Pi", "STM32", "Arduino", "FPGA Cyclone"] },
+  { category: "Lenguajes", items: ["C++", "Python", "TypeScript", "VHDL", "MATLAB"] },
+  { category: "Robótica & Control", items: ["ROS 2 (Humble)", "micro‑ROS", "PID/PI", "Odometría", "Gazebo"] },
+  { category: "Percepción", items: ["OpenCV", "YOLOv8", "Visión por computadora"] },
+  { category: "Web & Producto", items: ["Astro", "Tailwind", "Wix + Velo", "Supabase", "PostgreSQL"] },
+  { category: "Hardware", items: ["ESP32", "Jetson Nano", "Raspberry Pi", "Arduino", "FPGA Cyclone"] },
 ];
 ---
 
@@ -48,7 +55,7 @@ const skills = [
           No solo programo algoritmos; entiendo los electrones que los ejecutan.
         </p>
         <p class="text-slate-400 text-lg leading-relaxed">
-          Busco cursar la maestría para especializarme en **Sistemas Autónomos**, llevando mi experiencia en ROS 2 y visión artificial al siguiente nivel de investigación aplicada.
+          Busco cursar la maestría para especializarme en Sistemas Autónomos, llevando mi experiencia en ROS 2, control y visión al siguiente nivel de investigación aplicada.
         </p>
       </div>
       
