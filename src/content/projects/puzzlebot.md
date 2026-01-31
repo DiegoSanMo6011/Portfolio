@@ -30,10 +30,6 @@ Aunque fue un proyecto en equipo, mi contribución técnica fue significativa y 
 - Percepción aplicada: visión por computadora para seguimiento de línea y semáforos.
 - Trabajo real en equipo y entrega con aliados externos.
 
-## Evidencias
-- **Video principal:** https://www.youtube.com/watch?v=sOlqaHjRg6w
-- **Publicación Manchester Robotics:** https://www.linkedin.com/posts/manchester-robotics_manchesterrobotics-puzzlebot-autonomousdriving-ugcPost-7344312943968223232-lLYz
-
 ## Certificaciones relacionadas
-- **NVIDIA – Fundamentals of Deep Learning:** https://learn.nvidia.com/certificates?id=Kjqnc8LGRQurIFC_6dsp7g
-- **OpenCV Bootcamp Certificate:** /assets/docs/opencv-bootcamp.pdf
+- **NVIDIA – Fundamentals of Deep Learning** (9 junio 2025)
+- **OpenCV Bootcamp** (abril 2025)

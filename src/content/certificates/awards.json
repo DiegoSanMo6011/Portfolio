@@ -38,5 +38,21 @@
     "date": "23-24 octubre 2025",
     "url": "/assets/docs/smartec-digital-manufacturing-2025.pdf",
     "badgeText": "Congreso"
+  },
+  {
+    "id": "cert-2025-nvidia-fundamentals",
+    "title": "NVIDIA – Fundamentals of Deep Learning",
+    "issuer": "NVIDIA Deep Learning Institute",
+    "date": "9 junio 2025",
+    "url": "https://learn.nvidia.com/certificates?id=Kjqnc8LGRQurIFC_6dsp7g",
+    "badgeText": "Certificación"
+  },
+  {
+    "id": "cert-2025-opencv-bootcamp",
+    "title": "OpenCV Bootcamp",
+    "issuer": "OpenCV",
+    "date": "abril 2025",
+    "url": "/assets/docs/opencv-bootcamp.pdf",
+    "badgeText": "Certificación"
   }
 ]
