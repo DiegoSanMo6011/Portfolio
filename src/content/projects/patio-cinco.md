@@ -4,6 +4,7 @@ description: "Sistema en producción para gestión de clientes, vehículos, memb
 tags: ["Product Engineering", "Web Platform", "Backend", "Operations", "Billing", "UX"]
 date: 2026-01-01
 featured: true
+siteUrl: "https://www.patiocinco.com/"
 ---
 
 ## Visión y contexto
@@ -41,4 +42,4 @@ Antes del sistema, la operación dependía de controles manuales, comunicación 
 - Operación real con clientes.
 - Base sólida para futuras integraciones físicas y automatización.
 
-**Sitio público:** [Patio Cinco](https://www.patiocinco.com/)
+**Sitio público:** disponible en el botón superior del proyecto.

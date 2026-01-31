@@ -25,6 +25,7 @@ const toEmbedUrl = (url) =>
 
 const embedUrl = toEmbedUrl(entry.data.videoUrl);
 const embedUrl2 = toEmbedUrl(entry.data.videoUrl2);
+const siteUrl = entry.data.siteUrl;
 ---
 
 <MainLayout title={entry.data.title}>
@@ -79,6 +80,18 @@ const embedUrl2 = toEmbedUrl(entry.data.videoUrl2);
       <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
         {entry.data.title}
       </h1>
+      {siteUrl && (
+        <div class="mb-6 flex justify-center">
+          <a
+            href={siteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-900 font-bold text-sm uppercase tracking-wide shadow-lg shadow-cyan-500/20 hover:bg-cyan-400 transition"
+          >
+            Ver sitio público
+          </a>
+        </div>
+      )}
       
       <div class="flex flex-wrap justify-center gap-2 mb-6">
         {entry.data.tags.map((tag) => (

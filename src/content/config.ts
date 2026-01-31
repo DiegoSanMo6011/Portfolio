@@ -11,6 +11,7 @@ const projectsCollection = defineCollection({
     heroImage: z.string().optional(), // Foto principal
     videoUrl: z.string().optional(), // Video principal
     videoUrl2: z.string().optional(), // Video secundario
+    siteUrl: z.string().optional(), // Sitio público del proyecto
     githubUrl: z.string().optional(),
     pdfUrl: z.string().optional(), // Link al reporte técnico o paper
     date: z.date(), // Para ordenar cronológicamente
