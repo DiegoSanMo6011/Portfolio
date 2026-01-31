@@ -22,6 +22,7 @@ Proyecto de la materia **Diseño de Sistemas Embebidos Avanzados**. Robot seguid
 - **Concurrencia:** hilos para servidor, cliente y control del robot.
 
 **Video:** [Ver demo](https://youtu.be/_me0wyXkbpM)
+**Stack:** MQTT, Arduino Uno, Raspberry Pi, OpenCV, Python, C++
 
 ## BudgetManipulator MOD — Cities: Skylines
 Proyecto de servicio becario con el equipo de **City Skylines Modding** (Tec de Monterrey). Desarrollo de MODs educativos para urbanismo y sostenibilidad.
@@ -31,6 +32,7 @@ Proyecto de servicio becario con el equipo de **City Skylines Modding** (Tec de 
 - **Contribución adicional:** mapa con simulación de Querétaro.
 
 **Video:** [Ver demo](https://youtu.be/-cuLjeoMJlw)
+**Stack:** C#, Unity/Modding, Game Design, UX
 
 ## Control PID de temperatura para deshidratador
 Proyecto de la materia **Control y Automatización**. Regulación térmica entre 50°C y 70°C para deshidratación de jitomates.
@@ -39,6 +41,7 @@ Proyecto de la materia **Control y Automatización**. Regulación térmica entre
 - **Sintonía:** reglas de Ziegler‑Nichols para controlador PI.
 - **Implementación:** estabilidad térmica en lazo cerrado.
 
+**Stack:** MATLAB, Control Systems, Sensórica, Modelado
 ## Administrador del componente AES en FPGA (DE10‑Lite)
 Proyecto de cifrado **AES** en FPGA. Coordinación de integración de módulos y diseño de la máquina de estados.
 
@@ -46,9 +49,14 @@ Proyecto de cifrado **AES** en FPGA. Coordinación de integración de módulos y
 - **Tecnología:** VHDL, diseño digital y verificación por etapas.
 - **Resultado:** módulo de cifrado funcional integrado al sistema global.
 
+**Repositorio:** [Ver repositorio AES](https://github.com/TE2003B-601-AES)
+**Stack:** VHDL, FPGA, Digital Design, FSM
 ## Gnoberto — monitoreo IoT de plantas
 Sistema IoT con **ESP32** para monitoreo ambiental con interfaz web y alertas.
 
 - **Sensado:** temperatura y humedad en tiempo real.
 - **Interfaz:** panel web con estado y alertas visuales.
 - **Enfoque:** IoT educativo con diseño lúdico.
+
+**Repositorio:** [Ver repositorio Gnoberto](https://github.com/DiegoSanMo6011/Gnoberto-Project)
+**Stack:** ESP32, IoT, Web, Sensores

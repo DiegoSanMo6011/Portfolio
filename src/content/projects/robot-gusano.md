@@ -12,6 +12,7 @@ highlights:
   - "Control PI dual con seguridad (E‑STOP y límites dinámicos)"
   - "micro‑ROS en ESP32 con telemetría en tiempo real"
   - "SDK Python + GUI para experimentación reproducible"
+  - "Análisis y gráficas de control con MATLAB"
   - "Sistema base para locomoción competitiva y de investigación"
 ---
 
@@ -78,6 +79,7 @@ El robot de esa fase utilizó un sistema electroneumático controlado por **Ardu
 - Abstracción de hardware con APIs de alto nivel para investigación
 - Integración de micro‑ROS con ROS 2 para telemetría y control distribuido
 - Diseño de locomoción por fases con tolerancias, tiempos mínimos y estabilidad
+- Análisis de datos y visualización de resultados en MATLAB
 
 ## Estado actual
 - Preparación de **nuevos algoritmos de locomoción**
