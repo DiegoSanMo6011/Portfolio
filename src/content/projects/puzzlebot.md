@@ -31,5 +31,5 @@ Aunque fue un proyecto en equipo, mi contribución técnica fue significativa y 
 - Trabajo real en equipo y entrega con aliados externos.
 
 ## Certificaciones relacionadas
-- **NVIDIA – Fundamentals of Deep Learning** (9 junio 2025)
-- **OpenCV Bootcamp** (abril 2025)
+- **NVIDIA – Fundamentals of Deep Learning** (9 junio 2025) — [Ver credencial](https://learn.nvidia.com/certificates?id=Kjqnc8LGRQurIFC_6dsp7g)
+- **OpenCV Bootcamp** (abril 2025) — [Ver credencial](/assets/docs/opencv-bootcamp.pdf)

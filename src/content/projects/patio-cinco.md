@@ -7,10 +7,10 @@ featured: true
 ---
 
 ## Visión y contexto
-**Patio Cinco** es una plataforma digital en producción para un autolavado con clientes reales. Fuimos contactados por el dueño para resolver un problema concreto: dejar atrás procesos manuales y crear un sistema confiable de **membresías, base de datos operativa y facturación**. Junto con Arturo López García, **propusimos, diseñamos, desarrollamos e implementamos** la solución completa.
+**Patio Cinco** es una plataforma operativa en producción para un autolavado con clientes reales. Fuimos contactados por el dueño para resolver un problema concreto: sustituir procesos manuales y construir un sistema confiable de **membresías, datos operativos y facturación**. Junto con Arturo López García, **propusimos, diseñamos, desarrollamos e implementamos** la solución completa.
 
 ## Problema real que resolvimos
-Antes del sistema, la operación dependía de controles manuales, comunicación dispersa y registros sin trazabilidad. El objetivo fue **centralizar la operación** y dar al negocio una base sólida para crecer.
+Antes del sistema, la operación dependía de controles manuales, comunicación dispersa y registros sin trazabilidad. El objetivo fue **centralizar la operación**, reducir fricción para el cliente y dar al negocio una base sólida para crecer.
 
 ## Solución entregada (en producción)
 - **Registro y gestión de clientes** con flujos simples y controlados.
@@ -41,4 +41,4 @@ Antes del sistema, la operación dependía de controles manuales, comunicación 
 - Operación real con clientes.
 - Base sólida para futuras integraciones físicas y automatización.
 
-**Sitio público:** https://www.patiocinco.com/
+**Sitio público:** [Patio Cinco](https://www.patiocinco.com/)
