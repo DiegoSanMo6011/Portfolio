@@ -9,9 +9,11 @@ videoUrl: "https://www.youtube.com/watch?v=Nmk_etXFZ6o"
 ---
 
 ## Un proyecto vivo, pensado para competir y para investigar
-Este trabajo comenzó en **agosto de 2024** dentro del **Hybrid Soft Robotics Lab (Tecnológico de Monterrey, Campus Querétaro)**. El objetivo inicial era claro: convertir un robot suave prometedor en **una plataforma real de experimentación**, con control repetible y datos confiables.
+Este trabajo comenzó en **agosto de 2024** dentro del **Hybrid Soft Robotics Lab (Tecnológico de Monterrey, Campus Querétaro)** y avanzó de forma decisiva durante mi **estancia de investigación**. El objetivo inicial era claro: convertir un robot suave prometedor en **una plataforma real de experimentación**, con control repetible y datos confiables.
 
-Hoy el proyecto sigue activo y está orientado a la **competencia RoboSoft 2026 – inPipe Locomotion**, con un sistema que combina neumática, electrónica, firmware y software de alto nivel para ejecutar locomoción con seguridad, precisión y rapidez de iteración.
+El producto de esa estancia es, hoy, **la base del sistema actual**. Con ese trabajo obtuvimos el **Best Poster Award**, al presentar la investigación que consolidó el enfoque de control y la infraestructura completa.
+
+Actualmente el proyecto sigue activo y está orientado a la **competencia RoboSoft 2026 – inPipe Locomotion**, con un sistema que combina neumática, electrónica, firmware y software de alto nivel para ejecutar locomoción con seguridad, precisión y rapidez de iteración.
 
 ## Alcance total (sin menospreciar ninguna capa)
 Este proyecto no es solo código ni solo hardware: es **todo el sistema de locomoción** llevado a un nivel de investigación y competencia.
@@ -62,5 +64,3 @@ No se trata solo de “hacer mover” un robot: se trata de **hacer ciencia e in
 - Preparación de **nuevos algoritmos de locomoción**
 - Integración de tanque BOOST para saltos en competencia
 - Postulación en curso a la **competencia RoboSoft 2026**
-
-> Nota: La manufactura del robot y su neumática física fueron desarrolladas en el laboratorio; mi aporte principal fue el control, la electrónica y la infraestructura software/firmware.
