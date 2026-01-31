@@ -5,46 +5,27 @@ tags: ["Soft Robotics", "Control", "ROS 2", "ESP32", "micro-ROS", "Python", "Neu
 date: 2024-08-01
 featured: true
 githubUrl: "https://github.com/DiegoSanMo6011/softbot_pneumatic_driver"
+videoUrl: "https://www.youtube.com/watch?v=Nmk_etXFZ6o"
 ---
 
-## Visión general
-Este proyecto es la base de infraestructura para investigación en locomoción de robots suaves en el **Hybrid Soft Robotics Lab (Tecnológico de Monterrey, Campus Querétaro)**. Inició en **agosto de 2024** como parte de mi servicio becario y hoy continúa activo, con preparación para postulación a la **competencia RoboSoft 2026**.
+## Una plataforma real para investigar locomoción
+Este proyecto nació en **agosto de 2024** como parte de mi servicio becario en el **Hybrid Soft Robotics Lab (Tecnológico de Monterrey, Campus Querétaro)**. En el laboratorio había robots suaves prometedores, pero **no existía una infraestructura de control estable** para experimentar locomoción de forma repetible. Mi meta fue clara: **construir el “sistema nervioso”** que permitiera probar, iterar y avanzar investigación real.
 
-El foco no fue la manufactura del robot, sino **hacer viable y repetible la experimentación**: diseñé un **driver neumático biestable** con control de presión/vacío, telemetría y una API de alto nivel en Python/ROS 2 para ejecutar experimentos de locomoción de forma segura y rápida.
+Hoy, el sistema sigue activo y está en preparación para la **competencia RoboSoft 2026**, con nuevos algoritmos de locomoción en desarrollo.
 
-## Mi rol
-**Responsable de software y control**, con apoyo de Arturo López García en neumática y diseño físico.
+## Lo que construí (y por qué importa)
+Mi aporte fue **de principio a fin en control y software**. La manufactura física del robot y la neumática base fueron desarrolladas en el laboratorio, pero **la capa que permite investigar** es mía: desde el circuito y firmware hasta el SDK en Python.
 
-- Electrónica: diseño del sistema de control y potencia
-- Firmware embebido (ESP32) y seguridad
-- Control de presión/vacío (PI discreto)
-- Telemetría y registro de datos
-- SDK en Python (ROS 2) para experimentación de alto nivel
-- Pruebas y validación del sistema
+- **Electrónica y firmware (ESP32 + micro-ROS):** control PI dual (presión y vacío), telemetría y seguridad activa con E‑STOP.
+- **Sistema electroneumático biestable:** conmutación rápida inflado/succión y distribución por cámaras para locomoción.
+- **API de alto nivel (ROS 2 + Python):** comandos de alto nivel, scripts para locomoción peristáltica, identificación de sistemas y tuning dinámico.
 
-## Arquitectura técnica
-**Objetivo:** convertir el hardware neumático en una plataforma estable para investigación y pruebas de locomoción.
+En otras palabras: **antes no había forma confiable de experimentar**, ahora existe una plataforma que **reduce tiempos de prueba y eleva la calidad del dato**.
 
-### 1) Firmware embebido (ESP32 + micro-ROS)
-- **Control PI dual** (presión positiva y vacío)
-- **Seguridad activa** con umbrales dinámicos y paro de emergencia (E‑STOP)
-- **Telemetría** en tiempo real para identificación de sistemas
-- Arquitectura **maestro/esclavo** con micro‑ROS y DDS sobre UART
-
-### 2) Sistema electroneumático biestable
-- Conmutación rápida entre inflado y succión
-- Enrutamiento por cámaras (A/B/Dual)
-- Diseño enfocado a repetibilidad experimental
-
-### 3) Capa de alto nivel (ROS 2 + Python)
-- SDK en Python (rclpy) para **control por comandos**
-- Scripts de experimentación:
-  - locomoción peristáltica (FSM)
-  - identificación de sistemas (step response)
-  - configuración dinámica de seguridad
-
-## Impacto / resultado
-No existía una infraestructura replicable para experimentar locomoción en robots suaves dentro del laboratorio. Este proyecto **creó el entorno completo de control** para ejecutar pruebas en minutos, iterar controladores y generar datos de forma consistente. Hoy es la base para futuras líneas de investigación y proyectos más avanzados en locomoción.
+## Impacto real
+- **Habilitó investigación en locomoción**: se pasó de “probar a mano” a un entorno controlable y reproducible.
+- **Aceleró iteraciones**: nuevas pruebas en minutos, no en horas.
+- **Base para futuras generaciones**: la arquitectura quedó lista para que otros desarrollen control avanzado y locomoción compleja.
 
 ## Evidencias
 - **Repositorio (todo el sistema):** https://github.com/DiegoSanMo6011/softbot_pneumatic_driver
