@@ -1,51 +1,66 @@
 ---
 title: "Driver neumático biestable para robótica suave"
-description: "Infraestructura de control (electrónica, firmware y software) para presión/vacío en actuadores neumáticos, habilitando investigación de locomoción en robots suaves." 
-tags: ["Soft Robotics", "Control", "ROS 2", "ESP32", "micro-ROS", "Python", "Neumática", "Embedded Systems"]
+description: "Infraestructura integral para locomoción en robots suaves: neumática biestable, control en lazo cerrado, firmware, SDK en Python, GUI y experimentos reproducibles con ROS 2." 
+tags: ["Soft Robotics", "Control", "ROS 2", "ESP32", "micro-ROS", "Python", "Neumática", "Embedded Systems", "GUI"]
 date: 2024-08-01
 featured: true
 githubUrl: "https://github.com/DiegoSanMo6011/softbot_pneumatic_driver"
 videoUrl: "https://www.youtube.com/watch?v=Nmk_etXFZ6o"
 ---
 
-## Una plataforma real para investigar locomoción
-Este proyecto nació en **agosto de 2024** como parte de mi servicio becario en el **Hybrid Soft Robotics Lab (Tecnológico de Monterrey, Campus Querétaro)**. En el laboratorio había robots suaves prometedores, pero **no existía una infraestructura de control estable** para experimentar locomoción de forma repetible. Mi meta fue clara: **construir el “sistema nervioso”** que permitiera probar, iterar y avanzar investigación real.
+## Un proyecto vivo, pensado para competir y para investigar
+Este trabajo comenzó en **agosto de 2024** dentro del **Hybrid Soft Robotics Lab (Tecnológico de Monterrey, Campus Querétaro)**. El objetivo inicial era claro: convertir un robot suave prometedor en **una plataforma real de experimentación**, con control repetible y datos confiables.
 
-Hoy, el sistema sigue activo y está en preparación para la **competencia RoboSoft 2026**, con nuevos algoritmos de locomoción en desarrollo.
+Hoy el proyecto sigue activo y está orientado a la **competencia RoboSoft 2026 – inPipe Locomotion**, con un sistema que combina neumática, electrónica, firmware y software de alto nivel para ejecutar locomoción con seguridad, precisión y rapidez de iteración.
 
-## Lo que construí (y por qué importa)
-Mi aporte fue **de principio a fin en control y software**. La manufactura física del robot y la neumática base fueron desarrolladas en el laboratorio, pero **la capa que permite investigar** es mía: desde el circuito y firmware hasta el SDK en Python.
+## Alcance total (sin menospreciar ninguna capa)
+Este proyecto no es solo código ni solo hardware: es **todo el sistema de locomoción** llevado a un nivel de investigación y competencia.
 
-- **Electrónica y firmware (ESP32 + micro-ROS):** control PI dual (presión y vacío), telemetría y seguridad activa con E‑STOP.
-- **Sistema electroneumático biestable:** conmutación rápida inflado/succión y distribución por cámaras para locomoción.
-- **API de alto nivel (ROS 2 + Python):** comandos de alto nivel, scripts para locomoción peristáltica, identificación de sistemas y tuning dinámico.
+**Neumática y arquitectura de potencia** (en conjunto con el laboratorio):
+- Topología **biestable** con presión y vacío, bombas en paralelo y conmutación rápida.
+- Manifold, derivaciones y esquema con **tanque BOOST** para impulsar saltos.
+- Válvulas direccionales y lógica de distribución por cámaras (A/B).
 
-En otras palabras: **antes no había forma confiable de experimentar**, ahora existe una plataforma que **reduce tiempos de prueba y eleva la calidad del dato**.
+**Electrónica y firmware (mi responsabilidad principal):**
+- ESP32 con **micro‑ROS**.
+- Control PI dual (inflado / succión) y modos de operación extendidos.
+- Seguridad activa: límites dinámicos, **E‑STOP**, venteo y reset de integradores.
+- Telemetría en tiempo real para análisis y tuning.
 
-## Impacto real
-- **Habilitó investigación en locomoción**: se pasó de “probar a mano” a un entorno controlable y reproducible.
-- **Aceleró iteraciones**: nuevas pruebas en minutos, no en horas.
-- **Base para futuras generaciones**: la arquitectura quedó lista para que otros desarrollen control avanzado y locomoción compleja.
+**Software de alto nivel y experimentación (mi responsabilidad principal):**
+- **SDK en Python (ROS 2)** para teleoperación y control de alto nivel.
+- Scripts de locomoción (salto sincronizado, caminata alternada, giros y desatasque).
+- **GUI de escritorio** para telemetría, debugging y logging.
+- Dataset de pruebas y logs experimentales para análisis científico.
+
+## Lo que hace diferente a este proyecto
+No se trata solo de “hacer mover” un robot: se trata de **hacer ciencia e ingeniería con repetibilidad**.
+
+- De pruebas manuales aisladas → a **experimentos controlados** y datos confiables.
+- De control rígido → a **tuning dinámico en tiempo real**.
+- De prototipos frágiles → a un sistema **seguro y escalable** para investigación.
 
 ## Evidencias
 - **Repositorio (todo el sistema):** https://github.com/DiegoSanMo6011/softbot_pneumatic_driver
 - **Video del robot en movimiento:** https://www.youtube.com/watch?v=Nmk_etXFZ6o
 
-## Difusión y reconocimientos
-- **Best Poster Award** – “Bidirectional Pressure–Vacuum Switching Control for Soft Pneumatic Actuators” (Exploring Soft Robotics, 3 dic 2025)
-- **Ponencia** – “Locomoción de un robot deformable tipo crawling” (Student Research Forum, 4 dic 2024)
-- **Seminario** – Soft Robotics Seminar (feb–jun 2025)
-- **Expositor** – Feria de Ciencias, Querétaro 2025 (11–15 nov 2025)
-- **Congreso** – SmarTec Digital Manufacturing (23–24 oct 2025)
+## Diplomas, constancias y reconocimientos (con comprobantes)
+- **Best Poster Award** – “Bidirectional Pressure–Vacuum Switching Control for Soft Pneumatic Actuators” (Exploring Soft Robotics, 3 dic 2025) — /assets/docs/best-poster-award-2025.pdf
+- **Ponencia** – “Locomoción de un robot deformable tipo crawling” (Student Research Forum, 4 dic 2024) — /assets/docs/ponencia-locomocion-crawling-2024.pdf
+- **Seminario** – Participación y presentación del proyecto “Locomotion for soft crawling robots” (Soft Robotics Seminar, feb–jun 2025) — /assets/docs/soft-robotics-seminar-2025.pdf
+- **Expositor** – Feria de Ciencias, Querétaro 2025 (11–15 nov 2025) — /assets/docs/feria-ciencias-queretaro-2025.pdf
+- **Congreso** – Participación en Congreso Internacional SmarTec Digital Manufacturing (23–24 oct 2025) — /assets/docs/smartec-digital-manufacturing-2025.pdf
 
 ## Aprendizajes clave
 - Control de presión/vacío en sistemas neumáticos no lineales
 - Arquitecturas seguras con **E‑STOP** y límites dinámicos
 - Abstracción de hardware con APIs de alto nivel para investigación
 - Integración de micro‑ROS con ROS 2 para telemetría y control distribuido
+- Diseño de locomoción por fases con tolerancias, tiempos mínimos y estabilidad
 
 ## Estado actual
-- Preparación de **nuevos algoritmos de locomoción** y experimentación avanzada
+- Preparación de **nuevos algoritmos de locomoción**
+- Integración de tanque BOOST para saltos en competencia
 - Postulación en curso a la **competencia RoboSoft 2026**
 
 > Nota: La manufactura del robot y su neumática física fueron desarrolladas en el laboratorio; mi aporte principal fue el control, la electrónica y la infraestructura software/firmware.
