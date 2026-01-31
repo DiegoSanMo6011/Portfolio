@@ -32,7 +32,8 @@ Proyecto de servicio becario con el equipo de **City Skylines Modding** (Tec de 
 - **Contribución adicional:** mapa con simulación de Querétaro.
 
 **Video:** [Ver demo](https://youtu.be/-cuLjeoMJlw)
-**Stack:** C#, Unity/Modding, Game Design, UX
+**Repositorio adicional:** [Historic Buildings Mod](https://github.com/DiegoSanMo6011/Historic-Buildings)
+**Stack:** C#, Game Modding, Unity/Cities: Skylines, Game Design, UX
 
 ## Control PID de temperatura para deshidratador
 Proyecto de la materia **Control y Automatización**. Regulación térmica entre 50°C y 70°C para deshidratación de jitomates.
