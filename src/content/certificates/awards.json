@@ -1,25 +1,37 @@
 [
   {
-    "id": "cert-1",
-    "title": "ROS 2 for Beginners",
-    "issuer": "The Construct Sim",
-    "date": "Noviembre 2024",
-    "url": "https://www.theconstructsim.com/certificate-example",
-    "badgeText": "Certificación"
+    "id": "award-2025-best-poster",
+    "title": "Best Poster Award – Bidirectional Pressure–Vacuum Switching Control for Soft Pneumatic Actuators",
+    "issuer": "Exploring Soft Robotics: Emerging Technologies and Applications (Tecnológico de Monterrey, Campus Querétaro)",
+    "date": "3 diciembre 2025",
+    "badgeText": "Best Poster"
   },
   {
-    "id": "award-1",
-    "title": "1er Lugar - Concurso Nacional de Robótica",
-    "issuer": "Federación Mexicana de Robótica",
-    "date": "Mayo 2023",
-    "badgeText": "Ganador"
+    "id": "recognition-2024-ponencia",
+    "title": "Ponencia: Locomoción de un robot deformable tipo crawling",
+    "issuer": "Exploring Soft Robotics: Student Research Forum • Soft Tech + Hybrid Soft Robotics Lab",
+    "date": "4 diciembre 2024",
+    "badgeText": "Ponencia"
   },
   {
-    "id": "diploma-1",
-    "title": "Diplomado en Sistemas Embebidos",
-    "issuer": "CIDESI",
-    "date": "Enero 2023",
-    "url": "/assets/docs/diploma-cidesi.pdf",
-    "badgeText": "Diplomado"
+    "id": "certificate-2025-seminario",
+    "title": "Soft Robotics Seminar (presentación de proyecto de locomoción)",
+    "issuer": "Hybrid Soft Robotics Lab, Tecnológico de Monterrey (Campus Querétaro)",
+    "date": "Feb-Jun 2025",
+    "badgeText": "Seminario"
+  },
+  {
+    "id": "constancia-2025-feria",
+    "title": "Expositor – Feria de Ciencias, Querétaro 2025",
+    "issuer": "CONCYTEQ / Secretaría de Educación del Estado de Querétaro",
+    "date": "11-15 noviembre 2025",
+    "badgeText": "Divulgación"
+  },
+  {
+    "id": "reconocimiento-2025-smartec",
+    "title": "Participación – Congreso Internacional SmarTec Digital Manufacturing",
+    "issuer": "Tecnológico de Monterrey, Campus Querétaro",
+    "date": "23-24 octubre 2025",
+    "badgeText": "Congreso"
   }
 ]
