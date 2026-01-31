@@ -6,6 +6,12 @@ date: 2024-03-01
 featured: false
 githubUrl: "https://github.com/DiegoSanMo6011/Line-Maze-Solver"
 videoUrl: "https://youtu.be/7IuBa7F5US0"
+status: "Completado"
+highlights:
+  - "PID ligero para seguimiento estable de línea"
+  - "Registro de giros y simplificación de ruta"
+  - "Optimización en microcontrolador (Arduino)"
+  - "Segunda pasada más rápida y eficiente"
 ---
 
 ## Objetivo

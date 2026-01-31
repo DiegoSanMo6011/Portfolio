@@ -5,6 +5,12 @@ tags: ["Product Engineering", "POS", "Python", "Raspberry Pi", "Offline", "Supab
 date: 2026-01-20
 featured: true
 githubUrl: "https://github.com/DiegoSanMo6011/Barbacoa"
+status: "Instalación final"
+highlights:
+  - "POS offline con cola local y sincronización automática"
+  - "UI full‑screen para operación rápida en caja"
+  - "Backups diarios y consistencia de datos"
+  - "Diseñado para Raspberry Pi en operación real"
 ---
 
 ## Contexto

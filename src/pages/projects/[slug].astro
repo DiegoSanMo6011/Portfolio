@@ -80,6 +80,13 @@ const siteUrl = entry.data.siteUrl;
       <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
         {entry.data.title}
       </h1>
+      {entry.data.status && (
+        <div class="mb-6 flex justify-center">
+          <span class="px-3 py-1 text-xs font-mono font-medium tracking-wider text-cyan-200 uppercase bg-cyan-900/30 rounded-full border border-cyan-500/30">
+            {entry.data.status}
+          </span>
+        </div>
+      )}
       {siteUrl && (
         <div class="mb-6 flex justify-center">
           <a
@@ -100,6 +107,15 @@ const siteUrl = entry.data.siteUrl;
           </span>
         ))}
       </div>
+      {entry.data.highlights && entry.data.highlights.length > 0 && (
+        <div class="mb-10 grid gap-3 md:grid-cols-2">
+          {entry.data.highlights.map((item) => (
+            <div class="rounded-xl border border-slate-700/60 bg-slate-800/40 px-4 py-3 text-sm text-slate-200 text-left">
+              {item}
+            </div>
+          ))}
+        </div>
+      )}
 
       <div class="flex justify-center gap-4">
         {entry.data.githubUrl && (
@@ -121,7 +137,8 @@ const siteUrl = entry.data.siteUrl;
       prose-headings:text-cyan-100 prose-headings:font-bold 
       prose-p:text-slate-300 prose-p:leading-relaxed 
       prose-strong:text-white prose-li:text-slate-300
-      prose-blockquote:border-l-4 prose-blockquote:border-cyan-500 prose-blockquote:bg-slate-800/50 prose-blockquote:px-4 prose-blockquote:py-1">
+      prose-blockquote:border-l-4 prose-blockquote:border-cyan-500 prose-blockquote:bg-slate-800/50 prose-blockquote:px-4 prose-blockquote:py-1
+      prose-a:no-underline prose-a:font-semibold prose-a:text-cyan-200 prose-a:bg-slate-800/60 prose-a:px-3 prose-a:py-1 prose-a:rounded-md prose-a:border prose-a:border-slate-700 hover:prose-a:text-white hover:prose-a:border-cyan-400">
       
       <Content />
       

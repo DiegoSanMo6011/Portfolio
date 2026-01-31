@@ -7,6 +7,12 @@ featured: true
 githubUrl: "https://github.com/DiegoSanMo6011/softbot_pneumatic_driver"
 videoUrl: "https://www.youtube.com/watch?v=Nmk_etXFZ6o"
 videoUrl2: "https://youtu.be/rIL5Ci7ShaE"
+status: "En desarrollo activo · RoboSoft 2026"
+highlights:
+  - "Control PI dual con seguridad (E‑STOP y límites dinámicos)"
+  - "micro‑ROS en ESP32 con telemetría en tiempo real"
+  - "SDK Python + GUI para experimentación reproducible"
+  - "Sistema base para locomoción competitiva y de investigación"
 ---
 
 ## Un proyecto vivo, orientado a investigación y competencia

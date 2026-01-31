@@ -4,6 +4,12 @@ description: "Sitio personal diseñado para comunicar proyectos de robótica y s
 tags: ["Astro", "Tailwind", "Content Collections", "Frontend", "UX", "Design"]
 date: 2024-12-01
 featured: false
+status: "Activo"
+highlights:
+  - "Astro + Tailwind con Content Collections"
+  - "Narrativa técnica y jerarquía visual"
+  - "Componentes reutilizables y escalables"
+  - "Base lista para versión bilingüe"
 ---
 
 ## Objetivo

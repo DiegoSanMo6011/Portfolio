@@ -5,6 +5,12 @@ tags: ["Product Engineering", "Web Platform", "Backend", "Operations", "Billing"
 date: 2026-01-01
 featured: true
 siteUrl: "https://www.patiocinco.com/"
+status: "En producción"
+highlights:
+  - "Operación real con clientes y facturación persistente"
+  - "Migración de control básico a plataforma operativa"
+  - "Wix + Velo adaptado con flujos no estándar"
+  - "Base lista para escalar e integrar automatización"
 ---
 
 ## Visión y contexto

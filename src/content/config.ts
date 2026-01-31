@@ -16,6 +16,8 @@ const projectsCollection = defineCollection({
     pdfUrl: z.string().optional(), // Link al reporte técnico o paper
     date: z.date(), // Para ordenar cronológicamente
     featured: z.boolean().default(false), // Para decidir si sale en la Home
+    status: z.string().optional(), // Estado del proyecto
+    highlights: z.array(z.string()).optional(), // Puntos clave del proyecto
   }),
 });
 

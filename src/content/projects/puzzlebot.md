@@ -6,6 +6,12 @@ date: 2025-06-01
 featured: true
 githubUrl: "https://github.com/Ric4rd1/PuzzleBot"
 videoUrl: "https://www.youtube.com/watch?v=sOlqaHjRg6w"
+status: "Proyecto académico completado"
+highlights:
+  - "ROS 2 Humble en Jetson Nano para percepción"
+  - "micro‑ROS + encoders para telemetría y odometría"
+  - "YOLOv8 para señales y semáforos en tiempo real"
+  - "Integración completa: control, visión y validación"
 ---
 
 ## Contexto académico y colaboración
