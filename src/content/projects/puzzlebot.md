@@ -4,6 +4,7 @@ description: "Robótica móvil con ROS 2: percepción, control y telemetría par
 tags: ["ROS 2", "micro-ROS", "Robótica móvil", "Percepción", "Control", "Telemetría", "YOLOv8", "Jetson Nano"]
 date: 2025-06-01
 featured: true
+priority: 4
 githubUrl: "https://github.com/Ric4rd1/PuzzleBot"
 videoUrl: "https://www.youtube.com/watch?v=sOlqaHjRg6w"
 status: "Proyecto académico completado"

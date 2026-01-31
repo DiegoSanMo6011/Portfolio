@@ -4,6 +4,7 @@ description: "Sistema de punto de venta en Raspberry Pi con operación offline, 
 tags: ["Product Engineering", "POS", "Python", "Raspberry Pi", "Offline", "Supabase"]
 date: 2026-01-20
 featured: true
+priority: 3
 githubUrl: "https://github.com/DiegoSanMo6011/Barbacoa"
 status: "Instalación final"
 highlights:

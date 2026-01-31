@@ -18,6 +18,7 @@ const projectsCollection = defineCollection({
     featured: z.boolean().default(false), // Para decidir si sale en la Home
     status: z.string().optional(), // Estado del proyecto
     highlights: z.array(z.string()).optional(), // Puntos clave del proyecto
+    priority: z.number().int().optional(), // Orden manual (1 = más alto)
   }),
 });
 

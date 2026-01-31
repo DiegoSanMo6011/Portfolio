@@ -4,6 +4,7 @@ description: "Sistema en producción para gestión de clientes, vehículos, memb
 tags: ["Product Engineering", "Web Platform", "Backend", "Operations", "Billing", "UX"]
 date: 2026-01-01
 featured: true
+priority: 2
 siteUrl: "https://www.patiocinco.com/"
 status: "En producción"
 highlights:

@@ -6,8 +6,11 @@ import ProjectCard from '../components/ProjectCard.astro';
 
 // 1. Obtener proyectos
 const allProjects = await getCollection('projects');
-// 2. Ordenar por destacados y fecha
+// 2. Ordenar por prioridad, destacados y fecha
 const sortedProjects = allProjects.sort((a, b) => {
+  const aPriority = a.data.priority ?? 999;
+  const bPriority = b.data.priority ?? 999;
+  if (aPriority !== bPriority) return aPriority - bPriority;
   const featuredDiff = (b.data.featured === true) - (a.data.featured === true);
   if (featuredDiff !== 0) return featuredDiff;
   return b.data.date.valueOf() - a.data.date.valueOf();
