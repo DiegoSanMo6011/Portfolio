@@ -6,6 +6,7 @@ date: 2024-08-01
 featured: true
 githubUrl: "https://github.com/DiegoSanMo6011/softbot_pneumatic_driver"
 videoUrl: "https://www.youtube.com/watch?v=Nmk_etXFZ6o"
+videoUrl2: "https://youtu.be/rIL5Ci7ShaE"
 ---
 
 ## Un proyecto vivo, pensado para competir y para investigar
@@ -43,11 +44,6 @@ No se trata solo de “hacer mover” un robot: se trata de **hacer ciencia e in
 - De pruebas manuales aisladas → a **experimentos controlados** y datos confiables.
 - De control rígido → a **tuning dinámico en tiempo real**.
 - De prototipos frágiles → a un sistema **seguro y escalable** para investigación.
-
-## Evidencias
-- **Repositorio (todo el sistema):** https://github.com/DiegoSanMo6011/softbot_pneumatic_driver
-- **Video del robot en movimiento:** https://www.youtube.com/watch?v=Nmk_etXFZ6o
-- **Primera iteración (video):** https://youtu.be/rIL5Ci7ShaE
 
 ## La primera iteración (bases del proyecto)
 La etapa inicial del proyecto se desarrolló como parte de mi **servicio becario** en el laboratorio. En ese momento me enfoqué en **sentar las bases** para experimentar con algoritmos de locomoción peristáltica en actuadores suaves tipo crawling, construyendo un entorno de pruebas estable para investigación.

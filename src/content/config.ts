@@ -9,7 +9,8 @@ const projectsCollection = defineCollection({
     description: z.string(), // Resumen corto para la tarjeta
     tags: z.array(z.string()),
     heroImage: z.string().optional(), // Foto principal
-    videoUrl: z.string().optional(), // Para el GIF/Video en el futuro
+    videoUrl: z.string().optional(), // Video principal
+    videoUrl2: z.string().optional(), // Video secundario
     githubUrl: z.string().optional(),
     pdfUrl: z.string().optional(), // Link al reporte técnico o paper
     date: z.date(), // Para ordenar cronológicamente
