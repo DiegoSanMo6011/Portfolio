@@ -20,6 +20,7 @@ Antes del sistema, la operación dependía de controles manuales, comunicación 
 
 ## Cómo lo hicimos (alto nivel)
 - Plataforma web con módulos separados (registro, zona cliente, vehículos, membresías, facturación).
+- Implementación sobre **Wix + Velo** por requerimiento del cliente, adaptando flujos que no estaban diseñados para este tipo de operación. La restricción exigió flexibilidad y creatividad técnica para lograr el resultado esperado sin comprometer la operación.
 - Backend relacional y autenticado para datos productivos.
 - Flujo end‑to‑end sin pasos manuales del staff para transacciones y facturación.
 - Manejo de errores reales y logging operativo para producción.
@@ -36,8 +37,8 @@ Antes del sistema, la operación dependía de controles manuales, comunicación 
 - Diseño de plataformas **seguras, escalables y operables** en producción.
 
 ## Estado actual
-- ✅ Sistema terminado y **en producción**.
-- ✅ Operación real con clientes.
-- ✅ Base sólida para futuras integraciones físicas y automatización.
+- Sistema terminado y **en producción**.
+- Operación real con clientes.
+- Base sólida para futuras integraciones físicas y automatización.
 
 **Sitio público:** https://www.patiocinco.com/
