@@ -59,6 +59,44 @@ const skillBadges = ["Robotics Software", "Computer Vision", "Full Stack", "Embe
 
   </div>
 
+  <section class="py-6">
+    <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3">
+      <span class="text-cyan-400">/</span> Demo Reel
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        {
+          title: 'Soft Robotics — Demo Final',
+          url: 'https://www.youtube.com/embed/Nmk_etXFZ6o?autoplay=1&mute=1&controls=0&loop=1&playlist=Nmk_etXFZ6o&modestbranding=1&playsinline=1',
+        },
+        {
+          title: 'PuzzleBot — Demo Final',
+          url: 'https://www.youtube.com/embed/sOlqaHjRg6w?autoplay=1&mute=1&controls=0&loop=1&playlist=sOlqaHjRg6w&modestbranding=1&playsinline=1',
+        },
+        {
+          title: 'Line‑Maze Solver — Demo',
+          url: 'https://www.youtube.com/embed/7IuBa7F5US0?autoplay=1&mute=1&controls=0&loop=1&playlist=7IuBa7F5US0&modestbranding=1&playsinline=1',
+        },
+      ].map((video) => (
+        <div class="rounded-2xl border border-slate-700/70 bg-slate-900/40 overflow-hidden shadow-2xl shadow-cyan-500/10">
+          <div class="relative pt-[56.25%]">
+            <iframe
+              class="absolute inset-0 w-full h-full"
+              src={video.url}
+              title={video.title}
+              frameborder="0"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="px-4 py-3 text-sm text-slate-300 font-mono text-center">
+            {video.title}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <section id="proyectos" class="py-10">
     <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3">
       <span class="text-cyan-400">/</span> Proyectos Destacados
