@@ -27,7 +27,8 @@ Este proyecto no es solo código ni solo hardware: es **todo el sistema de locom
 - Válvulas direccionales y lógica de distribución por cámaras (A/B).
 
 **Electrónica y firmware (mi responsabilidad principal):**
-- ESP32 con **micro‑ROS**.
+- ESP32 con **micro‑ROS** y comunicación **UART** hacia el agente.
+- Sensor de presión vía **I2C** (ADS1115, 16‑bit) para lectura de kPa.
 - Control PI dual (inflado / succión) y modos de operación extendidos.
 - Seguridad activa: límites dinámicos, **E‑STOP**, venteo y reset de integradores.
 - Telemetría en tiempo real para análisis y tuning.
@@ -45,6 +46,13 @@ No se trata solo de “hacer mover” un robot: se trata de **hacer ciencia e in
 - De control rígido → a **tuning dinámico en tiempo real**.
 - De prototipos frágiles → a un sistema **seguro y escalable** para investigación.
 
+## Lo que demuestra este proyecto (skills buscadas)
+- Integración **hardware–firmware–software** en un sistema real de robótica.
+- Comunicación embebida **UART** y sensado **I2C** con adquisición precisa.
+- Control en lazo cerrado y **tuning dinámico** en tiempo real.
+- Diseño de herramientas para experimentación reproducible y logging.
+- Enfoque de seguridad funcional (E‑STOP, límites, venteo).
+
 ## La primera iteración (bases del proyecto)
 La etapa inicial del proyecto se desarrolló como parte de mi **servicio becario** en el laboratorio. En ese momento me enfoqué en **sentar las bases** para experimentar con algoritmos de locomoción peristáltica en actuadores suaves tipo crawling, construyendo un entorno de pruebas estable para investigación.
 
@@ -56,6 +64,9 @@ El robot de esa fase utilizó un sistema electroneumático controlado por **Ardu
 - **Seminario** – Participación y presentación del proyecto “Locomotion for soft crawling robots” (Soft Robotics Seminar, feb–jun 2025) — /assets/docs/soft-robotics-seminar-2025.pdf
 - **Expositor** – Feria de Ciencias, Querétaro 2025 (11–15 nov 2025) — /assets/docs/feria-ciencias-queretaro-2025.pdf
 - **Congreso** – Participación en Congreso Internacional SmarTec Digital Manufacturing (23–24 oct 2025) — /assets/docs/smartec-digital-manufacturing-2025.pdf
+
+**Ver comprobantes:**  
+[Best Poster Award](/assets/docs/best-poster-award-2025.pdf) · [Ponencia](/assets/docs/ponencia-locomocion-crawling-2024.pdf) · [Seminario](/assets/docs/soft-robotics-seminar-2025.pdf) · [Feria de Ciencias](/assets/docs/feria-ciencias-queretaro-2025.pdf) · [SmarTec](/assets/docs/smartec-digital-manufacturing-2025.pdf)
 
 ## Aprendizajes clave
 - Control de presión/vacío en sistemas neumáticos no lineales
