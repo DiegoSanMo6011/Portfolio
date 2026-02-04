@@ -1,74 +1,98 @@
 \documentclass[10pt,letterpaper]{article}
-\usepackage[margin=0.6in]{geometry}
+\usepackage[margin=0.5in]{geometry}
 \usepackage{parskip}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{array}
 \usepackage{ifthen}
 
 \definecolor{accent}{HTML}{2F5597}
-\hypersetup{
-  colorlinks=true,
-  urlcolor=accent,
-  linkcolor=accent
-}
+\definecolor{light}{HTML}{E6EBF5}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
 
 \titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}
 \titlespacing*{\section}{0pt}{0.6em}{0.3em}
 
-\newcommand{\cvitem}[2]{\textbf{#1} \hfill #2}
 \newcommand{\smalltext}[1]{\small #1}
+\newcommand{\sectionbar}[1]{\colorbox{accent}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textcolor{white}{\bfseries #1}}}}
 
 \begin{document}
+\thispagestyle{empty}
 
-% Header
-\begin{minipage}[t]{0.72\textwidth}
-  {\Huge\bfseries Diego Gerardo Sánchez Moreno}\\
-  \smalltext{Robotics \& Embedded Systems Engineer (in training)}\\
-  \smalltext{Querétaro, México} \\
-  \smalltext{Email: \href{mailto:diegogerardosanchez3@gmail.com}{diegogerardosanchez3@gmail.com} \;|\; Phone: +52 446 138 5307}\\
-  \smalltext{LinkedIn: \href{https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296}{diego-gerardo-sánchez-moreno-73549a296} | GitHub: \href{https://github.com/DiegoSanMo6011}{DiegoSanMo6011}}\\
-  \smalltext{Portfolio: \href{https://diegogerardo.com}{diegogerardo.com}}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.24\textwidth}
-\raggedleft
-\IfFileExists{cv/assets/profile.jpg}{\includegraphics[width=1.2in,height=1.2in,keepaspectratio]{cv/assets/profile.jpg}}{}
-\end{minipage}
+\begin{tabularx}{\textwidth}{@{}p{0.32\textwidth}@{\hspace{0.02\textwidth}}p{0.66\textwidth}@{}}
+% Left column
+\begin{minipage}[t]{\linewidth}
+\colorbox{light}{\parbox{\dimexpr\linewidth-2\fboxsep}{
+\begin{center}
+\IfFileExists{cv/assets/profile.jpg}{\includegraphics[width=1.25in,height=1.25in,keepaspectratio]{cv/assets/profile.jpg}}{}\\[0.4em]
+{\Large\bfseries Diego Gerardo Sánchez Moreno}\\
+\smalltext{Robotics \& Embedded Systems}\n\\[0.4em]
+\end{center}
 
-\section*{Education}
-\cvitem{B.S. in Robotics and Digital Systems Engineering}{2022 -- Jun 2026 (expected)}\\
-Tecnológico de Monterrey, Campus Querétaro
+\smalltext{\textbf{Contact}}\\
+\smalltext{Querétaro, Mexico}\\
+\smalltext{+52 446 138 5307}\\
+\smalltext{\href{mailto:diegogerardosanchez3@gmail.com}{diegogerardosanchez3@gmail.com}}\\
+\smalltext{\href{https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296}{LinkedIn}}\\
+\smalltext{\href{https://github.com/DiegoSanMo6011}{GitHub}}\\
+\smalltext{\href{https://diegogerardo.com}{diegogerardo.com}}\\[0.6em]
 
-\section*{Research \& Engineering Experience}
+\smalltext{\textbf{Languages}}\\
+\smalltext{Spanish: Native}\\
+\smalltext{English: B2}\\[0.6em]
+
+\smalltext{\textbf{Core Skills}}\\
+\smalltext{ROS 2, micro-ROS, PID/PI}\\
+\smalltext{OpenCV, YOLOv8}\\
+\smalltext{ESP32, Jetson Nano}\\
+\smalltext{MATLAB, VHDL, C++}\\
+\smalltext{Supabase, PostgreSQL}\\
+\smalltext{Astro, Tailwind, Wix+Velo}\\
+}}\end{minipage}
+&
+% Right column
+\begin{minipage}[t]{\linewidth}
+
+{\Huge\bfseries Diego Gerardo Sánchez Moreno}\\
+\smalltext{Robotics \& Embedded Systems Engineer (in training)}\\[0.4em]
+\smalltext{Focus on soft robotics control, embedded systems, and perception for mobile robots. Seeking graduate studies in Autonomous Systems.}\\[0.8em]
+
+\sectionbar{Education}
+\textbf{B.S. in Robotics and Digital Systems Engineering}\\
+Tecnológico de Monterrey, Campus Querétaro\\
+\smalltext{2022 -- Jun 2026 (expected)}\\[0.4em]
+
+\sectionbar{Research \& Engineering Experience}
 \textbf{Hybrid Soft Robotics Lab (Tec de Monterrey, Qro.)}\\
-\textit{Soft Robotics Control Platform (2024 -- Present)}
+\smalltext{Soft Robotics Control Platform | 2024 -- Present}\\
 \begin{itemize}[leftmargin=*]
-  \item Designed a bi-stable pneumatic driver with closed-loop pressure/vacuum control, safety interlocks, and real-time telemetry.
-  \item Implemented micro-ROS on ESP32 (UART) with pressure sensing over I2C (ADS1115) and a Python SDK + GUI for reproducible experiments.
-  \item Developed experiment workflows, logging, and MATLAB-based analysis for control data.
+  \item Built a bi-stable pneumatic driver with closed-loop pressure/vacuum control, safety interlocks, and real-time telemetry.
+  \item Implemented micro-ROS on ESP32 (UART) with pressure sensing over I2C (ADS1115).
+  \item Delivered a Python SDK + GUI and MATLAB-based analysis for reproducible experiments.
 \end{itemize}
 
 \textbf{Patio Cinco (Querétaro) — Production Platform}\\
-\textit{Product/Systems Engineer (2025 -- 2026)}
+\smalltext{Product/Systems Engineer | 2025 -- 2026}\\
 \begin{itemize}[leftmargin=*]
-  \item Delivered a production system for memberships, billing, and customer operations with real users and persistent fiscal data.
-  \item Designed modular flows on Wix + Velo backed by relational data and operational logging.
+  \item Delivered a production system for memberships, billing, and customer operations with persistent fiscal data.
+  \item Built modular flows on Wix + Velo backed by relational data and operational logging.
 \end{itemize}
 
 \textbf{Barbacoa de Miranda (Querétaro) — POS System}\\
-\textit{Product/Systems Engineer (2025 -- 2026)}
+\smalltext{Product/Systems Engineer | 2025 -- 2026}\\
 \begin{itemize}[leftmargin=*]
   \item Built an offline-first POS for Raspberry Pi with local queueing (SQLite) and auto-sync to backend.
   \item Implemented full-screen UI for fast cashier workflows and daily reporting.
 \end{itemize}
 
-\section*{Selected Projects}
+\sectionbar{Selected Projects}
 \textbf{PuzzleBot Autonomous Mobile Robot (ROS 2)}\\
 \begin{itemize}[leftmargin=*]
-  \item Integrated micro-ROS, encoders-based odometry, and YOLOv8 perception on Jetson Nano for autonomous driving.
+  \item Integrated micro-ROS, encoder-based odometry, and YOLOv8 perception on Jetson Nano for autonomous driving.
 \end{itemize}
 
 \textbf{Line-Maze Solver (Pololu 3pi+)}\\
@@ -76,23 +100,22 @@ Tecnológico de Monterrey, Campus Querétaro
   \item Implemented PID line following with route recording and simplification to optimize traversal.
 \end{itemize}
 
-\section*{Awards \& Certifications}
+\sectionbar{Awards \& Certifications}
 \begin{itemize}[leftmargin=*]
   \item Best Poster Award — Exploring Soft Robotics (Dec 2025)
   \item NVIDIA DLI: Fundamentals of Deep Learning (Jun 2025)
   \item OpenCV Bootcamp (Apr 2025)
+  \item Google Cloud Computing Fundamentals (Mar 21, 2023)
 \end{itemize}
 
-\section*{Technical Skills}
-\begin{itemize}[leftmargin=*]
-  \item \textbf{Languages:} C++, Python, TypeScript, VHDL, MATLAB
-  \item \textbf{Robotics/Control:} ROS 2 (Humble), micro-ROS, PID/PI, odometry, Gazebo
-  \item \textbf{Perception:} OpenCV, YOLOv8
-  \item \textbf{Hardware:} ESP32, Jetson Nano, Raspberry Pi, Arduino, FPGA Cyclone
-  \item \textbf{Product/Web:} Wix + Velo, Supabase, PostgreSQL, Astro, Tailwind
-\end{itemize}
+\sectionbar{Technical Skills}
+\smalltext{\textbf{Languages:} C++, Python, TypeScript, VHDL, MATLAB}\\
+\smalltext{\textbf{Robotics/Control:} ROS 2 (Humble), micro-ROS, PID/PI, odometry, Gazebo}\\
+\smalltext{\textbf{Perception:} OpenCV, YOLOv8}\\
+\smalltext{\textbf{Hardware:} ESP32, Jetson Nano, Raspberry Pi, Arduino, FPGA Cyclone}\\
+\smalltext{\textbf{Product/Web:} Wix + Velo, Supabase, PostgreSQL, Astro, Tailwind}
 
-\section*{Languages}
-Spanish (Native), English (B2)
+\end{minipage}
+\end{tabularx}
 
 \end{document}

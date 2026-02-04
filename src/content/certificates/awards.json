@@ -54,5 +54,13 @@
     "date": "abril 2025",
     "url": "/assets/docs/opencv-bootcamp.pdf",
     "badgeText": "Certificación"
+  },
+  {
+    "id": "cert-2023-google-cloud-fundamentals",
+    "title": "Google Cloud Computing Fundamentals: Cloud Computing Fundamentals",
+    "issuer": "Google Cloud / Google Skills",
+    "date": "21 Mar 2023",
+    "url": "https://www.skills.google/public_profiles/b43c7efb-2891-4659-accc-effc5c04c3f1/badges/3338852",
+    "badgeText": "Certificación"
   }
 ]
