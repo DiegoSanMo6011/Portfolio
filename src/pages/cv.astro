@@ -1,0 +1,27 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="CV">
+  <div class="max-w-5xl mx-auto">
+    <header class="mb-6 text-center">
+      <h1 class="text-3xl font-bold text-white">Curriculum Vitae</h1>
+      <p class="text-slate-400">Descarga directa o vista previa del PDF.</p>
+    </header>
+
+    <div class="flex justify-center mb-6">
+      <a href="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-900 font-bold text-sm uppercase tracking-wide shadow-lg shadow-cyan-500/20 hover:bg-cyan-400 transition">
+        Descargar CV
+      </a>
+    </div>
+
+    <div class="relative w-full overflow-hidden rounded-2xl border border-slate-700/70 bg-slate-900/40">
+      <div class="pt-[129%]"></div>
+      <iframe
+        class="absolute inset-0 w-full h-full"
+        src="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV.pdf"
+        title="CV Diego Gerardo Sánchez Moreno"
+      ></iframe>
+    </div>
+  </div>
+</MainLayout>
