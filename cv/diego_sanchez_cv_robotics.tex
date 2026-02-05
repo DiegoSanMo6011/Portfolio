@@ -1,5 +1,5 @@
-\documentclass[10pt,letterpaper]{article}
-\usepackage[margin=0.6in]{geometry}
+\documentclass[9pt,letterpaper]{article}
+\usepackage[margin=0.5in]{geometry}
 \usepackage{parskip}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -9,57 +9,63 @@
 \definecolor{accent}{HTML}{2F5597}
 \hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
 \titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}
-\titlespacing*{\section}{0pt}{0.6em}{0.3em}
+\titlespacing*{\section}{0pt}{0.5em}{0.2em}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=*, itemsep=1pt, topsep=1pt}
 
 \begin{document}
 \thispagestyle{empty}
 
 {\Huge\bfseries Diego Gerardo Sánchez Moreno}\\
-\small Robotics/Embedded Systems Engineer (in training)\\
-\small Querétaro, Mexico \\ 
+\small Querétaro, Mexico \\
 \small Email: \href{mailto:diegogerardosanchez3@gmail.com}{diegogerardosanchez3@gmail.com} \;|\; Phone: +52 446 138 5307\\
-\small LinkedIn: \href{https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296}{diego-gerardo-sánchez-moreno-73549a296} \;|\; GitHub: \href{https://github.com/DiegoSanMo6011}{DiegoSanMo6011}\\
+\small LinkedIn: \href{https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296}{diego-gerardo-sánchez-moreno-73549a296}\\
+\small GitHub: \href{https://github.com/DiegoSanMo6011}{github.com/DiegoSanMo6011}\\
 \small Portfolio: \href{https://diegogerardo.com}{diegogerardo.com}
 
 \section*{Summary}
-Robotics and embedded systems engineer in training focused on control, soft robotics, and perception. Experienced in micro-ROS on ESP32, closed-loop control, telemetry, and reproducible experiments. Seeking robotics/embedded roles and graduate studies in Autonomous Systems.
+Robotics and embedded systems engineer in training focused on control, perception, and real‑world deployments. Seeking software/robotics roles where control, embedded systems, and applied perception are core.
 
 \section*{Education}
 \textbf{B.S. in Robotics and Digital Systems Engineering}\\
 Tecnológico de Monterrey, Campus Querétaro\\
 2022 -- Jun 2026 (expected)
 
-\section*{Research \& Engineering Experience}
-\textbf{Hybrid Soft Robotics Lab (Tec de Monterrey, Qro.)}\\
-\textit{Soft Robotics Control Platform | 2024 -- Present}
+\section*{Experience / Research}
+\textbf{Hybrid Soft Robotics Lab, Tec de Monterrey (Querétaro) — Soft Robotics Control Platform}\\
+\textit{2024 -- Present}
 \begin{itemize}[leftmargin=*]
-  \item Built a bi-stable pneumatic driver with closed-loop pressure/vacuum control, safety interlocks, and real-time telemetry.
-  \item Implemented micro-ROS on ESP32 (UART) with pressure sensing over I2C (ADS1115).
-  \item Delivered a Python SDK + GUI and MATLAB-based analysis for reproducible experiments.
+  \item Designed a bi‑stable pneumatic driver with closed‑loop pressure/vacuum control and safety interlocks.
+  \item Implemented micro‑ROS on ESP32 (UART) with pressure sensing via I2C (ADS1115).
+  \item Built Python SDK + GUI for reproducible experiments and logging; analyzed control data with MATLAB.
+  \item Developed locomotion experiment workflows and a scalable architecture for ongoing research.
 \end{itemize}
 
-\textbf{PuzzleBot Autonomous Mobile Robot (ROS 2)}\\
-\textit{Team Project | Jan–Jun 2025}
+\textbf{Patio Cinco (Querétaro) — Production Platform}\\
+\textit{2025 -- 2026}
 \begin{itemize}[leftmargin=*]
-  \item Integrated micro-ROS, encoder-based odometry, and YOLOv8 perception on Jetson Nano for autonomous driving.
-  \item Validated autonomous motion with real-time telemetry and perception pipeline.
+  \item Delivered a production system for memberships, billing, and customer operations used by real clients.
+  \item Implemented modular flows on Wix + Velo with relational backend and operational logging.
 \end{itemize}
 
-\textbf{Line-Maze Solver (Pololu 3pi+)}\\
-\textit{Embedded Control Project | 2024}
+\textbf{Barbacoa de Miranda (Querétaro) — POS System}\\
+\textit{2025 -- 2026}
 \begin{itemize}[leftmargin=*]
-  \item Implemented PID line following with route recording and simplification to optimize traversal.
+  \item Built an offline‑first POS for Raspberry Pi with local queueing (SQLite) and auto‑sync to backend.
 \end{itemize}
 
 \section*{Selected Projects}
-\textbf{CareBot — Medication Delivery Robot}\\
+\textbf{PuzzleBot Autonomous Mobile Robot (ROS 2)}\\
+\textit{Jan–Jun 2025}
 \begin{itemize}[leftmargin=*]
-  \item Implemented Uniform Cost Search route planning and MQTT-based coordination (Raspberry Pi + Arduino).
+  \item Integrated micro‑ROS, encoder‑based odometry, and YOLOv8 perception on Jetson Nano.
+  \item Implemented telemetric distance tracking and validated autonomous motion.
 \end{itemize}
 
-\textbf{AES on FPGA (DE10-Lite)}\\
+\textbf{Line-Maze Solver (Pololu 3pi+)}\\
+\textit{2024}
 \begin{itemize}[leftmargin=*]
-  \item Integrated AES encryption component via FSM in VHDL with a multi-member team.
+  \item Implemented PID line following with route recording and simplification to optimize traversal.
 \end{itemize}
 
 \section*{Awards \& Certifications}
@@ -75,7 +81,8 @@ Tecnológico de Monterrey, Campus Querétaro\\
   \item \textbf{Languages:} C++, Python, TypeScript, VHDL, MATLAB
   \item \textbf{Robotics/Control:} ROS 2 (Humble), micro-ROS, PID/PI, odometry, Gazebo
   \item \textbf{Perception:} OpenCV, YOLOv8
-  \item \textbf{Hardware:} ESP32, Jetson Nano, Raspberry Pi, Arduino, FPGA Cyclone
+  \item \textbf{Hardware:} ESP32, Jetson Nano, Raspberry Pi, Arduino, FPGA
+  \item \textbf{Product/Web:} Wix + Velo, Supabase, PostgreSQL, Astro, Tailwind
 \end{itemize}
 
 \section*{Languages}
