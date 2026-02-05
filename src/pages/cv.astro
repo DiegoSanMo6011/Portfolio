@@ -9,9 +9,15 @@ import MainLayout from '../layouts/MainLayout.astro';
       <p class="text-slate-400">Descarga directa o vista previa del PDF.</p>
     </header>
 
-    <div class="flex justify-center mb-6">
-      <a href="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-900 font-bold text-sm uppercase tracking-wide shadow-lg shadow-cyan-500/20 hover:bg-cyan-400 transition">
-        Descargar CV
+    <div class="flex flex-wrap justify-center gap-3 mb-6">
+      <a href="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV-Robotics.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-900 font-bold text-xs uppercase tracking-wide shadow-lg shadow-cyan-500/20 hover:bg-cyan-400 transition">
+        CV Robotics
+      </a>
+      <a href="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV-Software.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-800 text-slate-100 font-bold text-xs uppercase tracking-wide border border-slate-700 hover:border-cyan-400 hover:text-white transition">
+        CV Software/Product
+      </a>
+      <a href="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-800 text-slate-100 font-bold text-xs uppercase tracking-wide border border-slate-700 hover:border-cyan-400 hover:text-white transition">
+        CV General (Legacy)
       </a>
     </div>
 
@@ -19,7 +25,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       <div class="pt-[129%]"></div>
       <iframe
         class="absolute inset-0 w-full h-full"
-        src="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV.pdf"
+        src="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV-Robotics.pdf"
         title="CV Diego Gerardo Sánchez Moreno"
       ></iframe>
     </div>
