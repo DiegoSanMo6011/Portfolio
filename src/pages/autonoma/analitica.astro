@@ -1,0 +1,243 @@
+---
+// src/pages/autonoma/analitica.astro — Caso: plataforma de analítica de Autónoma + asistente IA
+import MainLayout from '../../layouts/MainLayout.astro';
+import { DashboardDemo } from '../../components/demos/DashboardDemo';
+
+// Mockups móviles del producto (vistas del dashboard y del asistente IA)
+const mockups = [
+  {
+    src: '/assets/img/autonoma/mockup-hoy.png',
+    alt: 'Vista "Hoy" de la plataforma de analítica en un teléfono: ventas del día, tickets, lo más vendido y estado de caja',
+    caption:
+      'Vista "Hoy": ventas, tickets, lo más vendido y estado de caja por método de pago — con alertas cuando el día va por debajo del promedio.',
+  },
+  {
+    src: '/assets/img/autonoma/mockup-autonomito.png',
+    alt: 'Autonomito, el asistente IA de Autónoma, respondiendo en español una pregunta sobre ventas de la semana',
+    caption:
+      'Autonomito: el dueño pregunta en español y recibe cifras de su negocio con la fuente citada en cada respuesta.',
+  },
+];
+
+const features = [
+  {
+    titulo: 'Dashboards server-side, sin queries en el cliente',
+    texto:
+      'Todos los datos se consultan y procesan en el servidor; al navegador solo llega el resultado listo para mostrarse. El navegador del cliente nunca toca la base de datos: menos superficie de ataque y carga más rápida.',
+  },
+  {
+    titulo: 'IA con capa semántica: el asistente no puede inventar métricas',
+    texto:
+      'Autonomito no redacta cifras por su cuenta: cada consulta pasa por una capa semántica (Cube.js) que define qué métricas existen y cómo se calculan. Si el dato no está en la capa, el asistente no lo puede afirmar.',
+  },
+  {
+    titulo: 'Multi-tenant con Row-Level Security',
+    texto:
+      'Cada cliente ve exclusivamente sus datos. El aislamiento se aplica en la propia base de datos (PostgreSQL con RLS), no en el código de la aplicación: aunque hubiera un error de programación, los datos de un negocio no se filtran a otro.',
+  },
+  {
+    titulo: 'Suscripciones con Stripe y control de cuotas',
+    texto:
+      'El cobro de la suscripción se procesa con Stripe y el uso del asistente IA se administra con cuotas por cliente (Redis), de modo que los costos del servicio quedan bajo control desde el diseño.',
+  },
+  {
+    titulo: 'Dashboards D3 a medida',
+    texto:
+      'Las gráficas se construyen a medida con D3 para contar la historia del negocio — horas pico, comparativas contra el promedio, métodos de pago — en lugar de usar plantillas genéricas.',
+  },
+];
+
+const demuestra = [
+  'Arquitectura de datos seria: el aislamiento por cliente vive en la base de datos (Row-Level Security), y las consultas ocurren solo en el servidor. La confidencialidad de la información de cada negocio no depende de buenas intenciones, sino de arquitectura.',
+  'IA responsable, con el factor humano al centro: el asistente responde en español, cita la fuente de cada cifra y está diseñado para no inventar métricas. La decisión sigue siendo del dueño; el sistema solo le acerca la evidencia.',
+  'Producto vivo conectado a sistemas reales: no opera con datos de demostración — recibe en tiempo real las ventas de un restaurante que trabaja a diario con un POS de Autónoma desde febrero de 2026.',
+];
+
+const stack = [
+  'Next.js 16',
+  'TypeScript',
+  'Tailwind CSS 4',
+  'Supabase · PostgreSQL',
+  'Row-Level Security',
+  'Stripe',
+  'D3.js',
+  'GPT-4o-mini',
+  'Cube.js (capa semántica)',
+  'Redis (Upstash)',
+  'Vercel',
+];
+
+const metricas = [
+  { valor: 71, sufijo: '', etiqueta: 'commits' },
+  { valor: 78500, sufijo: '+', etiqueta: 'líneas de código' },
+];
+---
+
+<MainLayout
+  title="Analítica de negocios — dashboards y asistente IA"
+  description="Plataforma de analítica de Autónoma: dashboards en tiempo real y Autonomito, un asistente IA que responde en español citando datos reales del negocio, mediado por una capa semántica para no inventar cifras. Multi-tenant con Row-Level Security, conectada en vivo a un restaurante en producción."
+>
+  <!-- BREADCRUMB -->
+  <nav class="mb-8 reveal" aria-label="Miga de pan">
+    <a href="/autonoma" class="text-sm font-mono text-slate-400 hover:text-cyan-400 transition-colors">
+      ← Autónoma
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="mb-16">
+    <div class="flex flex-wrap items-center gap-3 mb-5 reveal">
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-green-400 bg-green-400/10 border border-green-400/20 rounded-full">
+        ● En producción · Vercel
+      </span>
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-cyan-300 bg-cyan-400/10 border border-cyan-400/20 rounded-full">
+        SaaS multi-tenant
+      </span>
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-slate-300 bg-slate-800/80 border border-slate-700 rounded-full">
+        datos en vivo de un negocio real
+      </span>
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 reveal" style="--reveal-delay: 100ms">
+      Tus datos, en decisiones<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">.</span>
+    </h1>
+    <p class="text-lg text-slate-300 max-w-3xl leading-relaxed mb-4 reveal" style="--reveal-delay: 180ms">
+      Un punto de venta captura cada ticket, cada corte y cada gasto — pero esos datos no sirven de
+      nada si el dueño no puede leerlos. <strong class="text-slate-100">La plataforma de analítica de
+      Autónoma convierte los datos que ya captura el POS en decisiones</strong>: dashboards claros para ver el
+      negocio de un vistazo y un consultor IA — Autonomito — que responde preguntas en español citando
+      cifras reales, mediado por una capa semántica para que no pueda inventarlas.
+    </p>
+    <p class="text-lg text-slate-400 max-w-3xl leading-relaxed reveal" style="--reveal-delay: 260ms">
+      No es una maqueta con datos de laboratorio: la plataforma corre en Vercel y recibe en tiempo
+      real, mediante escritura dual, cada venta del restaurante de barbacoa que opera con un POS de
+      Autónoma desde febrero de 2026.
+    </p>
+  </header>
+
+  <!-- DEMO -->
+  <section class="py-14" id="pruebalo">
+    <h2 class="text-3xl font-bold text-slate-100 mb-3 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> pruébalo — el dashboard y Autonomito
+    </h2>
+    <p class="text-slate-400 max-w-3xl mb-8 reveal" style="--reveal-delay: 80ms">
+      A la izquierda, el dashboard: ventas por hora, tickets y la tendencia de la semana. A la derecha,
+      Autonomito. Cambia el rango de fechas y hazle preguntas: cada cifra que responde sale de los
+      mismos datos que ves en las gráficas — esa coherencia es justamente lo que garantiza la capa
+      semántica.
+    </p>
+    <div class="reveal" style="--reveal-delay: 160ms">
+      <DashboardDemo client:visible />
+    </div>
+  </section>
+
+  <!-- MOCKUPS MÓVILES -->
+  <section class="py-14" id="movil">
+    <h2 class="text-3xl font-bold text-slate-100 mb-3 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> En el teléfono del dueño
+    </h2>
+    <p class="text-slate-400 max-w-3xl mb-10 reveal" style="--reveal-delay: 80ms">
+      El dueño de un negocio no revisa su operación sentado frente a una computadora: la revisa desde
+      el teléfono, entre pendientes. Por eso la plataforma está diseñada primero para el bolsillo — el
+      estado del día en una pantalla y el asistente a una pregunta de distancia.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-3xl mx-auto">
+      {mockups.map((m, i) => (
+        <figure class="reveal" style={`--reveal-delay: ${i * 120}ms`}>
+          <div class="mx-auto max-w-[300px] rounded-[2.25rem] border border-slate-700 bg-slate-950 p-2.5 shadow-xl shadow-slate-950/50 hover:border-cyan-500/50 transition-colors">
+            <div class="mx-auto mb-2 h-1.5 w-16 rounded-full bg-slate-700/70" aria-hidden="true"></div>
+            <img src={m.src} alt={m.alt} class="w-full rounded-[1.6rem]" loading="lazy" />
+          </div>
+          <figcaption class="mt-4 mx-auto max-w-[300px] text-sm text-slate-400 leading-relaxed text-center">
+            {m.caption}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-14" id="incluye">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Qué incluye
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {features.map((f, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${(i % 3) * 100}ms`}
+        >
+          <h3 class="text-lg font-bold text-white mb-3">{f.titulo}</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">{f.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LO QUE DEMUESTRA -->
+  <section class="py-14" id="demuestra">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Lo que este proyecto demuestra
+    </h2>
+    <ul class="space-y-4 max-w-3xl">
+      {demuestra.map((d, i) => (
+        <li
+          class="flex gap-3 bg-slate-800/50 border border-slate-700 rounded-xl p-5 text-sm text-slate-300 leading-relaxed reveal"
+          style={`--reveal-delay: ${i * 90}ms`}
+        >
+          <span class="text-cyan-400 font-mono shrink-0" aria-hidden="true">▸</span>
+          <span>{d}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- STACK -->
+  <section class="py-14" id="stack">
+    <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Stack
+    </h2>
+    <div class="flex flex-wrap gap-2.5 reveal" style="--reveal-delay: 80ms">
+      {stack.map((s) => (
+        <span class="px-3 py-1.5 text-xs font-mono text-slate-300 bg-slate-800/50 border border-slate-700 rounded-lg">
+          {s}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section class="py-14" id="metricas" aria-label="Métricas del proyecto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+      {metricas.map((m, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 text-center hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${i * 80}ms`}
+        >
+          <p class="text-3xl md:text-4xl font-bold font-mono text-white mb-1">
+            <span data-countup={m.valor} data-countup-suffix={m.sufijo}>0</span>
+          </p>
+          <p class="text-xs text-slate-400 leading-snug">{m.etiqueta}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 text-center reveal" id="contacto">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Tu negocio necesita algo así?</h2>
+    <p class="text-slate-400 max-w-xl mx-auto mb-8">
+      Cuéntanos cómo opera tu negocio y te respondemos con una propuesta por fases, con alcance y entregables claros.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
+      <a
+        href="mailto:autonoma507@gmail.com"
+        class="inline-flex justify-center items-center px-8 py-3.5 text-base font-bold text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/20"
+      >
+        autonoma507@gmail.com
+      </a>
+    </div>
+    <a href="/autonoma/pmo" class="text-sm font-mono font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+      Siguiente producto: PMO Autónoma →
+    </a>
+  </section>
+</MainLayout>

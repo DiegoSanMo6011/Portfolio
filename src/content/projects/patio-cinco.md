@@ -1,57 +1,45 @@
 ---
 title: "Patio Cinco — Plataforma operativa para autolavado"
-description: "Sistema en producción para gestión de clientes, vehículos, membresías y facturación, diseñado para operar con usuarios reales y procesos fiscales persistentes."
-tags: ["Product Engineering", "Web Platform", "Backend", "Operations", "Billing", "UX"]
+description: "Plataforma web en producción para un autolavado en Querétaro: gestión de clientes, vehículos, membresías, facturación y datos fiscales. Construida sobre Wix + Velo con backend relacional."
+tags: ["Product Engineering", "Web Platform", "Wix + Velo", "Backend", "Billing", "Operations"]
 date: 2026-01-01
 featured: true
 priority: 2
 siteUrl: "https://www.patiocinco.com/"
 status: "En producción"
 highlights:
-  - "Operación real con clientes y facturación persistente"
-  - "Migración de control básico a plataforma operativa"
-  - "Wix + Velo adaptado con flujos no estándar"
-  - "Base lista para escalar e integrar automatización"
+  - "En producción, en uso diario con clientes reales"
+  - "Migración de hojas de cálculo a un backend relacional"
+  - "Membresías, vehículos y datos fiscales persistentes"
+  - "Implementado sobre Wix + Velo con flujos a la medida"
 ---
 
-## Visión y contexto
-**Patio Cinco** es un negocio reconocido en Querétaro. Fuimos contactados por el dueño para transformar una operación que ya existía, pero con herramientas **básicas y limitadas** (Wix sencillo + Google Sheets en una sola tabla). Junto con Arturo López García entramos como apoyo externo y **propusimos, diseñamos, desarrollamos e implementamos** una plataforma operativa real.
+## Contexto
+**Patio Cinco** es un autolavado establecido en Querétaro. El dueño nos contactó para profesionalizar una operación que ya funcionaba, pero que se apoyaba en herramientas básicas: un sitio Wix sencillo y el control de clientes concentrado en una sola hoja de cálculo de Google Sheets. Junto con **Arturo López García** entramos como equipo externo para proponer, diseñar, desarrollar e implementar una plataforma operativa real, sin frenar el negocio en marcha.
 
-## Problema real que resolvimos
-La operación dependía de procesos manuales, datos dispersos y poca trazabilidad. El objetivo fue **centralizar la operación**, reducir fricción para el cliente y dar al negocio una base sólida para crecer sin perder control.
+## Qué resuelve
+La operación dependía de procesos manuales y datos dispersos, con poca trazabilidad. La plataforma centraliza la gestión del negocio y elimina la dependencia de hojas de cálculo:
 
-## Solución entregada (en producción)
 - **Registro y gestión de clientes** con flujos simples y controlados.
 - **Relación cliente–vehículo–membresía** con estados claros y persistentes.
-- **Facturación funcional** con datos fiscales almacenados y reutilizables.
-- **Operación real con clientes**: el sistema ya se usa día a día.
+- **Facturación** con datos fiscales (RFC, razón social, uso de CFDI) almacenados y reutilizables, sin recaptura manual en cada transacción.
+- **Zona de cliente** para consultar su información, sus vehículos y su membresía.
 
-## Cómo lo hicimos (alto nivel)
-- Plataforma web con módulos separados (registro, zona cliente, vehículos, membresías, facturación).
-- Implementación sobre **Wix + Velo** por requerimiento del cliente, adaptando flujos que no estaban diseñados para este tipo de operación. La restricción exigió flexibilidad y creatividad técnica para lograr el resultado esperado sin comprometer la operación.
-- Backend relacional y autenticado para datos productivos.
-- Flujo end‑to‑end sin pasos manuales del staff para transacciones y facturación.
-- Manejo de errores reales y logging operativo para producción.
+## Alcance técnico
+- Implementación sobre **Wix + Velo** por requerimiento del cliente, adaptando la plataforma a flujos para los que no está pensada de origen. La restricción exigió soluciones a la medida sin comprometer la operación.
+- **Backend relacional y autenticado** que modela clientes, vehículos, membresías y datos fiscales como entidades conectadas y consistentes.
+- Flujo de facturación **end‑to‑end**, sin pasos manuales del staff para reutilizar los datos fiscales del cliente.
+- Manejo de errores y logging operativo pensados para **producción**.
 
 ## Mi rol y aporte
 - Diseño del sistema completo junto a Arturo López García.
-- Implementación de backend, modelos de datos y flujos operativos.
-- Desarrollo de módulos críticos de membresías y facturación.
-- Iteración constante con el cliente (revisiones, cambios y validaciones reales).
+- Implementación del backend, los modelos de datos y los flujos operativos.
+- Desarrollo de los módulos críticos de **membresías** y **facturación**.
+- Iteración continua con el cliente: revisiones, ajustes y validación con usuarios reales.
 
-## Impacto
-- Se reemplazó un control básico por una plataforma **operativa y escalable**.
-- El negocio obtuvo trazabilidad, control fiscal y experiencia consistente para clientes.
-- La base quedó lista para nuevas integraciones sin rehacer el sistema.
-
-## Aprendizajes clave
-- Construcción de sistemas para **usuarios reales** y necesidades de negocio.
-- Comunicación efectiva con cliente y traducción de requerimientos a software.
-- Diseño de plataformas **seguras, escalables y operables** en producción.
-
-## Estado actual
-- Sistema terminado y **en producción**.
-- Operación real con clientes.
-- Base sólida para futuras integraciones físicas y automatización.
+## Resultado y estado
+- Plataforma terminada y **en producción** en [patiocinco.com](https://www.patiocinco.com/), en uso diario con clientes reales.
+- El negocio pasó de un control básico en hojas de cálculo a una operación con **trazabilidad y control fiscal**.
+- La arquitectura relacional deja una base lista para nuevas integraciones y automatización sin rehacer el sistema.
 
 **Sitio público:** disponible en el botón superior del proyecto.

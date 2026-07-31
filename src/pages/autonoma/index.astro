@@ -1,0 +1,369 @@
+---
+// src/pages/autonoma/index.astro — HUB de Autónoma: el "CV empresarial" de la empresa
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// Cifras verificadas (fuente única: hechos del proyecto)
+const cifras = [
+  { valor: 6, sufijo: '', etiqueta: 'productos construidos en 6 meses' },
+  { valor: 3, sufijo: '', etiqueta: 'sistemas en producción con clientes reales' },
+  { valor: 465, sufijo: '', etiqueta: 'commits' },
+  { valor: 74, sufijo: '', etiqueta: 'PRs mergeados' },
+  { valor: 185000, sufijo: '+', etiqueta: 'líneas de código propio' },
+  { valor: 72, sufijo: ' h', etiqueta: 'de operación sin internet' },
+];
+
+const badgeStyles = {
+  produccion: 'text-green-400 bg-green-400/10 border-green-400/20',
+  saas: 'text-cyan-300 bg-cyan-400/10 border-cyan-400/20',
+  base: 'text-blue-300 bg-[#134F9F]/25 border-[#134F9F]/50',
+  interna: 'text-violet-300 bg-violet-400/10 border-violet-400/20',
+} as const;
+
+type Producto = {
+  nombre: string;
+  badge: string;
+  estilo: keyof typeof badgeStyles;
+  cliente: string;
+  descripcion: string;
+  features: string[];
+  href: string;
+  linkLabel: string;
+};
+
+const productos: Producto[] = [
+  {
+    nombre: 'OptiNoma',
+    badge: 'En producción',
+    estilo: 'produccion',
+    cliente: 'Óptica Los Ángeles · Querétaro',
+    descripcion:
+      'Punto de venta para ópticas: catálogo de armazones y micas con graduación, órdenes de laboratorio y etiquetado con código de barras.',
+    features: [
+      'Etiquetas Code128 impresas y leídas con pistola láser',
+      'Tickets térmicos y órdenes de laboratorio con anticipos',
+      'Multi-sucursal, operación sin internet hasta 72 h',
+    ],
+    href: '/autonoma/optinoma',
+    linkLabel: 'Ver caso completo →',
+  },
+  {
+    nombre: 'AutoNoma POS Lite',
+    badge: 'En producción',
+    estilo: 'produccion',
+    cliente: 'Cafetería en Querétaro',
+    descripcion:
+      'Punto de venta ligero para micro-negocios: una venta completa —producto, modificadores y cobro— en menos de 15 segundos.',
+    features: [
+      'Numpad táctil y flujo de cobro pensado para pantalla',
+      'Corte de caja con folio consecutivo',
+      'Acceso por PIN con bloqueo por intentos fallidos',
+    ],
+    href: '/autonoma/pos-lite',
+    linkLabel: 'Ver caso completo →',
+  },
+  {
+    nombre: 'POS Barbacoa',
+    badge: 'En producción',
+    estilo: 'produccion',
+    cliente: 'Restaurante de barbacoa',
+    descripcion:
+      'El primero de la familia en producción: opera a diario desde febrero de 2026 sobre una Raspberry Pi, con meses de datos auditados.',
+    features: [
+      'Operación diaria real desde febrero de 2026',
+      'Auditoría forense de cortes de caja',
+      'Datos en tiempo real hacia el dashboard SaaS',
+    ],
+    href: '/autonoma/barbacoa',
+    linkLabel: 'Ver caso completo →',
+  },
+  {
+    nombre: 'Analítica de negocios',
+    badge: 'SaaS en línea',
+    estilo: 'saas',
+    cliente: 'Recibe datos reales del restaurante de barbacoa',
+    descripcion:
+      'Plataforma de analítica para los negocios que usan nuestros POS: dashboards renderizados en servidor y asistente de IA sobre tus cifras.',
+    features: [
+      'Asistente IA con capa semántica: no inventa cifras',
+      'Multi-tenant con Row-Level Security',
+      'Suscripciones con Stripe y control de cuotas',
+    ],
+    href: '/autonoma/analitica',
+    linkLabel: 'Ver caso completo →',
+  },
+  {
+    nombre: 'AutoNoma POS',
+    badge: 'Producto base',
+    estilo: 'base',
+    cliente: 'Base de toda la familia POS',
+    descripcion:
+      'La base para restaurantes con servicio a mesas: comandas, inventario y control de personal, con documentación de ingeniería propia.',
+    features: [
+      'Comandas multi-mesa con modificadores',
+      'Inventario con recetas y control de gastos',
+      'Roles por PIN, propinas por mesero y corte',
+    ],
+    href: '/autonoma/pos-lite',
+    linkLabel: 'Ver familia POS →',
+  },
+  {
+    nombre: 'PMO Autónoma',
+    badge: 'Herramienta interna',
+    estilo: 'interna',
+    cliente: 'Uso interno · dirección de proyectos',
+    descripcion:
+      'Aplicación web que codifica nuestro estándar de dirección de proyectos, sembrada con el proyecto real de la óptica.',
+    features: [
+      'Estimaciones PERT y ruta crítica (CPM)',
+      'WBS, RACI, Gantt, Kanban y valor ganado (EVM)',
+      'Control de cambios y actas del proyecto',
+    ],
+    href: '/autonoma/pmo',
+    linkLabel: 'Ver caso completo →',
+  },
+];
+
+// Método de trabajo (práctica real, documentada en la Fase 1 de Óptica Los Ángeles)
+const metodo = [
+  {
+    titulo: 'Propuesta por fases',
+    texto: 'El alcance se divide en fases con entregables claros; el cliente decide fase por fase, sin comprometerse a todo desde el día uno.',
+  },
+  {
+    titulo: 'Acta de constitución',
+    texto: 'Objetivos, supuestos y criterios de aceptación quedan por escrito y firmados antes de escribir una sola línea de código.',
+  },
+  {
+    titulo: 'Plan de dirección (PMBOK)',
+    texto: 'Registro de interesados, WBS, cronograma con ruta crítica (CPM), estimaciones PERT y registro de riesgos con planes de respuesta.',
+  },
+  {
+    titulo: 'Construcción con control',
+    texto: 'Desarrollo con pull requests revisados y CI/CD: deploy automático y smoke tests en cada push, directo al hardware de producción.',
+  },
+  {
+    titulo: 'Instalación en sitio',
+    texto: 'Cada componente se instala y verifica frente al cliente, con acta de instalación firmada componente por componente.',
+  },
+  {
+    titulo: 'Capacitación y manual',
+    texto: 'El personal aprende a operar el sistema con capacitación en sitio y un manual de usuario propio del negocio.',
+  },
+  {
+    titulo: 'Acta de cierre y garantía',
+    texto: 'El proyecto cierra con acta de cierre, lecciones aprendidas y una garantía por escrito de lo entregado.',
+  },
+];
+
+const confianza = [
+  {
+    titulo: 'Tus datos, aislados',
+    texto: 'Backend multi-tenant con Row-Level Security a nivel de base de datos: cada cliente ve exclusivamente su información. La confidencialidad se pacta por contrato.',
+  },
+  {
+    titulo: 'Operación sin internet',
+    texto: 'Los POS operan hasta 72 horas sin conexión, con cola local y sincronización automática cada 30 segundos. La venta no se detiene porque se cayó el internet.',
+  },
+  {
+    titulo: 'Entrega verificable',
+    texto: 'Instalación con actas firmadas componente por componente, capacitación con manual de usuario y garantía por escrito. Todo queda documentado y auditable.',
+  },
+];
+---
+
+<MainLayout
+  title="Autónoma"
+  description="Autónoma: sistemas de punto de venta y analítica para negocios mexicanos. 6 productos en 6 meses, 3 en producción con clientes reales y gestión de proyectos formal (PMBOK)."
+>
+  <!-- 1. HERO -->
+  <div class="flex flex-col items-center justify-center text-center pt-16 mb-20">
+    <img
+      src="/assets/img/autonoma/logo-autonoma-white.png"
+      alt="Logo de Autónoma"
+      width="877"
+      height="772"
+      class="h-32 md:h-40 w-auto mb-6 reveal"
+    />
+    <p class="font-mono text-xs md:text-sm tracking-[0.35em] text-cyan-400/90 uppercase mb-6 reveal" style="--reveal-delay: 100ms">
+      Automatiza. Controla. Crece.
+    </p>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mb-6 reveal" style="--reveal-delay: 180ms">
+      Sistemas de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">punto de venta y analítica</span> para negocios mexicanos
+    </h1>
+    <p class="text-lg text-slate-400 max-w-2xl leading-relaxed mb-8 reveal" style="--reveal-delay: 260ms">
+      Autónoma es una empresa de ingeniería de software fundada en 2026 en Querétaro por cuatro ingenieros.
+      No solo construimos sistemas: los <strong class="text-slate-200">operamos en producción</strong>, con una
+      metodología formal de gestión de proyectos que deja evidencia de cada entrega.
+    </p>
+    <span class="px-4 py-1.5 text-xs font-mono font-medium tracking-wider text-green-400 uppercase bg-green-400/10 rounded-full border border-green-400/20 reveal" style="--reveal-delay: 340ms">
+      ● 3 sistemas en producción
+    </span>
+  </div>
+
+  <!-- 2. CIFRAS -->
+  <section class="py-10 reveal" aria-label="Cifras de Autónoma">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      {cifras.map((c, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-5 text-center hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${i * 80}ms`}
+        >
+          <p class="text-3xl font-bold font-mono text-white mb-1">
+            <span data-countup={c.valor} data-countup-suffix={c.sufijo}>0</span>
+          </p>
+          <p class="text-xs text-slate-400 leading-snug">{c.etiqueta}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 3. PRODUCTOS -->
+  <section class="py-14" id="productos">
+    <h2 class="text-3xl font-bold text-slate-100 mb-3 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Productos
+    </h2>
+    <p class="text-slate-400 max-w-3xl mb-10 reveal" style="--reveal-delay: 80ms">
+      Seis sistemas construidos entre enero y julio de 2026. Tres operan hoy con clientes reales; el resto sostiene la plataforma y el estándar con el que trabajamos.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {productos.map((p, i) => (
+        <article
+          class="flex flex-col bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${(i % 3) * 100}ms`}
+        >
+          <div class="flex items-start justify-between gap-3 mb-2">
+            <h3 class="text-xl font-bold text-white">{p.nombre}</h3>
+            <span class={`shrink-0 px-2.5 py-1 text-[11px] font-mono font-medium tracking-wide uppercase rounded-full border ${badgeStyles[p.estilo]}`}>
+              {p.badge}
+            </span>
+          </div>
+          <p class="text-xs font-mono text-slate-400 mb-3">{p.cliente}</p>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">{p.descripcion}</p>
+          <ul class="space-y-2 mb-5">
+            {p.features.map((f) => (
+              <li class="flex gap-2 text-sm text-slate-400 leading-snug">
+                <span class="text-cyan-400 mt-0.5" aria-hidden="true">▸</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <a href={p.href} class="mt-auto text-sm font-mono font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+            {p.linkLabel}
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- 4. MÉTODO -->
+  <section class="py-14" id="metodo">
+    <h2 class="text-3xl font-bold text-slate-100 mb-3 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Así trabajamos un proyecto
+    </h2>
+    <p class="text-slate-400 max-w-3xl mb-10 reveal" style="--reveal-delay: 80ms">
+      No es una promesa de folleto: es la práctica documentada de la Fase 1 de Óptica Los Ángeles, entregada
+      con acta de cierre en julio de 2026 y desviación de costo de $0. El mismo estándar corre en nuestra
+      <a href="/autonoma/pmo" class="text-cyan-400 hover:text-cyan-300 underline underline-offset-4">PMO propia</a>.
+    </p>
+    <ol class="relative border-l border-slate-700 ml-3 space-y-8 mb-12">
+      {metodo.map((paso, i) => (
+        <li class="pl-8 relative reveal" style={`--reveal-delay: ${i * 90}ms`}>
+          <span class="absolute -left-[15px] top-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 border border-cyan-500/50 text-cyan-400 font-mono text-xs font-bold" aria-hidden="true">
+            {i + 1}
+          </span>
+          <h3 class="text-lg font-bold text-slate-100 mb-1">{paso.titulo}</h3>
+          <p class="text-sm text-slate-400 leading-relaxed max-w-2xl">{paso.texto}</p>
+        </li>
+      ))}
+    </ol>
+    <figure class="bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden reveal">
+      <div class="overflow-x-auto">
+        <img
+          src="/assets/img/autonoma/gantt-optica.png"
+          alt="Cronograma tipo Gantt de la Fase 1 del proyecto de Óptica Los Ángeles"
+          width="8192"
+          height="1545"
+          class="w-full min-w-[720px]"
+          loading="lazy"
+        />
+      </div>
+      <figcaption class="px-4 py-3 text-sm font-mono text-slate-400 text-center border-t border-slate-700/70">
+        Cronograma real (CPM) de la Fase 1 de Óptica Los Ángeles
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- 5. CONFIANZA -->
+  <section class="py-14" id="confianza">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Por qué confiar en nosotros
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {confianza.map((c, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${i * 100}ms`}
+        >
+          <h3 class="text-lg font-bold text-white mb-3">{c.titulo}</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">{c.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 6. EQUIPO / DIRECCIÓN -->
+  <section class="py-14" id="direccion">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Dirección de proyectos
+    </h2>
+    <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 md:p-8 flex flex-col sm:flex-row gap-6 md:gap-8 items-start reveal">
+      <img
+        src="/assets/img/profile.jpg"
+        alt="Diego Gerardo Sánchez Moreno"
+        width="800"
+        height="800"
+        class="w-28 h-28 md:w-32 md:h-32 rounded-xl object-cover border border-slate-700 shrink-0"
+        loading="lazy"
+      />
+      <div>
+        <h3 class="text-xl font-bold text-white mb-1">Diego Gerardo Sánchez Moreno</h3>
+        <p class="text-sm font-mono text-cyan-400 mb-4">Cofundador · Director de Proyectos</p>
+        <ul class="space-y-1.5 text-sm text-slate-300 mb-5">
+          <li>Ingeniero en Robótica y Sistemas Digitales — Tecnológico de Monterrey</li>
+          <li>Cédula profesional <span class="font-mono text-slate-200">15796458</span></li>
+          <li>Certificado en Gestión de Proyectos — Tecnológico de Monterrey</li>
+        </ul>
+        <p class="text-sm text-slate-400 leading-relaxed mb-5 max-w-2xl">
+          Detrás de cada entrega hay un equipo de cuatro ingenieros que diseña, construye y opera los sistemas.
+          La dirección de cada proyecto tiene nombre, cédula y credenciales verificables.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/about" class="text-sm font-mono font-medium text-cyan-400 hover:text-cyan-300 transition-colors">Conocer a Diego →</a>
+          <a href="/certificates" class="text-sm font-mono font-medium text-cyan-400 hover:text-cyan-300 transition-colors">Ver credenciales →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CTA -->
+  <section class="py-16 text-center reveal" id="contacto">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Hablamos de tu proyecto?</h2>
+    <p class="text-slate-400 max-w-xl mx-auto mb-8">
+      Cuéntanos qué necesita tu negocio. Respondemos con una propuesta por fases, con alcance y entregables claros.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a
+        href="mailto:autonoma507@gmail.com"
+        class="inline-flex justify-center items-center px-8 py-3.5 text-base font-bold text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/20"
+      >
+        autonoma507@gmail.com
+      </a>
+      <a
+        href="/certificates"
+        class="inline-flex justify-center items-center px-8 py-3.5 text-base font-medium text-slate-200 bg-slate-900 border border-slate-700 rounded-lg hover:border-cyan-400 hover:text-white transition-all"
+      >
+        Ver credenciales
+      </a>
+    </div>
+  </section>
+</MainLayout>

@@ -4,40 +4,224 @@ import { getEntry } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 import CertificateItem from '../components/CertificateItem.astro';
 
-// 1. Intentamos obtener el archivo
+// Reconocimientos y certificaciones tecnicas (coleccion existente)
 const awardsEntry = await getEntry('certificates', 'awards');
-
-// 2. SAFETY CHECK: Si no existe, avisamos (esto quita el error rojo)
 if (!awardsEntry) {
   throw new Error('No se encontró el archivo src/content/certificates/awards.json');
 }
+const certificates = awardsEntry.data;
 
-// 3. Ahora TypeScript sabe seguro que "awardsEntry" existe
-const certificates = awardsEntry.data; 
+// Constancias de Gestion de Proyectos — Tecnologico de Monterrey (may–jun 2026)
+type PmCertificate = {
+  title: string;
+  date: string;
+  hours: string;
+  pdfUrl: string;
+};
+
+const pmCertificates: PmCertificate[] = [
+  {
+    title: 'Examen Integrador Fundamentos de la Gestión de Proyectos',
+    date: '12 jun 2026',
+    hours: '1.5 h',
+    pdfUrl: '/assets/docs/credenciales/tec-pm-fundamentos-gestion-proyectos.pdf',
+  },
+  {
+    title: 'Gestión del Alcance',
+    date: '2 jun 2026',
+    hours: '10 h',
+    pdfUrl: '/assets/docs/credenciales/tec-pm-gestion-alcance.pdf',
+  },
+  {
+    title: 'Gestión de Costos',
+    date: '30 may 2026',
+    hours: '10 h',
+    pdfUrl: '/assets/docs/credenciales/tec-pm-gestion-costos.pdf',
+  },
+  {
+    title: 'Gestión del Tiempo y Recursos',
+    date: '31 may 2026',
+    hours: '10 h',
+    pdfUrl: '/assets/docs/credenciales/tec-pm-gestion-tiempo-recursos.pdf',
+  },
+  {
+    title: 'Ejecución, Monitoreo y Control',
+    date: '1 jun 2026',
+    hours: '10 h',
+    pdfUrl: '/assets/docs/credenciales/tec-pm-ejecucion-monitoreo-control.pdf',
+  },
+];
+
+// Insignias digitales verificables (Parchment) — sin modulo asignado
+const parchmentBadges: string[] = [
+  'https://badges.parchment.com/public/credentials/XGE-LCVmRVOHfTe3cY77PA',
+  'https://badges.parchment.com/public/credentials/7MEbRYhaTjKuTXzu4nbCvQ',
+  'https://badges.parchment.com/public/credentials/AhfPw7KSTEeVQIukZBliLg',
+  'https://badges.parchment.com/public/credentials/CuxR0D6nSbSYMQjZdY6msQ',
+];
 ---
-<MainLayout title="Certificaciones y Logros">
-  <div class="max-w-3xl mx-auto">
-    
-    <header class="mb-12 text-center">
+<MainLayout
+  title="Credenciales"
+  description="Cédula profesional de Ingeniería en Robótica y Sistemas Digitales, formación en gestión de proyectos del Tecnológico de Monterrey y reconocimientos técnicos verificables."
+>
+  <div class="max-w-4xl mx-auto">
+
+    <header class="mb-14 text-center reveal">
       <h1 class="text-4xl font-extrabold text-white mb-4">
-        Reconocimientos <span class="text-cyan-400">.</span>
+        Credenciales <span class="text-cyan-400">.</span>
       </h1>
-      <p class="text-slate-400 text-lg">
-        Validación académica, certificaciones técnicas y premios destacados.
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+        Cédula profesional, formación en gestión de proyectos y reconocimientos técnicos.
+        Cada credencial es verificable: documento oficial o registro público en línea.
       </p>
     </header>
 
-    <div class="space-y-4">
-      {certificates.map((cert) => (
-        <CertificateItem 
-          title={cert.title}
-          issuer={cert.issuer}
-          date={cert.date}
-          url={cert.url}
-          badgeText={cert.badgeText}
-        />
-      ))}
-    </div>
+    <!-- 1. Cedula profesional -->
+    <section class="mb-16" aria-labelledby="cedula-heading">
+      <h2 id="cedula-heading" class="text-2xl font-bold text-white mb-6 reveal">
+        <span class="text-cyan-400 font-mono">/</span> Cédula profesional
+      </h2>
 
-    </div>
+      <div
+        class="reveal p-6 sm:p-8 bg-slate-800/50 border border-cyan-500/30 rounded-xl flex flex-col sm:flex-row gap-6 items-start"
+        style="--reveal-delay: 90ms"
+      >
+        <div
+          class="flex-shrink-0 w-14 h-14 rounded-full bg-[#134F9F]/15 border border-cyan-500/30 flex items-center justify-center"
+          aria-hidden="true"
+        >
+          <svg class="w-7 h-7 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
+          </svg>
+        </div>
+
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-3 mb-2">
+            <span class="px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider text-cyan-200 bg-cyan-900/50 rounded border border-cyan-500/20">
+              Registro oficial
+            </span>
+            <span class="text-sm text-slate-500 font-mono">30 de julio de 2026</span>
+          </div>
+
+          <h3 class="text-xl font-bold text-slate-100">
+            Cédula Profesional <span class="font-mono text-cyan-400">15796458</span>
+          </h3>
+          <p class="text-slate-300 mt-1">
+            Licenciatura en Ingeniería en Robótica y Sistemas Digitales
+          </p>
+          <p class="text-slate-400 text-sm mt-1">
+            Tecnológico de Monterrey · SEP, Dirección General de Profesiones
+          </p>
+
+          <div class="mt-5 flex flex-wrap items-center gap-4">
+            <a
+              href="/assets/docs/credenciales/cedula-profesional-15796458.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-900 bg-cyan-400 hover:bg-cyan-300 px-4 py-2.5 rounded-md shadow-lg shadow-cyan-500/20 transition-colors"
+            >
+              Ver cédula (PDF)
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+            <a
+              href="https://www.gob.mx/cedulaprofesional"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-cyan-400 underline underline-offset-4 decoration-slate-600 hover:decoration-cyan-400 transition-colors"
+            >
+              Verificar en gob.mx/cedulaprofesional
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Gestion de Proyectos — Tec de Monterrey -->
+    <section class="mb-16" aria-labelledby="pm-heading">
+      <h2 id="pm-heading" class="text-2xl font-bold text-white mb-2 reveal">
+        <span class="text-cyan-400 font-mono">/</span> Gestión de Proyectos — Tecnológico de Monterrey
+      </h2>
+      <p class="text-slate-400 mb-6 reveal" style="--reveal-delay: 60ms">
+        Programa de formación en dirección de proyectos (mayo–junio 2026): cinco constancias
+        con un total de 41.5 horas, respaldadas por insignias digitales verificables.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {pmCertificates.map((cert, index) => (
+          <div
+            class:list={[
+              'reveal group p-5 bg-slate-800/30 border border-slate-700/50 rounded-xl hover:border-cyan-500/30 hover:bg-slate-800 transition-all duration-300 flex flex-col',
+              index === 0 && 'sm:col-span-2',
+            ]}
+            style={`--reveal-delay: ${90 + index * 90}ms`}
+          >
+            <div class="flex items-center gap-3 mb-2">
+              <span class="px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider text-cyan-200 bg-cyan-900/50 rounded border border-cyan-500/20">
+                Constancia
+              </span>
+              <span class="text-sm text-slate-500 font-mono">{cert.date}</span>
+              <span class="text-sm text-slate-500 font-mono ml-auto">{cert.hours}</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-100 group-hover:text-cyan-400 transition-colors flex-1">
+              {cert.title}
+            </h3>
+            <div class="mt-4">
+              <a
+                href={cert.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-cyan-400 hover:text-slate-900 border border-cyan-500/40 hover:bg-cyan-400 px-3 py-2 rounded-md transition-colors"
+              >
+                Ver constancia (PDF)
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8 reveal" style="--reveal-delay: 120ms">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">
+          Insignias digitales verificables (Parchment)
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          {parchmentBadges.map((badgeUrl, index) => (
+            <a
+              href={badgeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-sm text-slate-300 hover:border-cyan-500/50 hover:text-cyan-400 transition-colors"
+            >
+              <span class="font-mono text-xs text-slate-500">{String(index + 1).padStart(2, '0')}</span>
+              Insignia verificada · Tec de Monterrey
+              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Reconocimientos y certificaciones tecnicas -->
+    <section aria-labelledby="awards-heading">
+      <h2 id="awards-heading" class="text-2xl font-bold text-white mb-6 reveal">
+        <span class="text-cyan-400 font-mono">/</span> Reconocimientos y certificaciones técnicas
+      </h2>
+
+      <div class="space-y-4">
+        {certificates.map((cert, index) => (
+          <div class="reveal" style={`--reveal-delay: ${Math.min(index * 60, 240)}ms`}>
+            <CertificateItem
+              title={cert.title}
+              issuer={cert.issuer}
+              date={cert.date}
+              url={cert.url}
+              badgeText={cert.badgeText}
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </div>
 </MainLayout>

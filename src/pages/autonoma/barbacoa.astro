@@ -1,0 +1,241 @@
+---
+// src/pages/autonoma/barbacoa.astro — Caso POS Barbacoa: el primer sistema de Autónoma en producción
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const timeline = [
+  {
+    fecha: 'Febrero 2026',
+    titulo: 'Piloto en la caja real',
+    texto:
+      'El POS se instala en una Raspberry Pi conectada a la caja del restaurante: interfaz full-screen, captura rápida de comandas y corte de caja al final del día. Desde el primer fin de semana cobra ventas reales — sin ambiente de pruebas, sin red de seguridad.',
+    destacado: false,
+  },
+  {
+    fecha: 'Feb → Jun 2026',
+    titulo: 'Operación real, semana tras semana',
+    texto:
+      'Ventas, gastos, propinas y cortes de caja quedan registrados en cada jornada. Los backups diarios respaldan la información y, cuando el internet falla, la cola local sigue guardando cada venta hasta sincronizarla. Meses de datos transaccionales reales acumulados.',
+    destacado: false,
+  },
+  {
+    fecha: 'Junio 2026',
+    titulo: 'Auditoría forense de los cortes de caja',
+    texto:
+      'Revisión con rigor contable de ~5 meses de cortes de caja, transacción por transacción. Resultado: detección y corrección de 2 bugs en la fórmula de efectivo teórico y una propuesta de caja chica estándar para que el corte cuadre igual todos los días.',
+    destacado: false,
+  },
+  {
+    fecha: 'Junio 2026',
+    titulo: 'Dual-write: el POS alimenta la nube',
+    texto:
+      'Cada venta se escribe a la vez en el equipo local y en la plataforma de analítica de Autónoma. El mismo sistema que cobra en el mostrador ahora alimenta un dashboard en tiempo real.',
+    destacado: true,
+  },
+];
+
+const features = [
+  {
+    titulo: 'Cola local con reintentos cada 30 s',
+    texto:
+      'Si el internet se cae, cada venta se guarda primero en una cola local (SQLite) dentro del equipo y se reintenta la sincronización cada 30 segundos hasta confirmar que llegó a la nube. El negocio sigue cobrando y no se pierde nada.',
+  },
+  {
+    titulo: 'Backups diarios en JSON',
+    texto:
+      'Todos los días el sistema exporta una copia completa de los datos locales. Ante una falla de hardware o de energía, la información del negocio tiene respaldo verificable y restaurable.',
+  },
+  {
+    titulo: 'Tickets regenerables',
+    texto:
+      'Cualquier ticket puede volver a emitirse después de la venta: si el cliente lo pide de nuevo o algo falla en el momento, la evidencia de la transacción no se pierde.',
+  },
+  {
+    titulo: 'Actualización remota',
+    texto:
+      'Las mejoras y correcciones llegan a la Raspberry Pi del restaurante sin visitas presenciales y sin interrumpir la operación. El sistema que se instaló en febrero no es el mismo que opera hoy: es mejor.',
+  },
+];
+
+const demuestra = [
+  'Operación continua real: el sistema lleva la caja de un restaurante desde febrero de 2026 — más de cinco meses cobrando ventas reales, no un prototipo ni una demo.',
+  'Los datos del POS resisten auditoría contable: ~5 meses de cortes de caja se revisaron transacción por transacción, y el proceso derivó en correcciones documentadas (2 bugs en la fórmula de efectivo teórico) y en un estándar de caja chica.',
+  'Mejora continua sobre un sistema vivo: cada hallazgo de la operación se convierte en una corrección desplegada de forma remota, sin detener el negocio.',
+  'Integración local → nube: el POS físico alimenta la plataforma de analítica en tiempo real — la dueña consulta las ventas de su negocio desde el celular.',
+];
+
+const stack = ['Python', 'SQLite', 'Supabase · PostgreSQL', 'Raspberry Pi'];
+
+const metricas = [
+  { valor: 89, sufijo: '', etiqueta: 'commits sobre el sistema en producción' },
+  { valor: 17200, sufijo: '+', etiqueta: 'líneas de código' },
+  { valor: 5, sufijo: '', etiqueta: 'meses de datos transaccionales auditados' },
+  { valor: 0, sufijo: '', etiqueta: 'ventas perdidas por fallas de internet' },
+];
+---
+
+<MainLayout
+  title="POS Barbacoa — 5 meses de operación real"
+  description="POS Barbacoa: el primer sistema de Autónoma en producción. Punto de venta full-screen en Raspberry Pi que opera la caja de un restaurante de barbacoa desde febrero de 2026, con ~5 meses de cortes de caja auditados y conexión en tiempo real a la nube."
+>
+  <!-- BREADCRUMB -->
+  <nav class="mb-8 reveal" aria-label="Miga de pan">
+    <a href="/autonoma" class="text-sm font-mono text-slate-400 hover:text-cyan-400 transition-colors">
+      ← Autónoma
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="mb-16">
+    <div class="flex flex-wrap items-center gap-3 mb-5 reveal">
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-green-400 bg-green-400/10 border border-green-400/20 rounded-full">
+        ● En producción
+      </span>
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-cyan-300 bg-cyan-400/10 border border-cyan-400/20 rounded-full">
+        Restaurante de barbacoa
+      </span>
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-slate-300 bg-slate-800/80 border border-slate-700 rounded-full">
+        desde febrero 2026
+      </span>
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 reveal" style="--reveal-delay: 100ms">
+      POS Barbacoa<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">.</span>
+    </h1>
+    <p class="text-lg text-slate-300 max-w-3xl leading-relaxed mb-4 reveal" style="--reveal-delay: 180ms">
+      Antes de vender sistemas de punto de venta, Autónoma se probó a sí misma.
+      <strong class="text-slate-100">POS Barbacoa es el primer sistema de la casa en producción</strong>:
+      un punto de venta full-screen corriendo en una Raspberry Pi que opera la caja de un restaurante
+      de barbacoa todos los fines de semana desde febrero de 2026.
+    </p>
+    <p class="text-lg text-slate-400 max-w-3xl leading-relaxed reveal" style="--reveal-delay: 260ms">
+      Esta página no tiene demo: su evidencia es la historia. Cinco meses de ventas, cortes de caja y
+      datos reales que después resistieron una auditoría contable — y que hoy alimentan, venta por
+      venta, la plataforma de analítica de Autónoma.
+    </p>
+  </header>
+
+  <!-- TIMELINE -->
+  <section class="py-14" id="historia">
+    <h2 class="text-3xl font-bold text-slate-100 mb-3 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> La historia — 5 meses de operación real
+    </h2>
+    <p class="text-slate-400 max-w-3xl mb-10 reveal" style="--reveal-delay: 80ms">
+      De piloto de fin de semana a sistema auditado y conectado a la nube. Cada etapa ocurrió en un
+      negocio abierto, con clientes formados frente a la caja.
+    </p>
+    <div class="relative max-w-3xl">
+      <div class="absolute left-[7px] top-2 bottom-2 w-0.5 bg-slate-700" aria-hidden="true"></div>
+      <ol class="space-y-10">
+        {timeline.map((t, i) => (
+          <li class="relative pl-11 reveal" style={`--reveal-delay: ${i * 110}ms`}>
+            <span
+              class={`absolute left-0 top-1 w-4 h-4 rounded-full border-2 ${
+                t.destacado ? 'bg-cyan-400 border-cyan-400' : 'bg-slate-900 border-cyan-400/60'
+              }`}
+              aria-hidden="true"
+            ></span>
+            <p class="text-[11px] font-mono font-medium tracking-wider uppercase text-cyan-300 mb-1.5">
+              {t.fecha}
+            </p>
+            <h3 class="text-lg font-bold text-white mb-2">{t.titulo}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{t.texto}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+    <div class="mt-12 max-w-3xl bg-[#134F9F]/10 border border-[#134F9F]/60 rounded-xl p-6 reveal">
+      <p class="text-base md:text-lg text-slate-100 font-semibold leading-relaxed">
+        El POS físico alimenta la nube: cada venta cobrada en el mostrador aparece en el dashboard en
+        tiempo real, y la dueña ve su negocio desde el celular.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONFIABILIDAD EN NÚMEROS -->
+  <section class="py-14" id="numeros" aria-label="Confiabilidad en números">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Confiabilidad en números
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {metricas.map((m, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 text-center hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${i * 80}ms`}
+        >
+          <p class="text-3xl md:text-4xl font-bold font-mono text-white mb-1">
+            <span data-countup={m.valor} data-countup-suffix={m.sufijo}>0</span>
+          </p>
+          <p class="text-xs text-slate-400 leading-snug">{m.etiqueta}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-14" id="incluye">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Qué incluye
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {features.map((f, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${(i % 2) * 100}ms`}
+        >
+          <h3 class="text-lg font-bold text-white mb-3">{f.titulo}</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">{f.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LO QUE DEMUESTRA -->
+  <section class="py-14" id="demuestra">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Lo que este proyecto demuestra
+    </h2>
+    <ul class="space-y-4 max-w-3xl">
+      {demuestra.map((d, i) => (
+        <li
+          class="flex gap-3 bg-slate-800/50 border border-slate-700 rounded-xl p-5 text-sm text-slate-300 leading-relaxed reveal"
+          style={`--reveal-delay: ${i * 90}ms`}
+        >
+          <span class="text-cyan-400 font-mono shrink-0" aria-hidden="true">▸</span>
+          <span>{d}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- STACK -->
+  <section class="py-14" id="stack">
+    <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Stack
+    </h2>
+    <div class="flex flex-wrap gap-2.5 reveal" style="--reveal-delay: 80ms">
+      {stack.map((s) => (
+        <span class="px-3 py-1.5 text-xs font-mono text-slate-300 bg-slate-800/50 border border-slate-700 rounded-lg">
+          {s}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 text-center reveal" id="contacto">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Tu negocio necesita algo así?</h2>
+    <p class="text-slate-400 max-w-xl mx-auto mb-8">
+      Cuéntanos cómo opera tu negocio y te respondemos con una propuesta por fases, con alcance y entregables claros.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
+      <a
+        href="mailto:autonoma507@gmail.com"
+        class="inline-flex justify-center items-center px-8 py-3.5 text-base font-bold text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/20"
+      >
+        autonoma507@gmail.com
+      </a>
+    </div>
+    <a href="/autonoma/analitica" class="text-sm font-mono font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+      Siguiente: Analítica de negocios →
+    </a>
+  </section>
+</MainLayout>

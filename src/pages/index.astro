@@ -18,9 +18,48 @@ const sortedProjects = allProjects.sort((a, b) => {
 
 // Definimos los badges aquí para mantener el HTML limpio
 const skillBadges = ["Robotics Software", "Computer Vision", "Full Stack", "Embedded Systems"];
+
+// Stats de Autónoma (fuente: hechos verificados)
+const autonomaStats = [
+  { value: 6, suffix: "", label: "productos construidos" },
+  { value: 3, suffix: "", label: "sistemas en producción" },
+  { value: 465, suffix: "", label: "commits" },
+  { value: 185000, suffix: "+", label: "líneas de código" },
+];
+
+// Casos destacados de Autónoma
+const autonomaCasos = [
+  {
+    nombre: "OptiNoma",
+    href: "/autonoma/optinoma",
+    badge: "En producción",
+    badgeClass: "text-green-400 bg-green-400/10 border-green-400/20",
+    descripcion:
+      "POS para ópticas: etiquetas de código de barras, órdenes de laboratorio y operación sin internet. En Óptica Los Ángeles, Querétaro.",
+  },
+  {
+    nombre: "POS Lite",
+    href: "/autonoma/pos-lite",
+    badge: "En producción",
+    badgeClass: "text-green-400 bg-green-400/10 border-green-400/20",
+    descripcion:
+      "POS para cafeterías y micro-negocios: venta en menos de 15 segundos, corte de caja con folio y operación sin internet. En una cafetería de Querétaro.",
+  },
+  {
+    nombre: "Analítica de negocios",
+    href: "/autonoma/analitica",
+    badge: "Plataforma SaaS",
+    badgeClass: "text-cyan-400 bg-cyan-400/10 border-cyan-400/20",
+    descripcion:
+      "Analítica de negocio con dashboards alimentados en tiempo real por el POS en producción y asistente de IA que responde sobre las ventas.",
+  },
+];
 ---
 
-<MainLayout title="Inicio">
+<MainLayout
+  title="Inicio"
+  description="Portafolio de Diego Gerardo: ingeniero en Robótica y Sistemas Digitales, cofundador de Autónoma. Sistemas POS en producción, ROS 2, visión artificial y sistemas embebidos."
+>
   
   <div class="flex flex-col items-center justify-center min-h-[45vh] text-center pt-20 mb-12">
     
@@ -34,12 +73,24 @@ const skillBadges = ["Robotics Software", "Computer Vision", "Full Stack", "Embe
       Diego Gerardo <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Sánchez Moreno</span>
     </h1>
 
-    <h2 class="text-2xl md:text-3xl font-bold text-slate-200 mb-4 tracking-tight">
-      Ingeniería en Robótica y Sistemas Digitales
+    <h2 class="text-2xl md:text-3xl font-bold text-slate-200 mb-2 tracking-tight">
+      Ingeniero en Robótica y Sistemas Digitales
     </h2>
 
+    <p class="text-sm font-mono text-slate-400 tracking-wide mb-5">
+      Tec de Monterrey · Cédula profesional 15796458
+    </p>
+
+    <a
+      href="#autonoma"
+      class="inline-flex items-center gap-2.5 px-4 py-2 mb-6 text-sm font-medium text-slate-200 bg-[#134F9F]/20 border border-[#134F9F]/60 rounded-full hover:border-cyan-400/60 hover:bg-[#134F9F]/30 transition-all"
+    >
+      <span class="w-2 h-2 rounded-full bg-cyan-400" aria-hidden="true"></span>
+      Cofundador de Autónoma — sistemas POS y analítica en producción
+    </a>
+
     <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-6 leading-relaxed">
-      Desarrollador de Software para Robótica, Percepción y Sistemas Autónomos. <br class="hidden sm:block" />
+      Desarrollo de software para robótica, percepción y sistemas autónomos. <br class="hidden sm:block" />
       Especializado en <strong class="text-cyan-400">ROS 2</strong>, <strong class="text-cyan-400">Visión Artificial</strong> e integración de sistemas embebidos.
     </p>
 
@@ -70,6 +121,88 @@ const skillBadges = ["Robotics Software", "Computer Vision", "Full Stack", "Embe
     </div>
 
   </div>
+
+  <section id="autonoma" class="py-10 scroll-mt-24">
+    <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3 reveal">
+      <span class="text-cyan-400">/</span> Autónoma
+    </h2>
+
+    <div class="relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/50 reveal">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-[#134F9F]/25 via-transparent to-cyan-500/10 pointer-events-none"
+        aria-hidden="true"
+      ></div>
+
+      <div class="relative p-6 sm:p-10">
+        <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 mb-10">
+          <img
+            src="/assets/img/autonoma/logo-autonoma-white.png"
+            alt="Logo de Autónoma"
+            width="877"
+            height="772"
+            loading="lazy"
+            class="h-24 md:h-28 w-auto shrink-0 reveal"
+            style="--reveal-delay: 80ms"
+          />
+          <div class="text-center md:text-left reveal" style="--reveal-delay: 160ms">
+            <p class="text-lg md:text-xl text-slate-200 leading-relaxed mb-2">
+              Empresa de ingeniería de software fundada en 2026 en Querétaro, con
+              <strong class="text-white">3 sistemas POS en producción</strong> operando con clientes reales.
+            </p>
+            <p class="text-slate-400 leading-relaxed">
+              Cada proyecto se dirige con metodología PMBOK: acta de constitución, plan de dirección, capacitación y garantía por escrito.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          {autonomaStats.map((stat, i) => (
+            <div
+              class="text-center rounded-xl border border-slate-700 bg-slate-900/50 p-5 reveal"
+              style={`--reveal-delay: ${i * 80}ms`}
+            >
+              <p class="text-3xl md:text-4xl font-extrabold font-mono text-cyan-400 mb-1">
+                <span data-countup={stat.value} data-countup-suffix={stat.suffix}>0</span>
+              </p>
+              <p class="text-sm text-slate-400">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+          {autonomaCasos.map((caso, i) => (
+            <a
+              href={caso.href}
+              class="group flex flex-col rounded-xl border border-slate-700 bg-slate-900/50 p-5 hover:border-cyan-500/50 transition-all reveal"
+              style={`--reveal-delay: ${i * 100}ms`}
+            >
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <h3 class="text-lg font-bold text-white">{caso.nombre}</h3>
+                <span class={`px-2 py-0.5 text-[11px] font-mono uppercase tracking-wider border rounded-full whitespace-nowrap ${caso.badgeClass}`}>
+                  {caso.badge}
+                </span>
+              </div>
+              <p class="text-sm text-slate-400 leading-relaxed flex-grow">
+                {caso.descripcion}
+              </p>
+              <span class="mt-4 text-sm font-mono text-cyan-400 group-hover:translate-x-1 transition-transform self-start">
+                Ver caso →
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <div class="text-center reveal" style="--reveal-delay: 200ms">
+          <a
+            href="/autonoma"
+            class="inline-flex justify-center items-center px-10 py-4 text-lg font-bold text-white bg-[#134F9F] rounded-lg hover:bg-[#1A5FBE] transition-all shadow-lg shadow-[#134F9F]/30 hover:scale-[1.02]"
+          >
+            Conocer Autónoma →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="py-6">
     <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3">

@@ -1,0 +1,257 @@
+---
+// src/pages/autonoma/optinoma.astro — Caso OptiNoma: POS para ópticas en producción
+import MainLayout from '../../layouts/MainLayout.astro';
+import { EtiquetaDemo } from '../../components/demos/EtiquetaDemo';
+
+// Capturas reales del sistema (entorno de demostración, sin datos de pacientes)
+const capturas = [
+  {
+    src: '/assets/img/autonoma/optinoma-1.png',
+    alt: 'Pantalla de cobro de OptiNoma con catálogo por categorías y orden en curso',
+    caption: 'Pantalla de cobro: catálogo por categorías (micas, armazones) y orden en curso',
+  },
+  {
+    src: '/assets/img/autonoma/optinoma-2.png',
+    alt: 'Modal de cobro de OptiNoma con métodos de pago y numpad táctil',
+    caption: 'Cobro con efectivo, tarjeta o transferencia; numpad táctil y cálculo de cambio',
+  },
+  {
+    src: '/assets/img/autonoma/optinoma-3.png',
+    alt: 'Corte de caja de OptiNoma con resumen del día y cuadre de efectivo',
+    caption: 'Corte de caja: resumen del día por método de pago y cuadre de efectivo',
+  },
+  {
+    src: '/assets/img/autonoma/optinoma-4.png',
+    alt: 'Administración de sucursales en OptiNoma desde la sucursal central',
+    caption: 'Multi-sucursal: administración de sucursales desde la central',
+  },
+];
+
+const features = [
+  {
+    titulo: 'Etiquetas con código de barras',
+    texto:
+      'Cada armazón sale con su etiqueta Code128 impresa en Brother DK-1204 (17×54 mm, dos etiquetas por tirada) y se cobra escaneando con pistola láser: sin capturas manuales ni errores de precio.',
+  },
+  {
+    titulo: 'Catálogo óptico con graduación',
+    texto:
+      'Armazones y micas con graduación OD/OI por ojo; el precio de la mica se calcula según la graduación, con reglas definidas por la propia óptica.',
+  },
+  {
+    titulo: 'Órdenes de laboratorio con anticipos',
+    texto:
+      'El trabajo de laboratorio queda registrado con su anticipo y saldo pendiente, de modo que el cliente y la óptica siempre saben cuánto falta por liquidar.',
+  },
+  {
+    titulo: 'Tickets térmicos',
+    texto:
+      'Impresión de tickets en impresoras térmicas ESC/POS (USB y red): comprobante de venta y de corte de caja al momento.',
+  },
+  {
+    titulo: 'Opera sin internet hasta 72 h',
+    texto:
+      'Si la conexión falla, la venta no se detiene: cola local y sincronización automática cada 30 segundos al volver la señal.',
+  },
+  {
+    titulo: 'Modo kiosko con despliegue automático',
+    texto:
+      'El sistema corre en modo kiosko sobre una Raspberry Pi con CI/CD propio: cada actualización se despliega y verifica de forma automática en el equipo de la tienda.',
+  },
+];
+
+const demuestra = [
+  'Entrega formal: la Fase 1 cerró con acta firmada por el cliente, componente por componente, y desviación de costo de $0.',
+  'Capacitación real: el personal de la óptica aprendió a operar el sistema con capacitación en sitio y un manual de usuario de 26 páginas hecho para su negocio.',
+  'Instalación auditable: el hardware se entregó con números de serie documentados y prueba de UPS realizada frente al cliente.',
+  'Garantía por escrito: lo entregado quedó respaldado con una garantía formal, no con promesas de palabra.',
+  'Continuidad de operación: el negocio puede vender aunque se caiga el internet, con sincronización automática al recuperarse.',
+];
+
+const stack = [
+  'React',
+  'TypeScript',
+  'Vite (PWA)',
+  'FastAPI',
+  'Python',
+  'Supabase · PostgreSQL',
+  'Docker',
+  'GitHub Actions (runner self-hosted)',
+  'Raspberry Pi',
+  'ESC/POS',
+  'Brother DK-1204',
+  'Code128',
+];
+
+const metricas = [
+  { valor: 100, sufijo: '', etiqueta: 'commits' },
+  { valor: 28, sufijo: '', etiqueta: 'pull requests mergeados' },
+  { valor: 28400, sufijo: '+', etiqueta: 'líneas de código' },
+  { valor: 26, sufijo: '+', etiqueta: 'migraciones SQL' },
+];
+---
+
+<MainLayout
+  title="OptiNoma — POS para ópticas"
+  description="OptiNoma: punto de venta para ópticas en producción en Óptica Los Ángeles (Querétaro). Etiquetas Code128, graduaciones OD/OI, órdenes de laboratorio con anticipos y operación sin internet hasta 72 h. Fase 1 entregada con acta de cierre y desviación de costo $0."
+>
+  <!-- BREADCRUMB -->
+  <nav class="mb-8 reveal" aria-label="Miga de pan">
+    <a href="/autonoma" class="text-sm font-mono text-slate-400 hover:text-cyan-400 transition-colors">
+      ← Autónoma
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="mb-16">
+    <div class="flex flex-wrap items-center gap-3 mb-5 reveal">
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-green-400 bg-green-400/10 border border-green-400/20 rounded-full">
+        ● En producción
+      </span>
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-cyan-300 bg-cyan-400/10 border border-cyan-400/20 rounded-full">
+        Óptica Los Ángeles · Querétaro
+      </span>
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-slate-300 bg-slate-800/80 border border-slate-700 rounded-full">
+        Fase 1 entregada jul 2026 · desviación de costo $0
+      </span>
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 reveal" style="--reveal-delay: 100ms">
+      OptiNoma<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">.</span>
+    </h1>
+    <p class="text-lg text-slate-300 max-w-3xl leading-relaxed mb-4 reveal" style="--reveal-delay: 180ms">
+      Un punto de venta general no entiende cómo vende una óptica: el precio de una mica depende de la
+      graduación de cada ojo, buena parte de las ventas son trabajos de laboratorio que se apartan con
+      anticipo, y cada armazón del aparador necesita su etiqueta para cobrarse sin errores.
+      <strong class="text-slate-100">OptiNoma se construyó para ese flujo</strong>: catálogo óptico con
+      graduaciones OD/OI, precio de mica calculado por graduación, órdenes de laboratorio con anticipos y
+      operación multi-sucursal.
+    </p>
+    <p class="text-lg text-slate-400 max-w-3xl leading-relaxed reveal" style="--reveal-delay: 260ms">
+      Hoy opera en producción en Óptica Los Ángeles, en Querétaro. La Fase 1 se entregó en julio de 2026
+      con acta de cierre firmada y una desviación de costo de $0 respecto a lo planeado.
+    </p>
+  </header>
+
+  <!-- GALERÍA -->
+  <section class="py-10" id="capturas">
+    <h2 class="text-3xl font-bold text-slate-100 mb-3 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> El sistema, por dentro
+    </h2>
+    <p class="text-slate-400 max-w-3xl mb-8 reveal" style="--reveal-delay: 80ms">
+      Capturas del sistema en entorno de demostración; por confidencialidad no se muestran datos de la operación real.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {capturas.map((c, i) => (
+        <figure
+          class="bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${(i % 2) * 120}ms`}
+        >
+          <img src={c.src} alt={c.alt} class="w-full" loading="lazy" />
+          <figcaption class="px-4 py-3 text-sm text-slate-400 border-t border-slate-700/70">
+            {c.caption}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section class="py-14" id="pruebalo">
+    <h2 class="text-3xl font-bold text-slate-100 mb-3 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> pruébalo — etiquetas Code128 como las de la tienda
+    </h2>
+    <p class="text-slate-400 max-w-3xl mb-8 reveal" style="--reveal-delay: 80ms">
+      Así se ve el flujo de etiquetado que usa la óptica: captura un producto y genera su etiqueta con
+      código de barras, como la que sale de la impresora Brother en el mostrador.
+    </p>
+    <div class="reveal" style="--reveal-delay: 160ms">
+      <EtiquetaDemo client:visible />
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-14" id="incluye">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Qué incluye
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {features.map((f, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${(i % 3) * 100}ms`}
+        >
+          <h3 class="text-lg font-bold text-white mb-3">{f.titulo}</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">{f.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LO QUE DEMUESTRA -->
+  <section class="py-14" id="demuestra">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Lo que este proyecto demuestra
+    </h2>
+    <ul class="space-y-4 max-w-3xl">
+      {demuestra.map((d, i) => (
+        <li
+          class="flex gap-3 bg-slate-800/50 border border-slate-700 rounded-xl p-5 text-sm text-slate-300 leading-relaxed reveal"
+          style={`--reveal-delay: ${i * 90}ms`}
+        >
+          <span class="text-cyan-400 font-mono shrink-0" aria-hidden="true">▸</span>
+          <span>{d}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- STACK -->
+  <section class="py-14" id="stack">
+    <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Stack
+    </h2>
+    <div class="flex flex-wrap gap-2.5 reveal" style="--reveal-delay: 80ms">
+      {stack.map((s) => (
+        <span class="px-3 py-1.5 text-xs font-mono text-slate-300 bg-slate-800/50 border border-slate-700 rounded-lg">
+          {s}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section class="py-14" id="metricas" aria-label="Métricas del proyecto">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      {metricas.map((m, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 text-center hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${i * 80}ms`}
+        >
+          <p class="text-3xl md:text-4xl font-bold font-mono text-white mb-1">
+            <span data-countup={m.valor} data-countup-suffix={m.sufijo}>0</span>
+          </p>
+          <p class="text-xs text-slate-400 leading-snug">{m.etiqueta}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 text-center reveal" id="contacto">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Tu negocio necesita algo así?</h2>
+    <p class="text-slate-400 max-w-xl mx-auto mb-8">
+      Cuéntanos cómo opera tu negocio y te respondemos con una propuesta por fases, con alcance y entregables claros.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
+      <a
+        href="mailto:autonoma507@gmail.com"
+        class="inline-flex justify-center items-center px-8 py-3.5 text-base font-bold text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/20"
+      >
+        autonoma507@gmail.com
+      </a>
+    </div>
+    <a href="/autonoma/pos-lite" class="text-sm font-mono font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+      Siguiente producto: AutoNoma POS Lite →
+    </a>
+  </section>
+</MainLayout>

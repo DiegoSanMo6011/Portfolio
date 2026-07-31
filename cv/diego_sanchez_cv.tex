@@ -50,43 +50,50 @@
 \smalltext{OpenCV, YOLOv8}\\
 \smalltext{ESP32, Jetson Nano}\\
 \smalltext{MATLAB, VHDL, C++}\\
-\smalltext{Supabase, PostgreSQL}\\
-\smalltext{Astro, Tailwind, Wix+Velo}\\
+\smalltext{Supabase, PostgreSQL (RLS)}\\
+\smalltext{Next.js, FastAPI, Docker}\\
 }}\end{minipage}
 &
 % Right column
 \begin{minipage}[t]{\linewidth}
 
 {\Huge\bfseries Diego Gerardo Sánchez Moreno}\\
-\smalltext{Robotics \& Embedded Systems Engineer (in training)}\\[0.4em]
-\smalltext{Focus on soft robotics control, embedded systems, and perception for mobile robots. Seeking graduate studies in Autonomous Systems.}\\[0.8em]
+\smalltext{Robotics \& Embedded Systems Engineer}\\[0.4em]
+\smalltext{Co-founder \& Project Director at Autónoma (AutoNomaMX), with three POS systems in production for Mexican businesses. Background in soft robotics control, embedded systems, and perception for mobile robots.}\\[0.8em]
 
 \sectionbar{Education}
 \textbf{B.S. in Robotics and Digital Systems Engineering}\\
 Tecnológico de Monterrey, Campus Querétaro\\
-\smalltext{2022 -- Jun 2026 (expected)}\\[0.4em]
+\smalltext{2022 -- 2026}\\
+\smalltext{Professional license (Cédula Profesional) 15796458 — SEP, Mexico, 2026}\\[0.4em]
 
 \sectionbar{Research \& Engineering Experience}
+\textbf{Autónoma (AutoNomaMX) — Co-founder \& Project Director}\\
+\smalltext{Querétaro | Jan 2026 -- Present}\\
+\begin{itemize}[leftmargin=*]
+  \item Shipped three offline-first POS systems in production with real clients (a restaurant, a coffee shop, and an optical shop) on a multi-tenant PostgreSQL/Supabase backend with Row-Level Security.
+  \item Built a SaaS analytics platform with an AI assistant mediated by a semantic layer; CI/CD with self-hosted runners on production hardware (Raspberry Pi, Ubuntu) with smoke tests.
+  \item Directed Phase 1 of the optical-shop project under PMBOK: charter, WBS, CPM, delivery with signed acceptance, client training, and closure with \$0 cost deviation.
+  \item Integrated POS hardware: ESC/POS thermal printers and Code128 barcode labels (Brother DK-1204).
+\end{itemize}
+
 \textbf{Hybrid Soft Robotics Lab (Tec de Monterrey, Qro.)}\\
 \smalltext{Soft Robotics Control Platform | 2024 -- Present}\\
 \begin{itemize}[leftmargin=*]
   \item Built a bi-stable pneumatic driver with closed-loop pressure/vacuum control, safety interlocks, and real-time telemetry.
-  \item Implemented micro-ROS on ESP32 (UART) with pressure sensing over I2C (ADS1115).
-  \item Delivered a Python SDK + GUI and MATLAB-based analysis for reproducible experiments.
+  \item Implemented micro-ROS on ESP32 (UART) with pressure sensing over I2C; delivered a Python SDK + GUI and MATLAB-based analysis.
+\end{itemize}
+
+\textbf{Instituto Asunción de Querétaro — Web Developer}\\
+\smalltext{2026 -- Present}\\
+\begin{itemize}[leftmargin=*]
+  \item Develop and maintain the institution's official website.
 \end{itemize}
 
 \textbf{Patio Cinco (Querétaro) — Production Platform}\\
 \smalltext{Product/Systems Engineer | 2025 -- 2026}\\
 \begin{itemize}[leftmargin=*]
   \item Delivered a production system for memberships, billing, and customer operations with persistent fiscal data.
-  \item Built modular flows on Wix + Velo backed by relational data and operational logging.
-\end{itemize}
-
-\textbf{Barbacoa de Miranda (Querétaro) — POS System}\\
-\smalltext{Product/Systems Engineer | 2025 -- 2026}\\
-\begin{itemize}[leftmargin=*]
-  \item Built an offline-first POS for Raspberry Pi with local queueing (SQLite) and auto-sync to backend.
-  \item Implemented full-screen UI for fast cashier workflows and daily reporting.
 \end{itemize}
 
 \sectionbar{Selected Projects}
@@ -95,13 +102,9 @@ Tecnológico de Monterrey, Campus Querétaro\\
   \item Integrated micro-ROS, encoder-based odometry, and YOLOv8 perception on Jetson Nano for autonomous driving.
 \end{itemize}
 
-\textbf{Line-Maze Solver (Pololu 3pi+)}\\
-\begin{itemize}[leftmargin=*]
-  \item Implemented PID line following with route recording and simplification to optimize traversal.
-\end{itemize}
-
 \sectionbar{Awards \& Certifications}
 \begin{itemize}[leftmargin=*]
+  \item Project Management program — Tecnológico de Monterrey (2026): Fundamentals (integrative exam), Scope, Cost, Time \& Resources, Execution/Monitoring \& Control
   \item Best Poster Award — Exploring Soft Robotics (Dec 2025)
   \item NVIDIA DLI: Fundamentals of Deep Learning (Jun 2025)
   \item OpenCV Bootcamp (Apr 2025)
@@ -113,7 +116,7 @@ Tecnológico de Monterrey, Campus Querétaro\\
 \smalltext{\textbf{Robotics/Control:} ROS 2 (Humble), micro-ROS, PID/PI, odometry, Gazebo}\\
 \smalltext{\textbf{Perception:} OpenCV, YOLOv8}\\
 \smalltext{\textbf{Hardware:} ESP32, Jetson Nano, Raspberry Pi, Arduino, FPGA Cyclone}\\
-\smalltext{\textbf{Product/Web:} Wix + Velo, Supabase, PostgreSQL, Astro, Tailwind}
+\smalltext{\textbf{Production/Web:} Next.js, React, FastAPI, Docker, CI/CD (GitHub Actions self-hosted)}
 
 \end{minipage}
 \end{tabularx}

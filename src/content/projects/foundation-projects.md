@@ -1,63 +1,51 @@
 ---
-title: "Fundamentos multidisciplinares (control, FPGA, IoT, videojuegos)"
-description: "Selección de proyectos formativos que consolidaron mis bases en control, sistemas embebidos, FPGA, IoT y desarrollo de software." 
+title: "Fundamentos multidisciplinares (control, FPGA, IoT, robótica y simulación)"
+description: "Colección de proyectos formativos que consolidaron mis bases en control, sistemas embebidos, FPGA, IoT, robótica móvil y simulación durante la carrera."
 tags: ["Control", "FPGA", "IoT", "C++", "VHDL", "MATLAB", "Robótica móvil", "Game Dev"]
 date: 2024-02-01
 featured: false
-status: "Proyectos académicos (primeros semestres)"
+videoUrl: "https://youtu.be/_me0wyXkbpM"
+videoUrl2: "https://youtu.be/-cuLjeoMJlw"
+status: "Proyectos académicos formativos"
 highlights:
-  - "Control clásico aplicado con MATLAB y modelado de sistemas"
-  - "Integración embebida con ESP32, Arduino y Raspberry Pi"
-  - "Diseño digital en FPGA con VHDL"
-  - "Desarrollo de software para simulación y aprendizaje"
+  - "Control clásico: modelado en MATLAB y sintonía PID"
+  - "Sistemas embebidos con ESP32, Arduino y Raspberry Pi"
+  - "Diseño digital en FPGA con VHDL (cifrado AES)"
+  - "Amplitud: robótica móvil, IoT y simulación/modding"
 ---
 
-## CareBot — robot dispensador de medicamentos con navegación óptima
-Proyecto de la materia **Diseño de Sistemas Embebidos Avanzados**. Robot seguidor de línea para dispensar medicamentos en un entorno hospitalario simulado.
+## Contexto
+Antes de Autónoma y de los proyectos de robótica avanzada, esta colección reúne los trabajos formativos que construyeron mis bases técnicas durante la carrera de **Ingeniería en Robótica y Sistemas Digitales** (Tec de Monterrey). Cada uno abordó un dominio distinto —control, hardware digital, IoT, robótica móvil y simulación— y en conjunto formaron el criterio con el que hoy diseño sistemas más complejos. Son los fundamentos que construyeron la base.
 
-- **Algoritmo de ruta óptima:** Uniform Cost Search sobre grafo de habitaciones.
-- **Traducción a instrucciones:** Left / Right / Straight / U‑turn en cada intersección.
-- **Comunicación distribuida:** Raspberry Pi (MQTT) + Arduino Uno (serial).
-- **Percepción:** OpenCV para procesamiento de cámara y flags de trayectoria.
-- **Concurrencia:** hilos para servidor, cliente y control del robot.
+## Qué hace / Alcance técnico
+Proyectos agrupados por área para mostrar la amplitud del recorrido:
 
-**Video:** [Ver demo](https://youtu.be/_me0wyXkbpM)
-**Stack:** MQTT, Arduino Uno, Raspberry Pi, OpenCV, Python, C++
+**Robótica y sistemas embebidos**
+- **CareBot** — Robot seguidor de línea que dispensa medicamentos en un hospital simulado (materia *Diseño de Sistemas Embebidos Avanzados*). Ruta óptima con Uniform Cost Search, percepción con OpenCV y comunicación distribuida MQTT (Raspberry Pi) + serial (Arduino Uno). [Ver demo](https://youtu.be/_me0wyXkbpM)
 
-## BudgetManipulator MOD — Cities: Skylines
-Proyecto de servicio becario con el equipo de **City Skylines Modding** (Tec de Monterrey). Desarrollo de MODs educativos para urbanismo y sostenibilidad.
+**Control y automatización**
+- **Deshidratador con control PID** — Regulación térmica de 50 °C a 70 °C para deshidratar jitomate (materia *Control y Automatización*). Modelado de la función de transferencia en MATLAB y sintonía por Ziegler‑Nichols para un controlador PI en lazo cerrado.
 
-- **BudgetManipulator:** control en tiempo real de parámetros económicos y temporales.
-- **Objetivo educativo:** experimentación y aprendizaje de gestión presupuestaria urbana.
-- **Contribución adicional:** mapa con simulación de Querétaro.
+**Hardware digital / FPGA**
+- **Cifrado AES en FPGA (DE10‑Lite)** — Integración del componente de cifrado y diseño de la máquina de estados en VHDL, con verificación por etapas hasta obtener un módulo funcional integrado al sistema global. [Ver repositorio](https://github.com/TE2003B-601-AES)
 
-**Video:** [Ver demo](https://youtu.be/-cuLjeoMJlw)
-**Repositorio adicional:** [Historic Buildings Mod](https://github.com/DiegoSanMo6011/Historic-Buildings)
-**Stack:** C#, Game Modding, Unity/Cities: Skylines, Game Design, UX
+**IoT**
+- **Gnoberto** — Monitoreo ambiental de plantas con ESP32: sensado de temperatura y humedad en tiempo real, panel web y alertas visuales, con un enfoque educativo y lúdico. [Ver repositorio](https://github.com/DiegoSanMo6011/Gnoberto-Project)
 
-## Control PID de temperatura para deshidratador
-Proyecto de la materia **Control y Automatización**. Regulación térmica entre 50°C y 70°C para deshidratación de jitomates.
+**Simulación y modding**
+- **BudgetManipulator (Cities: Skylines)** — Servicio becario con el equipo de *City Skylines Modding* del Tec. Mods educativos en C# para urbanismo y sostenibilidad, con control en tiempo real de parámetros económicos y un mapa con simulación de Querétaro. [Ver demo](https://youtu.be/-cuLjeoMJlw) · [Historic Buildings Mod](https://github.com/DiegoSanMo6011/Historic-Buildings)
 
-- **Modelado:** función de transferencia con apoyo de **MATLAB** y análisis térmico.
-- **Sintonía:** reglas de Ziegler‑Nichols para controlador PI.
-- **Implementación:** estabilidad térmica en lazo cerrado.
+## Rol de Diego
+Participé en cada proyecto según el reto planteado: desarrollo de firmware, algoritmos de ruta y concurrencia en CareBot; modelado y sintonía del controlador en el deshidratador; integración del componente de cifrado y revisión técnica con el equipo en el AES sobre FPGA; y desarrollo de extremo a extremo de la solución IoT y de los mods de simulación. En los trabajos en equipo asumí la coordinación de integración y las pruebas de validación.
 
-**Stack:** MATLAB, Control Systems, Sensórica, Modelado
-## Administrador del componente AES en FPGA (DE10‑Lite)
-Proyecto de cifrado **AES** en FPGA. Coordinación de integración de módulos y diseño de la máquina de estados.
+## Resultado / Estado
+Todos son proyectos académicos **completados** durante los primeros años de la carrera. Más que entregables finales, representan los fundamentos multidisciplinares —control, hardware, software y sistemas embebidos— sobre los que después desarrollé proyectos como el PuzzleBot, el robot gusano y, finalmente, Autónoma.
 
-- **Rol:** integración del componente de cifrado y revisión técnica con el equipo.
-- **Tecnología:** VHDL, diseño digital y verificación por etapas.
-- **Resultado:** módulo de cifrado funcional integrado al sistema global.
-
-**Repositorio:** [Ver repositorio AES](https://github.com/TE2003B-601-AES)
-**Stack:** VHDL, FPGA, Digital Design, FSM
-## Gnoberto — monitoreo IoT de plantas
-Sistema IoT con **ESP32** para monitoreo ambiental con interfaz web y alertas.
-
-- **Sensado:** temperatura y humedad en tiempo real.
-- **Interfaz:** panel web con estado y alertas visuales.
-- **Enfoque:** IoT educativo con diseño lúdico.
-
-**Repositorio:** [Ver repositorio Gnoberto](https://github.com/DiegoSanMo6011/Gnoberto-Project)
-**Stack:** ESP32, IoT, Web, Sensores
+## Evidencias
+<div class="flex flex-wrap gap-3">
+  <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 hover:text-white hover:border-cyan-400 transition" href="https://youtu.be/_me0wyXkbpM" target="_blank" rel="noopener noreferrer">Demo CareBot</a>
+  <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 hover:text-white hover:border-cyan-400 transition" href="https://youtu.be/-cuLjeoMJlw" target="_blank" rel="noopener noreferrer">Demo Cities: Skylines</a>
+  <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 hover:text-white hover:border-cyan-400 transition" href="https://github.com/TE2003B-601-AES" target="_blank" rel="noopener noreferrer">Repositorio AES en FPGA</a>
+  <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 hover:text-white hover:border-cyan-400 transition" href="https://github.com/DiegoSanMo6011/Gnoberto-Project" target="_blank" rel="noopener noreferrer">Repositorio Gnoberto</a>
+  <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 hover:text-white hover:border-cyan-400 transition" href="https://github.com/DiegoSanMo6011/Historic-Buildings" target="_blank" rel="noopener noreferrer">Historic Buildings Mod</a>
+</div>

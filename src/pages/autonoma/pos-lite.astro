@@ -1,0 +1,234 @@
+---
+// src/pages/autonoma/pos-lite.astro — Caso AutoNoma POS Lite: POS ultraligero en producción
+import MainLayout from '../../layouts/MainLayout.astro';
+import { PosDemo } from '../../components/demos/PosDemo';
+import { OfflineSyncDemo } from '../../components/demos/OfflineSyncDemo';
+
+const features = [
+  {
+    titulo: 'Numpad táctil sin retraso',
+    texto:
+      'PIN y montos se capturan con un numpad en pantalla diseñado para dedos, no para mouse: botones grandes y respuesta inmediata al toque, sin el retraso de 300 ms típico de las pantallas táctiles en navegador.',
+  },
+  {
+    titulo: 'Corte de caja con folio',
+    texto:
+      'Cada corte queda registrado con folio consecutivo: cuánto se vendió, con qué método de pago y cuánto efectivo debe haber en caja. Evidencia del día, no un papelito.',
+  },
+  {
+    titulo: 'Seguridad por PIN + JWT con lockout',
+    texto:
+      'Cada rol entra con su propio PIN y una sesión firmada con caducidad. Tras varios intentos fallidos, el acceso se bloquea temporalmente: nadie adivina un PIN a fuerza bruta.',
+  },
+  {
+    titulo: 'CI/CD self-hosted con smoke tests',
+    texto:
+      'Cada actualización se despliega de forma automática en el propio equipo de la tienda y se verifica con smoke tests en cada push. Si algo falla, se detecta antes de que lo note el cajero.',
+  },
+  {
+    titulo: '3 contenedores con health checks',
+    texto:
+      'El sistema corre en tres contenedores supervisados con verificaciones de salud continuas: si un servicio deja de responder, se sabe al instante y se recupera solo.',
+  },
+];
+
+const demuestra = [
+  'Operación real: el sistema cobra las ventas de una cafetería en Querétaro todos los días desde abril de 2026 — no es un prototipo, es la caja del negocio.',
+  'Despliegue endurecido: el sistema opera aislado en el equipo de la tienda, sin exponerse a la red, con accesos por PIN y bloqueo de intentos fallidos.',
+  'Actualizaciones sin visitas presenciales: gracias al CI/CD con smoke tests, cada mejora llega al negocio de forma automática y verificada, sin interrumpir la operación.',
+  'Continuidad de venta: si el internet falla, la venta no se detiene ni se pierde — cola local y sincronización automática al volver la señal, hasta 72 horas.',
+];
+
+const stack = [
+  'React',
+  'TypeScript',
+  'Vite (PWA)',
+  'Zustand',
+  'Dexie.js (IndexedDB)',
+  'FastAPI',
+  'Python',
+  'Supabase · PostgreSQL',
+  'JWT',
+  'Docker',
+  'Nginx',
+  'GitHub Actions (runner self-hosted)',
+];
+
+const metricas = [
+  { valor: 65, sufijo: '', etiqueta: 'commits' },
+  { valor: 10, sufijo: '', etiqueta: 'pull requests revisados' },
+  { valor: 19300, sufijo: '+', etiqueta: 'líneas de código' },
+];
+---
+
+<MainLayout
+  title="AutoNoma POS Lite — POS para micro-negocios"
+  description="AutoNoma POS Lite: punto de venta ultraligero en producción en una cafetería de Querétaro desde abril de 2026. Venta en menos de 15 segundos, numpad táctil, corte de caja con folio, operación sin internet hasta 72 h y despliegue automático con smoke tests."
+>
+  <!-- BREADCRUMB -->
+  <nav class="mb-8 reveal" aria-label="Miga de pan">
+    <a href="/autonoma" class="text-sm font-mono text-slate-400 hover:text-cyan-400 transition-colors">
+      ← Autónoma
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="mb-16">
+    <div class="flex flex-wrap items-center gap-3 mb-5 reveal">
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-green-400 bg-green-400/10 border border-green-400/20 rounded-full">
+        ● En producción
+      </span>
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-cyan-300 bg-cyan-400/10 border border-cyan-400/20 rounded-full">
+        Cafetería · Querétaro
+      </span>
+      <span class="px-3 py-1 text-[11px] font-mono font-medium tracking-wider uppercase text-slate-300 bg-slate-800/80 border border-slate-700 rounded-full">
+        desde abril 2026
+      </span>
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 reveal" style="--reveal-delay: 100ms">
+      AutoNoma POS Lite<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">.</span>
+    </h1>
+    <p class="text-lg text-slate-300 max-w-3xl leading-relaxed mb-4 reveal" style="--reveal-delay: 180ms">
+      En un micro-negocio la fila no perdona: cada segundo que el cajero pelea con el sistema es un
+      cliente que espera. <strong class="text-slate-100">POS Lite es un punto de venta ultraligero</strong>
+      pensado para eso: la venta completa — tocar el producto, elegir modificadores, cobrar — toma
+      menos de 15 segundos, y toda la interfaz está diseñada para operarse con el pulgar en una
+      pantalla táctil.
+    </p>
+    <p class="text-lg text-slate-400 max-w-3xl leading-relaxed reveal" style="--reveal-delay: 260ms">
+      Corre en hardware económico, sin licencias costosas ni equipos especiales. Hoy opera en
+      producción en una cafetería de Querétaro, donde cobra las ventas del día a día desde abril de 2026.
+    </p>
+  </header>
+
+  <!-- DEMO 1: POS -->
+  <section class="py-14" id="pruebalo">
+    <h2 class="text-3xl font-bold text-slate-100 mb-3 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> pruébalo — cobra como el cajero
+    </h2>
+    <p class="text-slate-400 max-w-3xl mb-8 reveal" style="--reveal-delay: 80ms">
+      Este es el flujo real de venta: toca un producto, elige sus modificadores y cobra. Cronométralo —
+      la meta es que ninguna venta tome más de 15 segundos.
+    </p>
+    <div class="reveal" style="--reveal-delay: 160ms">
+      <PosDemo client:visible />
+    </div>
+  </section>
+
+  <!-- DEMO 2: OFFLINE SYNC -->
+  <section class="py-14" id="offline">
+    <h2 class="text-3xl font-bold text-slate-100 mb-3 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> la venta nunca se pierde
+    </h2>
+    <p class="text-slate-400 max-w-3xl mb-8 reveal" style="--reveal-delay: 80ms">
+      Lo que ves abajo no es una animación decorativa: es la arquitectura real del sistema. Cada venta
+      se guarda primero en una cola local dentro del equipo de la tienda y se sincroniza con la nube
+      cada 30 segundos. Si el internet se cae, el negocio sigue cobrando con normalidad hasta 72 horas;
+      al volver la señal, todo lo pendiente se sube solo, en orden y sin duplicados.
+    </p>
+    <div class="reveal" style="--reveal-delay: 160ms">
+      <OfflineSyncDemo client:visible />
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-14" id="incluye">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Qué incluye
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {features.map((f, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${(i % 3) * 100}ms`}
+        >
+          <h3 class="text-lg font-bold text-white mb-3">{f.titulo}</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">{f.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LO QUE DEMUESTRA -->
+  <section class="py-14" id="demuestra">
+    <h2 class="text-3xl font-bold text-slate-100 mb-10 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Lo que este proyecto demuestra
+    </h2>
+    <ul class="space-y-4 max-w-3xl">
+      {demuestra.map((d, i) => (
+        <li
+          class="flex gap-3 bg-slate-800/50 border border-slate-700 rounded-xl p-5 text-sm text-slate-300 leading-relaxed reveal"
+          style={`--reveal-delay: ${i * 90}ms`}
+        >
+          <span class="text-cyan-400 font-mono shrink-0" aria-hidden="true">▸</span>
+          <span>{d}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- FAMILIA POS -->
+  <section class="py-10" id="familia">
+    <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 max-w-3xl reveal">
+      <p class="text-[11px] font-mono font-medium tracking-wider uppercase text-slate-400 mb-3">
+        De la misma familia
+      </p>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        POS Lite es la versión ligera de <strong class="text-slate-100">AutoNoma POS</strong>, el
+        sistema para restaurantes que le da origen: comandas multi-mesa, propinas por mesero e
+        inventario con recetas.
+        <span class="font-mono text-slate-400"> 114 commits · 23 pull requests.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="py-14" id="stack">
+    <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3 reveal">
+      <span class="text-cyan-400 font-mono">/</span> Stack
+    </h2>
+    <div class="flex flex-wrap gap-2.5 reveal" style="--reveal-delay: 80ms">
+      {stack.map((s) => (
+        <span class="px-3 py-1.5 text-xs font-mono text-slate-300 bg-slate-800/50 border border-slate-700 rounded-lg">
+          {s}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section class="py-14" id="metricas" aria-label="Métricas del proyecto">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {metricas.map((m, i) => (
+        <div
+          class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 text-center hover:border-cyan-500/50 transition-colors reveal"
+          style={`--reveal-delay: ${i * 80}ms`}
+        >
+          <p class="text-3xl md:text-4xl font-bold font-mono text-white mb-1">
+            <span data-countup={m.valor} data-countup-suffix={m.sufijo}>0</span>
+          </p>
+          <p class="text-xs text-slate-400 leading-snug">{m.etiqueta}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 text-center reveal" id="contacto">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¿Tu negocio necesita algo así?</h2>
+    <p class="text-slate-400 max-w-xl mx-auto mb-8">
+      Cuéntanos cómo opera tu negocio y te respondemos con una propuesta por fases, con alcance y entregables claros.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
+      <a
+        href="mailto:autonoma507@gmail.com"
+        class="inline-flex justify-center items-center px-8 py-3.5 text-base font-bold text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/20"
+      >
+        autonoma507@gmail.com
+      </a>
+    </div>
+    <a href="/autonoma/barbacoa" class="text-sm font-mono font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+      Siguiente producto: POS Barbacoa →
+    </a>
+  </section>
+</MainLayout>

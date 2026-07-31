@@ -19,58 +19,59 @@
 {\Huge\bfseries Diego Gerardo Sánchez Moreno}\\
 \small Querétaro, Mexico \\
 \small Email: \href{mailto:diegogerardosanchez3@gmail.com}{diegogerardosanchez3@gmail.com} \;|\; Phone: +52 446 138 5307\\
-\small LinkedIn: \href{https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296}{diego-gerardo-sánchez-moreno-73549a296}\\
-\small GitHub: \href{https://github.com/DiegoSanMo6011}{github.com/DiegoSanMo6011}\\
-\small Portfolio: \href{https://diegogerardo.com}{diegogerardo.com}
+\small LinkedIn: \href{https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296}{diego-gerardo-sánchez-moreno}\\
+\small GitHub: \href{https://github.com/DiegoSanMo6011}{github.com/DiegoSanMo6011} \;|\; Portfolio: \href{https://diegogerardo.com}{diegogerardo.com}
 
 \section*{Summary}
-Robotics and embedded systems engineer in training focused on control, perception, and real‑world deployments. Seeking software/robotics roles where control, embedded systems, and applied perception are core. Full portfolio with projects and demos: diegogerardo.com.
+Robotics and embedded systems engineer focused on control, perception, and real-world deployments. Co-founder \& Project Director at Autónoma (AutoNomaMX), with three POS systems in production. Full portfolio with projects and demos: diegogerardo.com.
 
 \section*{Education}
 \textbf{B.S. in Robotics and Digital Systems Engineering}\\
-Tecnológico de Monterrey, Campus Querétaro\\
-2022 -- Jun 2026 (expected)
+Tecnológico de Monterrey, Campus Querétaro | 2022 -- 2026\\
+Professional license (Cédula Profesional) 15796458 — SEP, Mexico, 2026
 
 \section*{Experience / Research}
+\textbf{Autónoma (AutoNomaMX), Querétaro — Co-founder \& Project Director}\\
+\textit{Jan 2026 -- Present}
+\begin{itemize}[leftmargin=*]
+  \item Shipped three offline-first POS systems in production (restaurant, coffee shop, optical shop) on a multi-tenant PostgreSQL/Supabase backend with Row-Level Security.
+  \item Deployed CI/CD with self-hosted GitHub Actions runners on the production hardware (Raspberry Pi, Ubuntu) with automated smoke tests on every push.
+  \item Integrated POS hardware: ESC/POS thermal printers (USB and network), Code128 barcode labels on Brother DK-1204, touch monitors, and UPS.
+  \item Directed Phase 1 of an optical-shop deployment under PMBOK (charter, WBS, CPM, signed delivery, client training, closure with \$0 cost deviation).
+\end{itemize}
+
 \textbf{Hybrid Soft Robotics Lab, Tec de Monterrey (Querétaro) — Soft Robotics Control Platform}\\
 \textit{2024 -- Present}
 \begin{itemize}[leftmargin=*]
-  \item Designed a bi‑stable pneumatic driver with closed‑loop pressure/vacuum control and safety interlocks.
-  \item Implemented micro‑ROS on ESP32 (UART) with pressure sensing via I2C (ADS1115).
-  \item Achieved near‑zero steady‑state error (0.000 kPa / -0.023 kPa) at 47 kPa and -30 kPa setpoints with PI control (Ts = 0.02 s).
+  \item Designed a bi-stable pneumatic driver with closed-loop pressure/vacuum control and safety interlocks.
+  \item Implemented micro-ROS on ESP32 (UART) with pressure sensing via I2C (ADS1115).
+  \item Achieved near-zero steady-state error (0.000 kPa / -0.023 kPa) at 47 kPa and -30 kPa setpoints with PI control (Ts = 0.02 s).
   \item Built Python SDK + GUI for reproducible experiments and logging; analyzed control data with MATLAB.
-  \item Developed locomotion experiment workflows and a scalable architecture for ongoing research.
+\end{itemize}
+
+\textbf{Instituto Asunción de Querétaro — Web Developer}\\
+\textit{2026 -- Present}
+\begin{itemize}[leftmargin=*]
+  \item Develop and maintain the institution's official website.
 \end{itemize}
 
 \textbf{Patio Cinco (Querétaro) — Production Platform}\\
 \textit{2025 -- 2026}
 \begin{itemize}[leftmargin=*]
   \item Delivered a production system for memberships, billing, and customer operations used by real clients.
-  \item Implemented modular flows on Wix + Velo with relational backend and operational logging.
-\end{itemize}
-
-\textbf{Barbacoa de Miranda (Querétaro) — POS System}\\
-\textit{2025 -- 2026}
-\begin{itemize}[leftmargin=*]
-  \item Built an offline‑first POS for Raspberry Pi with local queueing (SQLite) and auto‑sync to backend.
 \end{itemize}
 
 \section*{Selected Projects}
 \textbf{PuzzleBot Autonomous Mobile Robot (ROS 2)}\\
-\textit{Jan–Jun 2025}
+\textit{Jan--Jun 2025}
 \begin{itemize}[leftmargin=*]
-  \item Integrated micro‑ROS, encoder‑based odometry, and YOLOv8 perception on Jetson Nano.
+  \item Integrated micro-ROS, encoder-based odometry, and YOLOv8 perception on Jetson Nano.
   \item Implemented telemetric distance tracking and validated autonomous motion.
-\end{itemize}
-
-\textbf{Line-Maze Solver (Pololu 3pi+)}\\
-\textit{2024}
-\begin{itemize}[leftmargin=*]
-  \item Implemented PID line following with route recording and simplification to optimize traversal.
 \end{itemize}
 
 \section*{Awards \& Certifications}
 \begin{itemize}[leftmargin=*]
+  \item Project Management program — Tecnológico de Monterrey (2026): Fundamentals (integrative exam), Scope, Cost, Time \& Resources, Execution/Monitoring \& Control
   \item Best Poster Award — Exploring Soft Robotics (Dec 2025)
   \item NVIDIA DLI: Fundamentals of Deep Learning (Jun 2025)
   \item OpenCV Bootcamp (Apr 2025)
@@ -83,7 +84,7 @@ Tecnológico de Monterrey, Campus Querétaro\\
   \item \textbf{Robotics/Control:} \textbf{ROS 2 (Humble)}, \textbf{micro-ROS}, PID/PI, odometry, Gazebo
   \item \textbf{Perception:} OpenCV, YOLOv8
   \item \textbf{Hardware:} ESP32, Jetson Nano, Raspberry Pi, Arduino, FPGA
-  \item \textbf{Product/Web:} Wix + Velo, Supabase, PostgreSQL, Astro, Tailwind
+  \item \textbf{Production systems:} Next.js/React, FastAPI, Docker, Supabase/PostgreSQL (RLS), CI/CD (GitHub Actions self-hosted), offline-first sync
 \end{itemize}
 
 \section*{Languages}
