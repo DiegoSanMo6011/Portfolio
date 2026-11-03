@@ -1,29 +1,11 @@
 ---
-// Esqueleto en gris del rediseño (concepto "En producción"). Standalone, sin tema ni color:
-// sirve para probar que la jerarquía se sostiene solo con tipografía y espacio. La chispa
-// (⌘K, color de estado, diagrama con firma, movimiento) se agrega en el paso 5, no aquí.
-const sistemas = [
-  { id: "SATAG", estado: "En producción", desde: "jul 2026",
-    linea: "Reemplacé papel y hoja de cálculo por la plataforma que opera el acceso vehicular del colegio.",
-    metricas: [
-      ["Eventos de acceso guardados", "62,391", "3-nov-2026"],
-      ["Carga del tablero", "de 41 s a ~6 s", "30-oct-2026"],
-      ["Migraciones SQL reversibles", "105", "3-nov-2026"],
-      ["Tablas, todas con seguridad a nivel de fila", "40", "3-nov-2026"],
-    ] },
-  { id: "SEVAD", estado: "En producción", desde: "jun 2026",
-    linea: "Evaluación anónima del servicio por QR, de cero a producción en 6 días.",
-    metricas: [
-      ["De cero a producción", "6 días", "jun-2026"],
-      ["Panel, tras optimizar", "de 28.9 s a 23 ms", "28-ago-2026"],
-      ["Commits", "274", "3-nov-2026"],
-    ] },
-  { id: "SIVEA", estado: "Prototipo", desde: "sep 2026",
-    linea: "Entrega segura de alumnos con una credencial rotativa firmada con Ed25519; la llave nunca sale del teléfono.",
-    metricas: [
-      ["App móvil nativa", "Expo / React Native", "—"],
-      ["Decisiones de arquitectura documentadas", "13", "3-nov-2026"],
-    ] },
+// Home del rediseño — concepto "En producción". Rama `rediseno`, no toca el sitio publicado.
+// Serio con chispa: oscuro, acento ámbar, serif (Newsreader) solo en afirmaciones, mono para identificadores.
+// Evidencia de sistemas confidenciales = diagrama con firma + reconstrucción de UI con datos de ejemplo.
+const videos = [
+  { t: "Soft Robotics — demo final", id: "Nmk_etXFZ6o" },
+  { t: "PuzzleBot — ROS 2", id: "sOlqaHjRg6w" },
+  { t: "Line-Maze Solver", id: "7IuBa7F5US0" },
 ];
 const principios = [
   "Mido antes de tocar.",
@@ -38,148 +20,346 @@ const trayectoria = [
   ["2026", "Ingeniero en Robótica y Sistemas Digitales", "Tec de Monterrey · cédula profesional"],
   ["2024–2026", "Investigación en robótica suave", "Hybrid Soft Robotics Lab · Best Poster 2025"],
 ];
+const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${id}&modestbranding=1&playsinline=1`;
 ---
 <!doctype html>
 <html lang="es">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Esqueleto gris · rediseño</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Gerardo Sánchez — product engineer</title>
+<meta name="description" content="Resuelvo problemas complejos con sistemas funcionales. Dos sistemas en producción en un colegio y tres puntos de venta con clientes reales." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 <style>
-  :root { --ink:#17181a; --mut:#5b5e63; --dim:#8a8d92; --line:#d7d9dc; --paper:#fbfbfa; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--paper); color:var(--ink);
-    font:400 16px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-    -webkit-font-smoothing:antialiased; }
-  main { max-width:760px; margin:0 auto; padding:72px 20px 96px; }
-  .afirma { font-family:Georgia,"Times New Roman",serif; }
-  .rotulo { font:600 12px/1.4 ui-monospace,"SF Mono",Menlo,monospace; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--dim); }
-  h1 { font-size:15px; font-weight:600; margin:6px 0 20px; letter-spacing:.01em; }
-  .lede { font-size:30px; line-height:1.22; font-weight:400; margin:0 0 16px; max-width:18ch; }
-  .apoyo { font-size:17px; color:var(--mut); max-width:60ch; margin:0 0 8px; }
-  section { margin-top:64px; }
-  .stit { font-family:ui-monospace,Menlo,monospace; font-size:13px; color:var(--dim); margin:0 0 6px; letter-spacing:.02em; }
-  .shead { font-size:22px; font-weight:600; margin:0 0 22px; max-width:30ch; }
-  /* lista de estado del hero */
-  .reporte { border-top:1px solid var(--line); margin-top:28px; }
-  .fila { display:flex; align-items:baseline; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
-  .fila .sis { font-weight:600; min-width:84px; }
-  .fila .est { font:600 11px/1 ui-monospace,Menlo,monospace; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--mut); border:1px solid var(--line); border-radius:4px; padding:4px 7px; }
-  .fila .meta { margin-left:auto; color:var(--dim); font-size:14px; }
-  /* proyecto */
-  .proj { border-top:1px solid var(--line); padding-top:22px; margin-top:34px; }
-  .proj h3 { font-size:20px; margin:0 0 4px; }
-  .proj .res { color:var(--mut); margin:0 0 16px; max-width:62ch; }
-  .kv { width:100%; border-collapse:collapse; }
-  .kv td { padding:9px 0; border-bottom:1px solid var(--line); vertical-align:baseline; }
-  .kv td.k { color:var(--mut); }
-  .kv td.v { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; padding-left:16px; }
-  .kv td.f { text-align:right; color:var(--dim); font-size:13px; width:1%; white-space:nowrap; padding-left:16px;
-    font-variant-numeric:tabular-nums; }
-  .ph { margin:16px 0 4px; border:1px dashed var(--line); border-radius:6px; padding:22px; text-align:center;
-    color:var(--dim); font:13px/1.4 ui-monospace,Menlo,monospace; }
-  ol.principios { margin:0; padding:0; list-style:none; counter-reset:p; }
-  ol.principios li { counter-increment:p; border-bottom:1px solid var(--line); padding:14px 0 14px 34px; position:relative;
-    font-size:18px; }
-  ol.principios li::before { content:counter(p); position:absolute; left:0; top:15px;
-    font:600 12px/1 ui-monospace,Menlo,monospace; color:var(--dim); }
-  .tray { width:100%; border-collapse:collapse; }
-  .tray td { padding:11px 0; border-bottom:1px solid var(--line); vertical-align:baseline; }
-  .tray td.a { color:var(--dim); font-variant-numeric:tabular-nums; white-space:nowrap; width:1%; padding-right:16px;
-    font-size:14px; }
-  .tray td.r { font-weight:600; }
-  .tray td.d { color:var(--mut); text-align:right; padding-left:16px; }
-  .humano { display:flex; gap:20px; align-items:flex-start; border-top:1px solid var(--line); padding-top:22px; }
-  .foto { width:96px; height:96px; flex:none; border:1px dashed var(--line); border-radius:8px; display:flex;
-    align-items:center; justify-content:center; color:var(--dim); font:12px/1.3 ui-monospace,Menlo,monospace; text-align:center; }
-  .contacto a { color:var(--ink); }
-  .nota { margin-top:10px; color:var(--dim); font:13px/1.5 ui-monospace,Menlo,monospace; }
-  .cmdk { position:fixed; right:16px; bottom:16px; border:1px solid var(--line); background:#fff; border-radius:8px;
-    padding:9px 12px; font:12px/1 ui-monospace,Menlo,monospace; color:var(--mut); }
-  @media (max-width:440px){
-    main{ padding:48px 16px 80px; }
-    .lede{ font-size:25px; }
-    .fila .meta{ display:none; }
+  :root{
+    --bg:#16171a; --panel:#1c1e22; --panel2:#191b1f; --ink:#ecebe7; --mut:#9a9ca0; --dim:#6c6f74;
+    --line:#2f3237; --acc:#d8a657; --ok:#8ab873; --warn:#d98b5a; --proto:#c7b26a;
+    --sans:'Inter',ui-sans-serif,system-ui,sans-serif; --serif:'Newsreader',Georgia,serif;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px}
+  /* top bar */
+  nav{position:sticky;top:0;z-index:30;background:rgba(22,23,26,.82);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  nav .nm{font:600 14px var(--mono);letter-spacing:.02em}
+  nav .k{font:12px var(--mono);color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer}
+  nav .k:hover{color:var(--ink);border-color:var(--dim)}
+  /* secciones */
+  section{padding:56px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+  .rotulo{font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 10px}
+  .afirma{font-family:var(--serif);font-weight:400;letter-spacing:.005em}
+  h1{font-size:14px;font-weight:600;margin:0 0 18px;color:var(--mut)}
+  .lede{font-size:clamp(28px,6vw,42px);line-height:1.12;margin:0 0 18px;max-width:17ch}
+  .apoyo{font-size:18px;color:var(--mut);max-width:60ch;margin:0 0 6px}
+  .shead{font-size:clamp(22px,4.5vw,28px);line-height:1.2;margin:0 0 8px;max-width:30ch}
+  .sintro{color:var(--mut);max-width:60ch;margin:0 0 28px}
+  /* reporte de estado (hero) */
+  .reporte{border-top:1px solid var(--line);margin-top:30px}
+  .fila{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .fila .dotp{width:8px;height:8px;border-radius:50%;flex:none}
+  .fila .sis{font-weight:600;min-width:92px}
+  .fila .est{font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+  .fila .meta{margin-left:auto;color:var(--dim);font-size:14px}
+  .g{color:var(--ok)} .a{color:var(--proto)} .d{color:var(--dim)}
+  .bg-g{background:var(--ok)} .bg-a{background:var(--proto)} .bg-d{background:var(--dim)}
+  /* sistema */
+  .sis-block{margin-top:40px}
+  .sis-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .sis-head h3{font-size:21px;margin:0}
+  .chip{font:600 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);
+    border-radius:5px;padding:5px 8px}
+  .res{color:var(--mut);margin:8px 0 16px;max-width:62ch}
+  table.kv{width:100%;border-collapse:collapse;margin-bottom:8px}
+  table.kv td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+  table.kv td.k{color:var(--mut)}
+  table.kv td.v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:16px}
+  table.kv td.f{text-align:right;color:var(--dim);font:13px var(--mono);width:1%;white-space:nowrap;padding-left:16px}
+  figure{margin:18px 0 0}
+  figcaption{color:var(--dim);font:12px/1.5 var(--mono);margin-top:8px}
+  .card{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+  .card.out{border-color:#3a3833}
+  /* mini-app frame */
+  .appbar{display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid var(--line);background:var(--panel2)}
+  .appbar .dot{width:9px;height:9px;border-radius:50%;background:#34373c}
+  .appbar .ttl{margin-left:8px;font:12px var(--mono);color:var(--dim)}
+  .appbody{padding:18px}
+  /* heatmap sevad */
+  .hm{border-collapse:collapse;width:100%}
+  .hm th{font:600 12px var(--sans);color:var(--mut);text-align:center;padding:4px 6px}
+  .hm th.a{text-align:left}
+  .hm td{padding:3px}
+  .hm td.a{color:var(--ink);font-size:13px;white-space:nowrap;padding-right:10px}
+  .cell{border-radius:6px;height:34px;display:flex;align-items:center;justify-content:center;color:#0e0f11;
+    font:600 13px var(--sans);font-variant-numeric:tabular-nums}
+  .kpis{display:flex;gap:34px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}
+  .kpi .n{font:600 26px/1 var(--sans);font-variant-numeric:tabular-nums}
+  .kpi .l{color:var(--mut);font-size:12px;margin-top:5px}
+  /* barras ocupación satag */
+  .bars{display:flex;flex-direction:column;gap:12px}
+  .barrow{display:flex;align-items:center;gap:12px}
+  .barrow .lab{width:58px;color:var(--mut);font-size:13px}
+  .barrow .track{flex:1;height:14px;background:var(--panel2);border-radius:7px;overflow:hidden}
+  .barrow .track i{display:block;height:100%;background:var(--acc);border-radius:7px}
+  .barrow .num{width:44px;text-align:right;font:600 13px var(--mono);font-variant-numeric:tabular-nums}
+  /* svg diagram */
+  .diag{width:100%;height:auto;display:block}
+  .node{fill:var(--panel2);stroke:var(--line);stroke-width:1}
+  .node.out{stroke:var(--acc)}
+  .ntitle{fill:var(--ink);font:600 13px var(--sans)}
+  .nsub{fill:var(--mut);font:11px var(--mono)}
+  .edge{stroke:var(--dim);stroke-width:1.4;fill:none;marker-end:url(#arw)}
+  .core{fill:var(--panel2);stroke:var(--acc);stroke-width:1.4}
+  .coretitle{fill:var(--acc);font:600 13px var(--sans)}
+  .pill{fill:none;stroke:var(--ok)} .pilltxt{fill:var(--ok);font:600 11px var(--mono)}
+  /* videos */
+  .reel{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .reel .v{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+  .reel .frame{position:relative;padding-top:56.25%}
+  .reel iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .reel .cap{padding:9px 12px;font:12px var(--mono);color:var(--mut);text-align:center}
+  /* autonoma */
+  .an-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+  .an-head img{height:40px;width:auto}
+  .caso{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .caso .cn{font-weight:600;min-width:120px}
+  .caso .cd{color:var(--mut);font-size:14px}
+  .caso .cx{margin-left:auto;font:11px var(--mono);color:var(--ok);white-space:nowrap}
+  /* principios */
+  ol.pr{margin:0;padding:0;list-style:none;counter-reset:p}
+  ol.pr li{counter-increment:p;border-bottom:1px solid var(--line);padding:15px 0 15px 36px;position:relative;font-size:18px}
+  ol.pr li::before{content:counter(p);position:absolute;left:0;top:17px;font:600 12px var(--mono);color:var(--acc)}
+  /* trayectoria */
+  .tray{width:100%;border-collapse:collapse}
+  .tray td{padding:12px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+  .tray td.y{color:var(--dim);font:13px var(--mono);white-space:nowrap;width:1%;padding-right:16px}
+  .tray td.r{font-weight:600} .tray td.p{color:var(--mut);text-align:right;padding-left:16px}
+  /* quién */
+  .quien{display:flex;gap:22px;align-items:flex-start}
+  .quien img{width:104px;height:104px;border-radius:10px;object-fit:cover;border:1px solid var(--line);flex:none}
+  .quien .nota{margin-top:10px;color:var(--dim);font:13px var(--mono)}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--dim);font:13px var(--mono);text-align:center}
+  /* command palette */
+  #cmdk{position:fixed;inset:0;z-index:50;background:rgba(10,11,13,.6);display:none;align-items:flex-start;justify-content:center;padding-top:14vh}
+  #cmdk.open{display:flex}
+  #cmdk .box{width:min(520px,92vw);background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  #cmdk input{width:100%;border:0;background:var(--panel2);color:var(--ink);padding:15px 16px;font:15px var(--sans);outline:none;border-bottom:1px solid var(--line)}
+  #cmdk a{display:flex;justify-content:space-between;padding:12px 16px;color:var(--ink);border-bottom:1px solid var(--line)}
+  #cmdk a:last-child{border-bottom:0} #cmdk a:hover,#cmdk a.sel{background:var(--panel2);text-decoration:none}
+  #cmdk a span.k{font:11px var(--mono);color:var(--dim)}
+  @media (max-width:640px){ .reel{grid-template-columns:1fr} .fila .meta{display:none} }
+  @media (prefers-reduced-motion:no-preference){
+    .fade{opacity:0;transform:translateY(8px);animation:up .5s ease forwards}
+    @keyframes up{to{opacity:1;transform:none}}
   }
 </style>
 </head>
 <body>
-<main>
-  <!-- HERO: el tablero que entra en operación -->
-  <header>
+<nav><div class="wrap"><span class="nm">gerardo sánchez</span><span class="k" id="kbtn">⌘K</span></div></nav>
+
+<main class="wrap">
+  <!-- HERO -->
+  <section id="inicio" class="fade">
     <p class="rotulo">Product engineer · founding engineer · abierto a remoto</p>
     <h1>Gerardo Sánchez</h1>
     <p class="lede afirma">Resuelvo problemas complejos con sistemas funcionales.</p>
     <p class="apoyo">Dos sistemas en producción en un colegio y tres puntos de venta con clientes reales en mi empresa. Soportados por mi diseño de base de datos, seguridad y privacidad.</p>
     <div class="reporte">
-      {sistemas.map(s => (
-        <div class="fila">
-          <span class="sis">{s.id}</span>
-          <span class="est">{s.estado}</span>
-          <span class="meta">{s.estado === "En producción" ? `en operación desde ${s.desde}` : `en construcción desde ${s.desde}`}</span>
-        </div>
-      ))}
-      <div class="fila">
-        <span class="sis">AutoNoma</span>
-        <span class="est">3 en producción</span>
-        <span class="meta">POS con clientes reales</span>
-      </div>
+      <div class="fila"><span class="dotp bg-g"></span><span class="sis">SATAG</span><span class="est g">En producción</span><span class="meta">acceso vehicular · desde jul 2026</span></div>
+      <div class="fila"><span class="dotp bg-g"></span><span class="sis">SEVAD</span><span class="est g">En producción</span><span class="meta">evaluación por QR · desde jun 2026</span></div>
+      <div class="fila"><span class="dotp bg-a"></span><span class="sis">SIVEA</span><span class="est a">Prototipo</span><span class="meta">entrega de alumnos · desde sep 2026</span></div>
+      <div class="fila"><span class="dotp bg-g"></span><span class="sis">AutoNoma</span><span class="est g">3 en producción</span><span class="meta">POS con clientes reales</span></div>
     </div>
-  </header>
+  </section>
 
-  <!-- PROYECTOS como sistemas -->
-  <section>
-    <p class="stit">## proyectos</p>
+  <!-- SISTEMAS EN PRODUCCIÓN -->
+  <section id="sistemas">
+    <p class="rotulo">## sistemas</p>
     <h2 class="shead afirma">Todo lo que ves está en producción o es un prototipo que funciona.</h2>
-    {sistemas.map(s => (
-      <article class="proj">
-        <h3>{s.id} — <span style="font-weight:400; color:var(--mut)">{s.estado}</span></h3>
-        <p class="res">{s.linea}</p>
-        <table class="kv">
-          {s.metricas.map(m => (
-            <tr><td class="k">{m[0]}</td><td class="v">{m[1]}</td><td class="f">{m[2]}</td></tr>
-          ))}
-        </table>
-        <div class="ph">[ diagrama con firma o evidencia — se agrega al vestir ]</div>
-      </article>
-    ))}
+    <p class="sintro">Los de mayor impacto son del colegio y no puedo mostrar capturas reales. Los cuento con un diagrama del problema y una reconstrucción con datos de ejemplo.</p>
+
+    <!-- SATAG -->
+    <div class="sis-block">
+      <div class="sis-head"><h3>SATAG</h3><span class="chip g">En producción</span></div>
+      <p class="res">Reemplacé papel y hoja de cálculo por la plataforma que opera el acceso vehicular del colegio: solicitud con firma, caja, inventario e integración con las plumas.</p>
+      <table class="kv">
+        <tr><td class="k">Eventos de acceso guardados</td><td class="v">62,391</td><td class="f">3-nov-2026</td></tr>
+        <tr><td class="k">Carga del tablero</td><td class="v">de 41 s a ~6 s</td><td class="f">30-oct-2026</td></tr>
+        <tr><td class="k">Migraciones SQL reversibles</td><td class="v">105</td><td class="f">3-nov-2026</td></tr>
+        <tr><td class="k">Tablas, todas con seguridad a nivel de fila</td><td class="v">40</td><td class="f">3-nov-2026</td></tr>
+      </table>
+      <figure>
+        <svg class="diag" viewBox="0 0 820 300" role="img" aria-label="SATAG concilia cuatro fuentes de datos en un expediente">
+          <defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6c6f74"/></marker></defs>
+          <rect class="node" x="10" y="16" width="176" height="46" rx="8"/><text class="ntitle" x="26" y="38">Control de acceso (ZK)</text><text class="nsub" x="26" y="54">bitácora + padrón</text>
+          <rect class="node" x="10" y="80" width="176" height="46" rx="8"/><text class="ntitle" x="26" y="102">Hoja histórica</text><text class="nsub" x="26" y="118">el proceso anterior</text>
+          <rect class="node" x="10" y="176" width="176" height="46" rx="8"/><text class="ntitle" x="26" y="198">Sistema escolar</text><text class="nsub" x="26" y="214">quién es y si sigue</text>
+          <rect class="node" x="10" y="240" width="176" height="46" rx="8"/><text class="ntitle" x="26" y="262">SATAG</text><text class="nsub" x="26" y="278">solicitud + firma</text>
+          <path class="edge" d="M186,39 C270,39 280,128 338,144"/><path class="edge" d="M186,103 C270,103 280,140 338,152"/>
+          <path class="edge" d="M186,199 C270,199 280,168 338,160"/><path class="edge" d="M186,263 C270,263 280,180 338,168"/>
+          <rect class="core" x="340" y="104" width="232" height="96" rx="12"/><text class="coretitle" x="358" y="134">Motor de conciliación</text><text class="nsub" x="358" y="154">reglas de cuál fuente manda</text>
+          <rect class="pill" x="358" y="166" width="196" height="24" rx="12" stroke-width="1"/><text class="pilltxt" x="370" y="182">comparación de nombres · es-MX</text>
+          <path class="edge" d="M572,138 C630,138 640,74 696,70"/><path class="edge" d="M572,166 C630,166 640,226 696,230"/>
+          <rect class="node out" x="698" y="46" width="112" height="48" rx="8"/><text class="ntitle" x="712" y="68">Expediente</text><text class="nsub" x="712" y="84">una verdad</text>
+          <rect class="node out" x="698" y="206" width="112" height="48" rx="8"/><text class="ntitle" x="712" y="228">ZK: altas/bajas</text><text class="nsub" x="712" y="244">por lotes</text>
+        </svg>
+        <figcaption>Diagrama. 102 cambios guiados, 73 verificados, 0 descoordinaciones (3-nov-2026).</figcaption>
+      </figure>
+      <figure>
+        <div class="card out">
+          <div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="ttl">tablero · ocupación del estacionamiento</span></div>
+          <div class="appbody">
+            <div class="kpis">
+              <div class="kpi"><div class="n">1,774</div><div class="l">Accesos por día hábil</div></div>
+              <div class="kpi"><div class="n">73</div><div class="l">En los 15 min pico</div></div>
+              <div class="kpi"><div class="n g">~6 s</div><div class="l">Carga del tablero</div></div>
+            </div>
+            <div class="bars">
+              <div class="barrow"><span class="lab">Lote A</span><span class="track"><i style="width:82%"></i></span><span class="num">82%</span></div>
+              <div class="barrow"><span class="lab">Lote B</span><span class="track"><i style="width:64%"></i></span><span class="num">64%</span></div>
+              <div class="barrow"><span class="lab">Visitas</span><span class="track"><i style="width:38%"></i></span><span class="num">38%</span></div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Reconstrucción con datos de ejemplo. No muestra datos reales del Instituto.</figcaption>
+      </figure>
+    </div>
+
+    <!-- SEVAD -->
+    <div class="sis-block">
+      <div class="sis-head"><h3>SEVAD</h3><span class="chip g">En producción</span></div>
+      <p class="res">Evaluación anónima del servicio por QR, de cero a producción en 6 días. Después, ingeniería de rendimiento sobre el panel.</p>
+      <table class="kv">
+        <tr><td class="k">De cero a producción</td><td class="v">6 días</td><td class="f">jun-2026</td></tr>
+        <tr><td class="k">Panel, tras optimizar</td><td class="v">de 28.9 s a 23 ms</td><td class="f">28-ago-2026</td></tr>
+        <tr><td class="k">Commits</td><td class="v">274</td><td class="f">3-nov-2026</td></tr>
+      </table>
+      <figure>
+        <div class="card out">
+          <div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="ttl">panel · satisfacción del servicio</span></div>
+          <div class="appbody">
+            <div class="kpis">
+              <div class="kpi"><div class="n g">92%</div><div class="l">Satisfacción (top-2-box)</div></div>
+              <div class="kpi"><div class="n">1,284</div><div class="l">Respuestas del periodo</div></div>
+              <div class="kpi"><div class="n g">23 ms</div><div class="l">Carga del panel</div></div>
+            </div>
+            <table class="hm">
+              <tr><th class="a"></th><th>Trato</th><th>Tiempo</th><th>Claridad</th></tr>
+              <tr><td class="a">Cobranza</td><td><div class="cell" style="background:#8ab873">94</div></td><td><div class="cell" style="background:#c9a84e">78</div></td><td><div class="cell" style="background:#8ab873">90</div></td></tr>
+              <tr><td class="a">Facturación</td><td><div class="cell" style="background:#8ab873">88</div></td><td><div class="cell" style="background:#d98b5a;color:#fff">61</div></td><td><div class="cell" style="background:#c9a84e">80</div></td></tr>
+              <tr><td class="a">Recepción</td><td><div class="cell" style="background:#8ab873">96</div></td><td><div class="cell" style="background:#8ab873">91</div></td><td><div class="cell" style="background:#8ab873">93</div></td></tr>
+            </table>
+          </div>
+        </div>
+        <figcaption>Reconstrucción con datos de ejemplo. Encuesta anónima: sin datos personales ni IP. Paleta validada para daltonismo.</figcaption>
+      </figure>
+    </div>
+
+    <!-- SIVEA -->
+    <div class="sis-block">
+      <div class="sis-head"><h3>SIVEA</h3><span class="chip a">Prototipo</span></div>
+      <p class="res">Entrega segura de alumnos con una credencial rotativa firmada con Ed25519; la llave secreta nunca sale del teléfono. App móvil nativa, pruebas de propiedades y modelo de amenazas.</p>
+      <table class="kv">
+        <tr><td class="k">Credencial</td><td class="v">Ed25519, rota cada 60 s</td><td class="f">—</td></tr>
+        <tr><td class="k">Decisiones de arquitectura documentadas</td><td class="v">13</td><td class="f">3-nov-2026</td></tr>
+      </table>
+    </div>
   </section>
 
-  <!-- CÓMO TRABAJO -->
-  <section>
-    <p class="stit">## cómo trabajo</p>
-    <h2 class="shead afirma">Cinco cosas que creo sobre construir software.</h2>
-    <ol class="principios">
-      {principios.map(p => (<li>{p}</li>))}
-    </ol>
+  <!-- AUTONOMA -->
+  <section id="autonoma">
+    <p class="rotulo">## autonoma</p>
+    <div class="an-head"><img src="/assets/img/autonoma/logo-autonoma-white.png" alt="AutoNoma" /></div>
+    <h2 class="shead afirma">Cofundé una empresa y llevé tres sistemas a producción con clientes reales.</h2>
+    <p class="sintro">Cofundador y director de proyectos. Punto de venta y analítica para negocios mexicanos, con dirección formal de proyectos.</p>
+    <div>
+      <a class="caso" href="/autonoma/optinoma"><span class="cn">OptiNoma</span><span class="cd">POS para ópticas, offline, en Óptica Los Ángeles.</span><span class="cx">En producción</span></a>
+      <a class="caso" href="/autonoma/pos-lite"><span class="cn">POS Lite</span><span class="cd">Venta en menos de 15 s, corte con folio, sin internet.</span><span class="cx">En producción</span></a>
+      <a class="caso" href="/autonoma/analitica"><span class="cn">Analítica</span><span class="cd">Dashboards en tiempo real y asistente de IA sobre el POS.</span><span class="cx">Plataforma</span></a>
+    </div>
+    <p style="margin-top:18px"><a href="/autonoma">Conocer AutoNoma →</a></p>
   </section>
 
-  <!-- TRAYECTORIA -->
-  <section>
-    <p class="stit">## trayectoria</p>
-    <h2 class="shead afirma">De investigar robótica en el Tec a operar software en producción.</h2>
-    <table class="tray">
-      {trayectoria.map(t => (
-        <tr><td class="a">{t[0]}</td><td class="r">{t[1]}</td><td class="d">{t[2]}</td></tr>
+  <!-- ROBÓTICA -->
+  <section id="robotica">
+    <p class="rotulo">## de dónde vengo</p>
+    <h2 class="shead afirma">Vengo de investigar robótica, y de ahí sale mi rigor.</h2>
+    <p class="sintro">Poca gente llega al software desde aquí. Fue lo que me abrió la puerta a mi trabajo actual. Estos son sistemas reales en movimiento, no maquetas.</p>
+    <div class="reel">
+      {videos.map(v => (
+        <div class="v"><div class="frame"><iframe src={vid(v.id)} title={v.t} loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><div class="cap">{v.t}</div></div>
       ))}
+    </div>
+    <table class="kv" style="margin-top:22px">
+      <tr><td class="k">Investigación en robótica suave · Hybrid Soft Robotics Lab</td><td class="v">Best Poster</td><td class="f">dic-2025</td></tr>
+      <tr><td class="k">Robótica móvil autónoma con ROS 2 y visión</td><td class="v">micro-ROS</td><td class="f">2025</td></tr>
     </table>
   </section>
 
-  <!-- HUMANO + CONTACTO -->
-  <section>
-    <p class="stit">## quién</p>
-    <div class="humano">
-      <div class="foto">[ foto ]</div>
-      <div class="contacto">
+  <!-- CÓMO TRABAJO -->
+  <section id="como-trabajo">
+    <p class="rotulo">## cómo trabajo</p>
+    <h2 class="shead afirma">Cinco cosas que creo sobre construir software.</h2>
+    <ol class="pr">{principios.map(p => (<li>{p}</li>))}</ol>
+  </section>
+
+  <!-- TRAYECTORIA -->
+  <section id="trayectoria">
+    <p class="rotulo">## trayectoria</p>
+    <h2 class="shead afirma">De investigar robótica en el Tec a operar software en producción.</h2>
+    <table class="tray">{trayectoria.map(t => (<tr><td class="y">{t[0]}</td><td class="r">{t[1]}</td><td class="p">{t[2]}</td></tr>))}</table>
+  </section>
+
+  <!-- QUIÉN -->
+  <section id="quien">
+    <p class="rotulo">## quién</p>
+    <div class="quien">
+      <img src="/assets/img/profile.jpg" alt="Gerardo Sánchez" />
+      <div>
         <p class="apoyo" style="margin-bottom:10px">Ingeniero de Querétaro. Vengo de la robótica y hoy construyo y opero software. En mis ratos hago juegos para mi novia y para Kali, mi gata.</p>
         <p><a href="mailto:diegogerardosanchez3@gmail.com">correo</a> · <a href="https://github.com/DiegoSanMo6011">GitHub</a> · <a href="https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296">LinkedIn</a></p>
-        <p class="nota">⌘K para navegar · el juego de gatos vive escondido aquí</p>
+        <p class="nota">⌘K para navegar</p>
       </div>
     </div>
   </section>
 </main>
-<div class="cmdk">⌘K</div>
+
+<footer>Hecho por Gerardo Sánchez · Querétaro, México</footer>
+
+<!-- command palette -->
+<div id="cmdk"><div class="box">
+  <input id="cmdq" placeholder="Ir a… (escribe y Enter)" autocomplete="off" />
+  <div id="cmdlist">
+    <a href="#sistemas">Sistemas en producción<span class="k">1</span></a>
+    <a href="#autonoma">AutoNoma<span class="k">2</span></a>
+    <a href="#robotica">Robótica<span class="k">3</span></a>
+    <a href="#como-trabajo">Cómo trabajo<span class="k">4</span></a>
+    <a href="#trayectoria">Trayectoria<span class="k">5</span></a>
+    <a href="mailto:diegogerardosanchez3@gmail.com">Escríbeme<span class="k">@</span></a>
+    <a href="https://crecimiento-personal-six.vercel.app/" target="_blank" rel="noopener">Kali Junta — un juego mío<span class="k">🐈‍⬛</span></a>
+  </div>
+</div></div>
+
+<script>
+  const k = document.getElementById('cmdk'), q = document.getElementById('cmdq'), btn = document.getElementById('kbtn');
+  const open = () => { k.classList.add('open'); q.value=''; filter(); q.focus(); };
+  const close = () => k.classList.remove('open');
+  const links = () => Array.from(document.querySelectorAll('#cmdlist a'));
+  function filter(){ const t=q.value.toLowerCase(); links().forEach(a=>{ a.style.display = a.textContent.toLowerCase().includes(t)?'flex':'none'; }); }
+  btn.addEventListener('click', open);
+  q.addEventListener('input', filter);
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); k.classList.contains('open')?close():open(); }
+    else if (e.key==='Escape') close();
+    else if (k.classList.contains('open') && e.key==='Enter'){ const v=links().find(a=>a.style.display!=='none'); if(v){ close(); v.click(); } }
+  });
+  k.addEventListener('click', e => { if(e.target===k) close(); });
+</script>
 </body>
 </html>
