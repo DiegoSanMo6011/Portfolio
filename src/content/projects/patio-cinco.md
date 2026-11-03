@@ -4,7 +4,7 @@ description: "Plataforma web en producción para un autolavado en Querétaro: ge
 tags: ["Product Engineering", "Web Platform", "Wix + Velo", "Backend", "Billing", "Operations"]
 date: 2026-01-01
 featured: true
-priority: 2
+priority: 5
 siteUrl: "https://www.patiocinco.com/"
 status: "En producción"
 highlights:

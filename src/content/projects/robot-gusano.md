@@ -4,7 +4,7 @@ description: "Infraestructura integral para locomoción en robots suaves: neumá
 tags: ["Soft Robotics", "Control", "ROS 2", "ESP32", "micro-ROS", "Python", "Neumática", "Embedded Systems", "GUI", "MATLAB"]
 date: 2024-08-01
 featured: true
-priority: 1
+priority: 6
 githubUrl: "https://github.com/DiegoSanMo6011/softbot_pneumatic_driver"
 videoUrl: "https://www.youtube.com/watch?v=Nmk_etXFZ6o"
 videoUrl2: "https://youtu.be/rIL5Ci7ShaE"

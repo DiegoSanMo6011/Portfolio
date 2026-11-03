@@ -4,7 +4,7 @@ description: "Sistema de punto de venta en Raspberry Pi con operación offline, 
 tags: ["Autónoma", "POS", "Python", "Raspberry Pi", "Offline", "Supabase"]
 date: 2026-01-20
 featured: true
-priority: 3
+priority: 4
 githubUrl: "https://github.com/DiegoSanMo6011/Barbacoa"
 siteUrl: "/autonoma/barbacoa"
 status: "En producción"
