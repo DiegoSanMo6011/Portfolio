@@ -63,6 +63,10 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
   .hero-art{justify-self:center}
   .hero-art img{width:100%;max-width:250px;height:auto;display:block;filter:drop-shadow(0 6px 22px rgba(232,67,58,.14))}
   @media(min-width:721px){ .hero{grid-template-columns:1fr 250px} .hero-art{justify-self:end} }
+  /* nameplate: la bomba SanMo como firma del héroe */
+  .hero-bomba{margin:30px 0 2px}
+  .hero-bomba img{width:100%;max-width:600px;height:auto;display:block;
+    filter:drop-shadow(0 6px 20px rgba(0,0,0,.45))}
   /* bomba en quién */
   .bomba{margin:22px 0 0;border-top:1px solid var(--line);padding-top:20px}
   .bomba img{width:100%;max-width:440px;height:auto;display:block}
@@ -196,6 +200,7 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
       </div>
       <div class="hero-art"><img src="/assets/img/marca/calavera-roja.png" alt="Calavera de ojos de corazón — la marca de Gerardo (SanMo)" /></div>
     </div>
+    <div class="hero-bomba"><img src="/assets/img/marca/bomba-sanmo.png" alt="SanMo — bomba de grafiti pintada por Gerardo" /></div>
     <div class="reporte">
       <div class="fila"><span class="dotp bg-g"></span><span class="sis">SATAG</span><span class="est g">En producción</span><span class="meta">acceso vehicular · desde jul 2026</span></div>
       <div class="fila"><span class="dotp bg-g"></span><span class="sis">SEVAD</span><span class="est g">En producción</span><span class="meta">evaluación por QR · desde jun 2026</span></div>
@@ -355,8 +360,8 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
       </div>
     </div>
     <figure class="bomba">
-      <img src="/assets/img/marca/bomba-sarmo.png" alt="Bomba de grafiti pintada por Gerardo: una calavera y las letras Sarmo" />
-      <figcaption>Bomba que pinté — "Sarmo". El mismo gusto por lo bien hecho, con lata en vez de teclado.</figcaption>
+      <img src="/assets/img/marca/bomba-sanmo.png" alt="Bomba de grafiti pintada por Gerardo: una calavera y mi tag, SanMo" />
+      <figcaption>Mi tag, pintado — "SanMo". El mismo gusto por lo bien hecho, con lata en vez de teclado.</figcaption>
     </figure>
   </section>
 </main>
