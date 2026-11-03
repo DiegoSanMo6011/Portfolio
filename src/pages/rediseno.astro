@@ -73,6 +73,10 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
   .bomba figcaption{color:var(--dim);font:12px/1.5 var(--mono);margin-top:8px}
   .mundos{color:var(--mut);max-width:60ch;margin:4px 0 0}
   .mundos b{color:var(--ink);font-weight:600}
+  /* Kali (gata) — marca provisional */
+  .kali-mark{display:flex;align-items:center;gap:12px;margin-top:16px;color:var(--dim);font:12px var(--mono)}
+  .kali-mark svg{flex:none}
+  .kali-mark .eye{fill:var(--pixel-green,#c7e070)}
   /* secciones */
   section{padding:56px 0;border-top:1px solid var(--line)}
   section:first-of-type{border-top:0}
@@ -356,6 +360,19 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
         <p class="apoyo" style="margin-bottom:10px">Ingeniero de Querétaro. Vengo de la robótica y hoy construyo y opero software. En mis ratos hago juegos para mi novia y para Kali, mi gata.</p>
         <p class="mundos">Fuera del código: <b>hip-hop</b>, <b>grafiti</b> y <b>skate</b> desde la prepa, <b>ajedrez</b> y <b>pixel art</b>. La calavera y la bomba de aquí las pinté yo.</p>
         <p style="margin-top:10px"><a href="mailto:diegogerardosanchez3@gmail.com">correo</a> · <a href="https://github.com/DiegoSanMo6011">GitHub</a> · <a href="https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296">LinkedIn</a></p>
+        <div class="kali-mark">
+          <svg width="56" height="44" viewBox="0 0 120 94" role="img" aria-label="Kali, la gata">
+            <path d="M26 48 L34 16 L56 44 Z" fill="#23252b"/>
+            <path d="M64 44 L86 16 L94 48 Z" fill="#23252b"/>
+            <path d="M10 86 C8 44 34 30 60 30 C86 30 112 44 110 86 C110 89 108 90 105 90 L15 90 C12 90 10 89 10 86 Z" fill="#23252b"/>
+            <path d="M104 86 C116 84 116 66 101 68 C92 69 92 80 100 79" fill="none" stroke="#23252b" stroke-width="9" stroke-linecap="round"/>
+            <ellipse class="eye" cx="46" cy="60" rx="7.5" ry="10"/>
+            <ellipse class="eye" cx="74" cy="60" rx="7.5" ry="10"/>
+            <ellipse cx="46" cy="61" rx="2.4" ry="7" fill="#15161a"/>
+            <ellipse cx="74" cy="61" rx="2.4" ry="7" fill="#15161a"/>
+          </svg>
+          <span>Kali, la jefa.</span>
+        </div>
         <p class="nota">⌘K para navegar</p>
       </div>
     </div>
