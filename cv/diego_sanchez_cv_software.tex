@@ -21,7 +21,7 @@
 \small LinkedIn: \href{https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296}{diego-gerardo-sánchez-moreno-73549a296} \;|\; GitHub: \href{https://github.com/DiegoSanMo6011}{DiegoSanMo6011} \;|\; Portfolio: \href{https://diegogerardo.com}{diegogerardo.com}
 
 \section*{Summary}
-Software and product engineer; co-founder \& Project Director at Autónoma (AutoNomaMX), with three point-of-sale systems in production for real businesses on a multi-tenant backend, delivered with formal project management (PMBOK). Full portfolio with projects and demos: diegogerardo.com.
+Software and product engineer who ships end to end: problem, design, database, security, deployment and daily operation. At a private school, sole author of two web systems in production (SATAG and SEVAD) and a cryptographic prototype (SIVEA); co-founder \& Project Director at Autónoma (AutoNomaMX), with three point-of-sale systems in production on a multi-tenant backend, delivered with formal project management (PMBOK). Strongest in PostgreSQL, security and privacy. Full portfolio with projects and demos: diegogerardo.com.
 
 \section*{Education}
 \textbf{B.S. in Robotics and Digital Systems Engineering}\\
@@ -39,10 +39,15 @@ Professional license (Cédula Profesional) 15796458 — SEP, Mexico, 2026
   \item Integrated POS hardware: ESC/POS thermal printers (USB and network) and Code128 barcode labels on Brother DK-1204.
 \end{itemize}
 
-\textbf{Instituto Asunción de Querétaro — Web Developer}\\
-\textit{2026 -- Present}
+\textbf{Instituto Asunción de Querétaro — Software Developer / IT}\\
+\textit{Jun 2026 -- Present}
 \begin{itemize}[leftmargin=*]
-  \item Develop and maintain the institution's official website (content updates and ongoing support).
+  \item Sole author of \textbf{SATAG}, a vehicle-access platform in production (public request form with on-screen electronic signature and SHA-256 evidence, cashier, inventory and parking analytics): 406 commits and 105 numbered, reversible SQL migrations; 40 tables all under Row-Level Security, 46 RLS policies, 78 functions and 104 indexes.
+  \item Integrated a third-party access-control system with no API: an idempotent importer that read 1.5M log rows across 39 exports and de-duplicated 266k overlapping rows, plus a batch change engine (102 changes requested, 73 verified against the roster, 0 mismatches).
+  \item Cut the parking dashboard from 41s to \textasciitilde6s and a name cross-match from 20.4s to 1.9s by profiling in production at each step.
+  \item Shipped \textbf{SEVAD}, an anonymous QR service-evaluation system, from zero to production in 6 days; later optimized the dashboard from 28.9s to 23ms (diagnosed an N+1 and missing indexes with EXPLAIN) and fixed an admin-function exposure caused by PostgreSQL default privileges.
+  \item Prototyped \textbf{SIVEA}, secure student pickup using rotating Ed25519 credentials whose private key never leaves the phone, with a native mobile app (Expo), property-based tests and a threat model.
+  \item Work with AI-assisted development (Claude Code) under automatic controls: mandatory CI, an anti-pattern guard, post-deploy verification and an MCP integration to project management. Architecture, security, legal and operational decisions are mine.
 \end{itemize}
 
 \textbf{Patio Cinco (Querétaro) — Production Platform}\\
