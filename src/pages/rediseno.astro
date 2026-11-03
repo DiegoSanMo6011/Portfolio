@@ -1,0 +1,185 @@
+---
+// Esqueleto en gris del rediseño (concepto "En producción"). Standalone, sin tema ni color:
+// sirve para probar que la jerarquía se sostiene solo con tipografía y espacio. La chispa
+// (⌘K, color de estado, diagrama con firma, movimiento) se agrega en el paso 5, no aquí.
+const sistemas = [
+  { id: "SATAG", estado: "En producción", desde: "jul 2026",
+    linea: "Reemplacé papel y hoja de cálculo por la plataforma que opera el acceso vehicular del colegio.",
+    metricas: [
+      ["Eventos de acceso guardados", "62,391", "3-nov-2026"],
+      ["Carga del tablero", "de 41 s a ~6 s", "30-oct-2026"],
+      ["Migraciones SQL reversibles", "105", "3-nov-2026"],
+      ["Tablas, todas con seguridad a nivel de fila", "40", "3-nov-2026"],
+    ] },
+  { id: "SEVAD", estado: "En producción", desde: "jun 2026",
+    linea: "Evaluación anónima del servicio por QR, de cero a producción en 6 días.",
+    metricas: [
+      ["De cero a producción", "6 días", "jun-2026"],
+      ["Panel, tras optimizar", "de 28.9 s a 23 ms", "28-ago-2026"],
+      ["Commits", "274", "3-nov-2026"],
+    ] },
+  { id: "SIVEA", estado: "Prototipo", desde: "sep 2026",
+    linea: "Entrega segura de alumnos con una credencial rotativa firmada con Ed25519; la llave nunca sale del teléfono.",
+    metricas: [
+      ["App móvil nativa", "Expo / React Native", "—"],
+      ["Decisiones de arquitectura documentadas", "13", "3-nov-2026"],
+    ] },
+];
+const principios = [
+  "Mido antes de tocar.",
+  "Un postmortem se vuelve regla.",
+  "Cuando la documentación y la base de datos se contradicen, gana la base.",
+  "La IA multiplica mi producción; la arquitectura, la seguridad y la responsabilidad de operar son mías.",
+  "La seguridad y la privacidad son del diseño, no un parche.",
+];
+const trayectoria = [
+  ["2026 — hoy", "Desarrollador de software / soporte TI", "Instituto Asunción de Querétaro"],
+  ["2026 — hoy", "Cofundador y director de proyectos", "AutoNoma MX"],
+  ["2026", "Ingeniero en Robótica y Sistemas Digitales", "Tec de Monterrey · cédula profesional"],
+  ["2024–2026", "Investigación en robótica suave", "Hybrid Soft Robotics Lab · Best Poster 2025"],
+];
+---
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Esqueleto gris · rediseño</title>
+<style>
+  :root { --ink:#17181a; --mut:#5b5e63; --dim:#8a8d92; --line:#d7d9dc; --paper:#fbfbfa; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink);
+    font:400 16px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased; }
+  main { max-width:760px; margin:0 auto; padding:72px 20px 96px; }
+  .afirma { font-family:Georgia,"Times New Roman",serif; }
+  .rotulo { font:600 12px/1.4 ui-monospace,"SF Mono",Menlo,monospace; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--dim); }
+  h1 { font-size:15px; font-weight:600; margin:6px 0 20px; letter-spacing:.01em; }
+  .lede { font-size:30px; line-height:1.22; font-weight:400; margin:0 0 16px; max-width:18ch; }
+  .apoyo { font-size:17px; color:var(--mut); max-width:60ch; margin:0 0 8px; }
+  section { margin-top:64px; }
+  .stit { font-family:ui-monospace,Menlo,monospace; font-size:13px; color:var(--dim); margin:0 0 6px; letter-spacing:.02em; }
+  .shead { font-size:22px; font-weight:600; margin:0 0 22px; max-width:30ch; }
+  /* lista de estado del hero */
+  .reporte { border-top:1px solid var(--line); margin-top:28px; }
+  .fila { display:flex; align-items:baseline; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
+  .fila .sis { font-weight:600; min-width:84px; }
+  .fila .est { font:600 11px/1 ui-monospace,Menlo,monospace; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--mut); border:1px solid var(--line); border-radius:4px; padding:4px 7px; }
+  .fila .meta { margin-left:auto; color:var(--dim); font-size:14px; }
+  /* proyecto */
+  .proj { border-top:1px solid var(--line); padding-top:22px; margin-top:34px; }
+  .proj h3 { font-size:20px; margin:0 0 4px; }
+  .proj .res { color:var(--mut); margin:0 0 16px; max-width:62ch; }
+  .kv { width:100%; border-collapse:collapse; }
+  .kv td { padding:9px 0; border-bottom:1px solid var(--line); vertical-align:baseline; }
+  .kv td.k { color:var(--mut); }
+  .kv td.v { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; padding-left:16px; }
+  .kv td.f { text-align:right; color:var(--dim); font-size:13px; width:1%; white-space:nowrap; padding-left:16px;
+    font-variant-numeric:tabular-nums; }
+  .ph { margin:16px 0 4px; border:1px dashed var(--line); border-radius:6px; padding:22px; text-align:center;
+    color:var(--dim); font:13px/1.4 ui-monospace,Menlo,monospace; }
+  ol.principios { margin:0; padding:0; list-style:none; counter-reset:p; }
+  ol.principios li { counter-increment:p; border-bottom:1px solid var(--line); padding:14px 0 14px 34px; position:relative;
+    font-size:18px; }
+  ol.principios li::before { content:counter(p); position:absolute; left:0; top:15px;
+    font:600 12px/1 ui-monospace,Menlo,monospace; color:var(--dim); }
+  .tray { width:100%; border-collapse:collapse; }
+  .tray td { padding:11px 0; border-bottom:1px solid var(--line); vertical-align:baseline; }
+  .tray td.a { color:var(--dim); font-variant-numeric:tabular-nums; white-space:nowrap; width:1%; padding-right:16px;
+    font-size:14px; }
+  .tray td.r { font-weight:600; }
+  .tray td.d { color:var(--mut); text-align:right; padding-left:16px; }
+  .humano { display:flex; gap:20px; align-items:flex-start; border-top:1px solid var(--line); padding-top:22px; }
+  .foto { width:96px; height:96px; flex:none; border:1px dashed var(--line); border-radius:8px; display:flex;
+    align-items:center; justify-content:center; color:var(--dim); font:12px/1.3 ui-monospace,Menlo,monospace; text-align:center; }
+  .contacto a { color:var(--ink); }
+  .nota { margin-top:10px; color:var(--dim); font:13px/1.5 ui-monospace,Menlo,monospace; }
+  .cmdk { position:fixed; right:16px; bottom:16px; border:1px solid var(--line); background:#fff; border-radius:8px;
+    padding:9px 12px; font:12px/1 ui-monospace,Menlo,monospace; color:var(--mut); }
+  @media (max-width:440px){
+    main{ padding:48px 16px 80px; }
+    .lede{ font-size:25px; }
+    .fila .meta{ display:none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <!-- HERO: el tablero que entra en operación -->
+  <header>
+    <p class="rotulo">Product engineer · founding engineer · abierto a remoto</p>
+    <h1>Gerardo Sánchez</h1>
+    <p class="lede afirma">Resuelvo problemas complejos con sistemas funcionales.</p>
+    <p class="apoyo">Dos sistemas en producción en un colegio y tres puntos de venta con clientes reales en mi empresa. Soportados por mi diseño de base de datos, seguridad y privacidad.</p>
+    <div class="reporte">
+      {sistemas.map(s => (
+        <div class="fila">
+          <span class="sis">{s.id}</span>
+          <span class="est">{s.estado}</span>
+          <span class="meta">{s.estado === "En producción" ? `en operación desde ${s.desde}` : `en construcción desde ${s.desde}`}</span>
+        </div>
+      ))}
+      <div class="fila">
+        <span class="sis">AutoNoma</span>
+        <span class="est">3 en producción</span>
+        <span class="meta">POS con clientes reales</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROYECTOS como sistemas -->
+  <section>
+    <p class="stit">## proyectos</p>
+    <h2 class="shead afirma">Todo lo que ves está en producción o es un prototipo que funciona.</h2>
+    {sistemas.map(s => (
+      <article class="proj">
+        <h3>{s.id} — <span style="font-weight:400; color:var(--mut)">{s.estado}</span></h3>
+        <p class="res">{s.linea}</p>
+        <table class="kv">
+          {s.metricas.map(m => (
+            <tr><td class="k">{m[0]}</td><td class="v">{m[1]}</td><td class="f">{m[2]}</td></tr>
+          ))}
+        </table>
+        <div class="ph">[ diagrama con firma o evidencia — se agrega al vestir ]</div>
+      </article>
+    ))}
+  </section>
+
+  <!-- CÓMO TRABAJO -->
+  <section>
+    <p class="stit">## cómo trabajo</p>
+    <h2 class="shead afirma">Cinco cosas que creo sobre construir software.</h2>
+    <ol class="principios">
+      {principios.map(p => (<li>{p}</li>))}
+    </ol>
+  </section>
+
+  <!-- TRAYECTORIA -->
+  <section>
+    <p class="stit">## trayectoria</p>
+    <h2 class="shead afirma">De investigar robótica en el Tec a operar software en producción.</h2>
+    <table class="tray">
+      {trayectoria.map(t => (
+        <tr><td class="a">{t[0]}</td><td class="r">{t[1]}</td><td class="d">{t[2]}</td></tr>
+      ))}
+    </table>
+  </section>
+
+  <!-- HUMANO + CONTACTO -->
+  <section>
+    <p class="stit">## quién</p>
+    <div class="humano">
+      <div class="foto">[ foto ]</div>
+      <div class="contacto">
+        <p class="apoyo" style="margin-bottom:10px">Ingeniero de Querétaro. Vengo de la robótica y hoy construyo y opero software. En mis ratos hago juegos para mi novia y para Kali, mi gata.</p>
+        <p><a href="mailto:diegogerardosanchez3@gmail.com">correo</a> · <a href="https://github.com/DiegoSanMo6011">GitHub</a> · <a href="https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296">LinkedIn</a></p>
+        <p class="nota">⌘K para navegar · el juego de gatos vive escondido aquí</p>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="cmdk">⌘K</div>
+</body>
+</html>
