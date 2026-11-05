@@ -40,6 +40,30 @@
     "badgeText": "Congreso"
   },
   {
+    "id": "cert-2026-google-cloud-gemini-enterprise",
+    "title": "Google Cloud – Create Your First Gemini Enterprise Application (skill badge)",
+    "issuer": "Google Cloud · Credly",
+    "date": "5 noviembre 2026",
+    "url": "https://www.credly.com/badges/d0e7f05c-c4ed-4eec-9f65-e075afe6240d/public_url",
+    "badgeText": "Certificación"
+  },
+  {
+    "id": "cert-2026-google-ai-higher-education",
+    "title": "Google AI for Higher Education",
+    "issuer": "Google for Education",
+    "date": "3 noviembre 2026",
+    "url": "https://edu.exceedlms.com/student/award/3PeJPvpf1ez1CMNbE3VLCei1",
+    "badgeText": "Certificación"
+  },
+  {
+    "id": "cert-2026-google-ai-k12-educators",
+    "title": "Google AI for K12 Educators",
+    "issuer": "Google for Education",
+    "date": "21 octubre 2026",
+    "url": "https://edu.exceedlms.com/student/award/Qz9c5sfaoa9ppP3Bxje6XGuH",
+    "badgeText": "Certificación"
+  },
+  {
     "id": "cert-2025-nvidia-fundamentals",
     "title": "NVIDIA – Fundamentals of Deep Learning",
     "issuer": "NVIDIA Deep Learning Institute",
