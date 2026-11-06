@@ -64,6 +64,12 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
   nav .nm{font:600 14px var(--mono);letter-spacing:.02em}
   nav .k{font:12px var(--mono);color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer}
   nav .k:hover{color:var(--ink);border-color:var(--dim)}
+  nav .links{display:flex;align-items:center;gap:22px}
+  nav .lnk{font:12px var(--mono);color:var(--mut);text-transform:lowercase;transition:color .2s}
+  nav .lnk:hover{color:var(--ink);text-decoration:none}
+  nav .lnk.contacto{color:var(--acc)} nav .lnk.contacto:hover{text-decoration:underline}
+  nav .k .k-mob{display:none}
+  @media (max-width:640px){nav .lnk{display:none}nav .k .k-desk{display:none}nav .k .k-mob{display:inline}}
   /* marca: calavera + alias pixel */
   .brand{display:flex;align-items:center;gap:9px}
   .brand img{height:26px;width:auto;display:block}
@@ -119,6 +125,7 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
   table.kv td.k{color:var(--mut)}
   table.kv td.v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:16px}
   table.kv td.f{text-align:right;color:var(--dim);font:13px var(--mono);width:1%;white-space:nowrap;padding-left:16px}
+  @media (max-width:480px){table.kv{table-layout:auto;max-width:100%}table.kv td.v,table.kv td.f{white-space:normal;overflow-wrap:anywhere;width:auto}}
   figure{margin:18px 0 0}
   figcaption{color:var(--dim);font:12px/1.5 var(--mono);margin-top:8px}
   .card{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
@@ -201,7 +208,7 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
 </style>
 </head>
 <body>
-<nav><div class="wrap"><a class="brand" href="#inicio"><img src="/assets/img/marca/calavera-head.png" alt="" aria-hidden="true" /><span class="mark">SanMo</span></a><span class="k" id="kbtn">⌘K</span></div></nav>
+<nav><div class="wrap"><a class="brand" href="#inicio"><img src="/assets/img/marca/calavera-head.webp" width="32" height="26" alt="" aria-hidden="true" /><span class="mark">SanMo</span></a><div class="links"><a class="lnk" href="/autonoma">autónoma</a><a class="lnk" href="#sistemas">proyectos</a><a class="lnk" href="/certificates">certificados</a><a class="lnk" href="/about">sobre mí</a><a class="lnk contacto" href="mailto:diegogerardosanchez3@gmail.com">contacto</a><span class="k" id="kbtn"><span class="k-desk">⌘K</span><span class="k-mob">menú</span></span></div></div></nav>
 
 <main class="wrap">
   <!-- HERO -->
@@ -213,11 +220,11 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
         <p class="lede afirma">Resuelvo problemas complejos con sistemas funcionales.</p>
         <p class="apoyo">Dos sistemas en producción en un colegio y tres puntos de venta con clientes reales en mi empresa. Soportados por mi diseño de base de datos, seguridad y privacidad.</p>
       </div>
-      <div class="hero-art"><img src="/assets/img/marca/calavera-roja.png" alt="Calavera de ojos de corazón — la marca de Gerardo (SanMo)" /></div>
+      <div class="hero-art"><img src="/assets/img/marca/calavera-roja.webp" width="514" height="715" alt="Calavera de ojos de corazón — la marca de Gerardo (SanMo)" /></div>
     </div>
-    <div class="hero-bomba"><img src="/assets/img/marca/bomba-sanmo.svg" alt="SanMo — bomba de grafiti pintada por Gerardo" /></div>
+    <div class="hero-bomba"><img src="/assets/img/marca/bomba-sanmo.svg" width="2682" height="957" alt="SanMo — bomba de grafiti pintada por Gerardo" /></div>
     <div class="reporte">
-      <div class="fila"><span class="dotp bg-g"></span><span class="sis">SATAG</span><span class="est g">En producción</span><span class="meta">acceso vehicular · desde jul 2026</span></div>
+      <div class="fila"><span class="dotp bg-g"></span><span class="sis">SATAG</span><span class="est g">En producción</span><span class="meta">acceso vehicular · desde sep 2026</span></div>
       <div class="fila"><span class="dotp bg-g"></span><span class="sis">SEVAD</span><span class="est g">En producción</span><span class="meta">evaluación por QR · desde jun 2026</span></div>
       <div class="fila"><span class="dotp bg-a"></span><span class="sis">SIVEA</span><span class="est a">Prototipo</span><span class="meta">entrega de alumnos · desde sep 2026</span></div>
       <div class="fila"><span class="dotp bg-g"></span><span class="sis">AutoNoma</span><span class="est g">3 en producción</span><span class="meta">POS con clientes reales</span></div>
@@ -321,7 +328,7 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
   <!-- AUTONOMA -->
   <section id="autonoma">
     <p class="rotulo">## autonoma</p>
-    <div class="an-head"><img src="/assets/img/autonoma/logo-autonoma-white.png" alt="AutoNoma" /></div>
+    <div class="an-head"><img src="/assets/img/autonoma/logo-autonoma-white.png" width="877" height="772" alt="AutoNoma" /></div>
     <h2 class="shead afirma">Cofundé una empresa y llevé tres sistemas a producción con clientes reales.</h2>
     <p class="sintro">Cofundador y director de proyectos. Punto de venta y analítica para negocios mexicanos, con dirección formal de proyectos.</p>
     <div>
@@ -366,11 +373,11 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
   <section id="quien">
     <p class="rotulo">## quién</p>
     <div class="quien">
-      <img src="/assets/img/profile.jpg" alt="Gerardo Sánchez" />
+      <img src="/assets/img/profile.jpg" width="800" height="800" alt="Gerardo Sánchez" />
       <div>
         <p class="apoyo" style="margin-bottom:10px"><strong style="color:var(--ink);font-weight:600">¿Quién soy?</strong> Diego Gerardo Sánchez, ingeniero de Querétaro. Vengo de la robótica y hoy construyo y opero software. En mis ratos hago juegos para mi novia y para Kali, mi gata.</p>
         <p class="mundos">Fuera del código: <b>hip-hop</b>, <b>grafiti</b> y <b>skate</b> desde la prepa, <b>ajedrez</b> y <b>pixel art</b>. La calavera y la bomba de aquí las pinté yo.</p>
-        <p style="margin-top:10px"><a href="/cv">CV</a> · <a href="mailto:diegogerardosanchez3@gmail.com">correo</a> · <a href="https://github.com/DiegoSanMo6011">GitHub</a> · <a href="https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296">LinkedIn</a></p>
+        <p style="margin-top:10px"><a href="/cv">CV</a> · <a href="/certificates">credenciales</a> · <a href="mailto:diegogerardosanchez3@gmail.com">correo</a> · <a href="https://github.com/DiegoSanMo6011">GitHub</a> · <a href="https://www.linkedin.com/in/diego-gerardo-sánchez-moreno-73549a296">LinkedIn</a></p>
         <div class="kali-mark">
           <svg width="56" height="44" viewBox="0 0 120 94" role="img" aria-label="Kali, la gata">
             <path d="M26 48 L34 16 L56 44 Z" fill="#23252b"/>
@@ -388,14 +395,14 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
       </div>
     </div>
     <figure class="bomba">
-      <img src="/assets/img/marca/bomba-sanmo.svg" alt="Bomba de grafiti pintada por Gerardo: una calavera y mi tag, SanMo" />
+      <img src="/assets/img/marca/bomba-sanmo.svg" width="2682" height="957" alt="Bomba de grafiti pintada por Gerardo: una calavera y mi tag, SanMo" />
       <figcaption>Mi tag, pintado — "SanMo". El mismo gusto por lo bien hecho, con lata en vez de teclado.</figcaption>
     </figure>
   </section>
 </main>
 
 <footer>
-  <img src="/assets/img/marca/calavera-head.png" alt="" aria-hidden="true" />
+  <img src="/assets/img/marca/calavera-head.webp" width="32" height="26" alt="" aria-hidden="true" />
   <span class="fmark">SanMo</span>
   Hecho por Gerardo Sánchez · Querétaro, México
 </footer>
@@ -410,6 +417,7 @@ const vid = id => `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&control
     <a href="#como-trabajo">Cómo trabajo<span class="k">4</span></a>
     <a href="#trayectoria">Trayectoria<span class="k">5</span></a>
     <a href="/cv">CV / currículum<span class="k">↓</span></a>
+    <a href="/certificates">Credenciales<span class="k">✓</span></a>
     <a href="mailto:diegogerardosanchez3@gmail.com">Escríbeme<span class="k">@</span></a>
     <a href="https://crecimiento-personal-six.vercel.app/" target="_blank" rel="noopener">Kali Junta — un juego mío<span class="k">🐈‍⬛</span></a>
   </div>

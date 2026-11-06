@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://diegogerardo.com/sitemap.xml
+Sitemap: https://diegogerardo.com/sitemap-index.xml

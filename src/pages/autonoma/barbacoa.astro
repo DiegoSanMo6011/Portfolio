@@ -162,7 +162,7 @@ const metricas = [
           style={`--reveal-delay: ${i * 80}ms`}
         >
           <p class="text-3xl md:text-4xl font-bold font-mono text-white mb-1">
-            <span data-countup={m.valor} data-countup-suffix={m.sufijo}>0</span>
+            <span data-countup={m.valor} data-countup-suffix={m.sufijo}>{m.valor.toLocaleString("es-MX")}{m.sufijo}</span>
           </p>
           <p class="text-xs text-slate-400 leading-snug">{m.etiqueta}</p>
         </div>

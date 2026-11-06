@@ -4,7 +4,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
 <MainLayout
   title="CV"
-  description="Descarga y vista previa de los CVs de Diego Gerardo: Robotics, Software/Product y general."
+  description="Descarga y vista previa de los CVs de Diego Gerardo: Software/Product y Robotics."
 >
   <div class="max-w-5xl mx-auto">
     <header class="mb-6 text-center">
@@ -13,14 +13,11 @@ import MainLayout from '../layouts/MainLayout.astro';
     </header>
 
     <div class="flex flex-wrap justify-center gap-3 mb-6">
-      <a href="/cv?doc=robotics" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-900 font-bold text-xs uppercase tracking-wide shadow-lg shadow-cyan-500/20 hover:bg-cyan-400 transition">
-        CV Robotics
-      </a>
-      <a href="/cv?doc=software" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-800 text-slate-100 font-bold text-xs uppercase tracking-wide border border-slate-700 hover:border-cyan-400 hover:text-white transition">
+      <a href="/cv?doc=software" id="tab-software" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-900 font-bold text-xs uppercase tracking-wide shadow-lg shadow-cyan-500/20 hover:bg-cyan-400 transition">
         CV Software/Product
       </a>
-      <a href="/cv?doc=legacy" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-800 text-slate-100 font-bold text-xs uppercase tracking-wide border border-slate-700 hover:border-cyan-400 hover:text-white transition">
-        CV General (Legacy)
+      <a href="/cv?doc=robotics" id="tab-robotics" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-800 text-slate-100 font-bold text-xs uppercase tracking-wide border border-slate-700 hover:border-cyan-400 hover:text-white transition">
+        CV Robotics
       </a>
       <a href="/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-900 text-slate-200 font-bold text-xs uppercase tracking-wide border border-slate-700 hover:border-cyan-400 hover:text-white transition">
         Regresar
@@ -32,23 +29,30 @@ import MainLayout from '../layouts/MainLayout.astro';
       <iframe
         id="cv-preview"
         class="absolute inset-0 w-full h-full"
-        src="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV-Robotics.pdf"
+        src="/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV-Software.pdf"
         title="CV Diego Gerardo Sánchez Moreno"
       ></iframe>
     </div>
   </div>
 
   <script>
-    const cvMap = {
-      robotics: '/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV-Robotics.pdf',
+    // Por omisión abre el CV de Software/Product: es a lo que se dedica hoy.
+    const cvMap: Record<string, string> = {
       software: '/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV-Software.pdf',
-      legacy: '/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV.pdf',
+      robotics: '/assets/docs/Diego-Gerardo-Sanchez-Moreno-CV-Robotics.pdf',
     };
     const params = new URLSearchParams(window.location.search);
-    const doc = params.get('doc');
+    const doc = params.get('doc') && cvMap[params.get('doc') as string] ? (params.get('doc') as string) : 'software';
     const iframe = document.getElementById('cv-preview');
-    if (iframe && doc && cvMap[doc]) {
-      iframe.setAttribute('src', cvMap[doc]);
+    if (iframe) iframe.setAttribute('src', cvMap[doc]);
+    // La pestaña activa se pinta según el doc elegido.
+    const activa = 'bg-cyan-500 text-slate-900 shadow-lg shadow-cyan-500/20 hover:bg-cyan-400'.split(' ');
+    const inactiva = 'bg-slate-800 text-slate-100 border border-slate-700 hover:border-cyan-400 hover:text-white'.split(' ');
+    for (const k of Object.keys(cvMap)) {
+      const tab = document.getElementById('tab-' + k);
+      if (!tab) continue;
+      tab.classList.remove(...activa, ...inactiva);
+      tab.classList.add(...(k === doc ? activa : inactiva));
     }
   </script>
 </MainLayout>

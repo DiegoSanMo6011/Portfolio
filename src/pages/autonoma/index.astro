@@ -209,7 +209,7 @@ const confianza = [
           style={`--reveal-delay: ${i * 80}ms`}
         >
           <p class="text-3xl font-bold font-mono text-white mb-1">
-            <span data-countup={c.valor} data-countup-suffix={c.sufijo}>0</span>
+            <span data-countup={c.valor} data-countup-suffix={c.sufijo}>{c.valor.toLocaleString("es-MX")}{c.sufijo}</span>
           </p>
           <p class="text-xs text-slate-400 leading-snug">{c.etiqueta}</p>
         </div>
