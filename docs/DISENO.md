@@ -31,7 +31,7 @@ que tire la credibilidad: el grafiti es acento, no fondo.
 - Tablero de estado tipo consola en el hero (`$ systems --status`).
 - Kali en pixel art como marca; vive también en la ⌘K (easter egg del juego de gatos).
 - Fondo con retícula sutil. ⌘K para navegar.
-- Fuera del código: grafiti, skate, pixel art, ajedrez, hip-hop. Solo arte recortado, nunca fotos con personas, con visto bueno de Gerardo.
+- El párrafo "Fuera del código" (hip-hop, grafiti, skate, ajedrez, pixel art) se quitó el 26-nov-2026 a petición de Gerardo. La bomba SanMo se queda. Solo arte recortado, nunca fotos con personas.
 
 ## Accesibilidad
 Contraste ≥ 4.5:1, foco visible, objetivos 44px, 400px ok, respeta prefers-reduced-motion. El color nunca es la única señal.
